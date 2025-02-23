@@ -176,8 +176,8 @@ MonoBehaviour:
   microPower: 0.1
   microSpeed: 1
   microFrequency: 2
-  renderDistance: 30
-  Altitude: 500
+  renderDistance: 50
+  Altitude: 300
   volumeSize: 300
   volumeSamples: 50
   cloudsMaterial: {fileID: 2100000, guid: b776d7f1e77348119b02f9e9bdfaf4eb, type: 2}
