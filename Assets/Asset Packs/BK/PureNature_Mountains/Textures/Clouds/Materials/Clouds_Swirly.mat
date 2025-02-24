@@ -67,7 +67,7 @@ Material:
     - _cloudsHeight: 300
     - _cloudsPosition: 300
     m_Colors:
-    - _CloudsColor: {r: 0.8533393, g: 0.7253471, b: 0.9433962, a: 1}
+    - _CloudsColor: {r: 0, g: 0, b: 0, a: 1}
     - _DirectionSpeed: {r: -20, g: -17, b: 0, a: 31}
-    - _ScatteringColor: {r: 0.8584906, g: 0.54156035, b: 0, a: 1}
+    - _ScatteringColor: {r: 0.35686272, g: 0.4126209, b: 0.74509805, a: 1}
   m_BuildTextureStacks: []

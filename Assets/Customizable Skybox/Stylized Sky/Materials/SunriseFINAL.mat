@@ -7,10 +7,10 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Sunset2
+  m_Name: SunriseFINAL
   m_Shader: {fileID: 4800000, guid: eb3c6fb598ded4c71b8968e1c40a3b4d, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
+  m_Parent: {fileID: 2100000, guid: ed1387202b1349540a5d6464f0f27488, type: 2}
+  m_ModifiedSerializedProperties: 2
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 0
@@ -28,13 +28,10 @@ Material:
     - _HorizonLineContribution: 0.908
     - _HorizonLineExponent: 6
     - _SkyGradientExponent: 1
-    - _SunDiscContribution: 1
     - _SunDiscExponent: 250000.02
     - _SunDiscMultiplier: 25
     - _SunHaloContribution: 0.289
     - _SunHaloExponent: 50
-    - _Title: 0
-    - __dirty: 0
     m_Colors:
     - _HorizonLineColor: {r: 1, g: 0.5504611, b: 0.1462264, a: 1}
     - _SkyGradientBottom: {r: 0.32720718, g: 0.44129676, b: 0.5377358, a: 1}
