@@ -58,7 +58,7 @@ Material:
     - _Noise01Power: 1
     - _Noise02Power: 0.576
     - _ScatteringPower: 2.5
-    - _Softness: 0.498
+    - _Softness: 0.706
     - _Tiling01: 0.5
     - _Tiling02: 2
     - _UseFog: 1
@@ -67,7 +67,7 @@ Material:
     - _cloudsHeight: 300
     - _cloudsPosition: 300
     m_Colors:
-    - _CloudsColor: {r: 0, g: 0, b: 0, a: 1}
+    - _CloudsColor: {r: 0.5471698, g: 0.11098256, b: 0.48768958, a: 1}
     - _DirectionSpeed: {r: -20, g: -17, b: 0, a: 31}
-    - _ScatteringColor: {r: 0.35686272, g: 0.4126209, b: 0.74509805, a: 1}
+    - _ScatteringColor: {r: 1, g: 0.574422, b: 0, a: 1}
   m_BuildTextureStacks: []
