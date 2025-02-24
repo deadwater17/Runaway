@@ -27,6 +27,9 @@ public class movement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         cameraTransform = Camera.main.transform;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
     
     void Update()
@@ -75,7 +78,7 @@ public class movement : MonoBehaviour
         transform.Rotate (0,horizontalRotation,0);
         
         verticalRotation -= Input.GetAxis("Mouse Y") * mouseSensitivity;
-        verticalRotation = Mathf.Clamp(verticalRotation,-90,0);
+        verticalRotation = Mathf.Clamp(verticalRotation,-90,90);
 
         cameraTransform.localRotation = Quaternion.Euler(verticalRotation,0,0);
     }
