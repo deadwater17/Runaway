@@ -52,13 +52,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Coverage: 0.65
+    - _Coverage: 0.544
     - _DistortionPower: 0.005
     - _Float0: 0.01
     - _Noise01Power: 1
     - _Noise02Power: 0.576
-    - _ScatteringPower: 2
-    - _Softness: 1
+    - _ScatteringPower: 2.5
+    - _Softness: 0.498
     - _Tiling01: 0.5
     - _Tiling02: 2
     - _UseFog: 1
@@ -67,7 +67,7 @@ Material:
     - _cloudsHeight: 300
     - _cloudsPosition: 300
     m_Colors:
-    - _CloudsColor: {r: 0.37732878, g: 0.6339269, b: 0.745283, a: 1}
+    - _CloudsColor: {r: 0.8533393, g: 0.7253471, b: 0.9433962, a: 1}
     - _DirectionSpeed: {r: -20, g: -17, b: 0, a: 31}
-    - _ScatteringColor: {r: 1, g: 1, b: 1, a: 1}
+    - _ScatteringColor: {r: 0.8584906, g: 0.54156035, b: 0, a: 1}
   m_BuildTextureStacks: []
