@@ -22,12 +22,16 @@ public class movement : MonoBehaviour
     public LayerMask groundLayer;
     private float groundCheckTimer = 0f;
     private float groundCheckDelay = 0.3f;
-
+    private float playerHeight;
+    private float raycastDistance;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         cameraTransform = Camera.main.transform;
+
+        playerHeight = GetComponent<CapsuleCollider>().height * transform.localScale.y;
+        raycastDistance = (playerHeight / 2) + 0.2f;
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -45,9 +49,14 @@ public class movement : MonoBehaviour
             Jump();
         }
         
-        if (isGrounded == true)
+        if (!isGrounded && groundCheckTimer <= 0f)
         {
-            Debug.Log("Bro is on ground");
+            Vector3 rayOrigin = transform.position + Vector3.up * 0.1f;
+            isGrounded = Physics.Raycast(rayOrigin, Vector3.down, raycastDistance, groundLayer);
+        }
+        else
+        {
+            groundCheckTimer -= Time.deltaTime;
         }
     }
 
@@ -55,6 +64,7 @@ public class movement : MonoBehaviour
     {
         Movement();
     }
+
     void Movement()
     {
         Vector3 movement = (transform.right * moveHorizontal + transform.forward * moveForward).normalized;
