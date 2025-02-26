@@ -12,20 +12,20 @@ public class BowController : MonoBehaviour
     float chargeTime = 0;
     float minSpeed = 10;
     float maxSpeed = 30;
-    
+
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0)) 
+        if (Input.GetMouseButtonDown(0))
         {
             isCharging = true;
         }
-        if(isCharging) 
+        if (isCharging)
         {
             chargeTime += Time.deltaTime;
         }
-        if(Input.GetMouseButtonUp(0)) 
+        if (Input.GetMouseButtonUp(0))
         {
             if (chargeTime <= 1) // setting lowest velocity
             {
@@ -41,7 +41,7 @@ public class BowController : MonoBehaviour
             }
             FireArrow();
             chargeTime = 0;
-            
+
             isCharging = false;
         }
     }
