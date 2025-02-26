@@ -383,8 +383,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17c95317a850b134e90b85e937c377e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrow_prefab: {fileID: 286573120}
-  arrow_Position: {fileID: 1487385025}
+  Arrow_prefab: {fileID: 286573120}
+  Arrow_spawn: {fileID: 1487385025}
+  Player: {fileID: 757626627}
 --- !u!1 &886954612
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,6 +541,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
