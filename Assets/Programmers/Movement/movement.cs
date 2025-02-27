@@ -6,49 +6,57 @@ using UnityEngine;
 public class movement : MonoBehaviour
 {
     //Camera 
-    public float mouseSensitivity = 2f;
+    public float mouseSensitivity = 2f;     //mouse sensitivity
     private float verticalRotation = 0f;
-    private Transform cameraTransform;
+    private Transform cameraTransform;  
 
     //Player movement
     private Rigidbody rb;
-    public float movespeed = 2f;
-    private float moveHorizontal;
-    private float moveForward;
+    public float movespeed = 4f;    //speed of player
+    public float sprintSpeed = 8f; 
+    private float moveHorizontal;   //horizontal movement input
+    private float moveForward;      //forward movement input
 
     //Player jump
-    public float jumpForce = 10f;
-    bool isGrounded = true;
-    public LayerMask groundLayer;
-    private float groundCheckTimer = 0f;
-    private float groundCheckDelay = 0.3f;
+    public float jumpForce = 10f;       
+    bool isGrounded = true;     //checks whether player is on ground or not
+    public LayerMask groundLayer;   //layer to identify ground
+    private float groundCheckTimer = 0f;            //time to check if player is on ground
+    private float groundCheckDelay = 0.3f;      //delay between ground checks
     private float playerHeight;
-    private float raycastDistance;
+    private float raycastDistance;      //distance to ground
     void Start()
     {
+        //initialisation of rigidbody and camera
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         cameraTransform = Camera.main.transform;
 
+        //calculates players height and distance to ground for ground check
         playerHeight = GetComponent<CapsuleCollider>().height * transform.localScale.y;
         raycastDistance = (playerHeight / 2) + 0.2f;
 
+        //locks and hides cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
     
     void Update()
     {
+        //movement input
         moveHorizontal = Input.GetAxisRaw("Horizontal");
         moveForward = Input.GetAxisRaw("Vertical");
 
+        //handles camera rotation
         CameraRoatation();
 
+        //jump input
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             Jump();
         }
         
+        //ground checks
         if (!isGrounded && groundCheckTimer <= 0f)
         {
             Vector3 rayOrigin = transform.position + Vector3.up * 0.1f;
@@ -62,27 +70,37 @@ public class movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        Movement();
+        Movement();     //player movement
     }
 
     void Movement()
     {
+        //movement direction an target velocity
         Vector3 movement = (transform.right * moveHorizontal + transform.forward * moveForward).normalized;
-        Vector3 targetVelocity = movement * movespeed;
 
+        float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : movespeed;
+        Vector3 targetVelocity = movement * currentSpeed;
+
+        //applies movement to player
         Vector3 velocity = rb.velocity;
         velocity.x = targetVelocity.x;
         velocity.z = targetVelocity.z;
         rb.velocity = velocity;
 
+        //stops player if no input is given
         if (isGrounded && moveHorizontal == 0 && moveForward == 0)
         {
             rb.velocity = new Vector3 (0,rb.velocity.y,0);
         }
+
+        //tracking speed
+        float speed = new Vector3(rb.velocity.x, 0, rb.velocity.z).magnitude;
+        Debug.Log("Current Speed: " + speed);            
     }
 
     void Jump()
     {
+        //ground state and reset ground check timer
         isGrounded = false;
         groundCheckTimer = groundCheckDelay;
         rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);

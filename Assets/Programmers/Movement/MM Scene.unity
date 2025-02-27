@@ -246,7 +246,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5479470097109600549, guid: 9f384265384f0b14bb75cf1f62f7d487, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.96
+      value: 0.13
       objectReference: {fileID: 0}
     - target: {fileID: 5479470097109600549, guid: 9f384265384f0b14bb75cf1f62f7d487, type: 3}
       propertyPath: m_LocalPosition.z
@@ -521,6 +521,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 2
   movespeed: 2
+  sprintSpeed: 8
   jumpForce: 5
   groundLayer:
     serializedVersion: 2
