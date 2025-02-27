@@ -1,0 +1,12 @@
+    void Sprinting()
+    {
+        //sprint input
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            movespeed = 8f;
+        }
+        else 
+        {
+            movespeed = 4f;
+        }
+    }
