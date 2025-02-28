@@ -65,7 +65,7 @@ Material:
     - _ViewDistance: 10000
     - __dirty: 0
     - _cloudsHeight: 300
-    - _cloudsPosition: 300
+    - _cloudsPosition: 1000
     m_Colors:
     - _CloudsColor: {r: 0.5471698, g: 0.11098256, b: 0.48768958, a: 1}
     - _DirectionSpeed: {r: -20, g: -17, b: 0, a: 31}
