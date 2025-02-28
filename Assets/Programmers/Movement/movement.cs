@@ -48,7 +48,7 @@ public class movement : MonoBehaviour
         moveForward = Input.GetAxisRaw("Vertical");
 
         //handles camera rotation
-        CameraRoatation();
+        CameraRotation();
 
         //jump input
         if (Input.GetButtonDown("Jump") && isGrounded)
@@ -61,10 +61,12 @@ public class movement : MonoBehaviour
         {
             Vector3 rayOrigin = transform.position + Vector3.up * 0.1f;
             isGrounded = Physics.Raycast(rayOrigin, Vector3.down, raycastDistance, groundLayer);
+            Debug.Log("Player is not on the ground!");            
         }
         else
         {
             groundCheckTimer -= Time.deltaTime;
+            Debug.Log("Player is grounded!");    
         }
     }
 
@@ -95,7 +97,7 @@ public class movement : MonoBehaviour
 
         //tracking speed
         float speed = new Vector3(rb.velocity.x, 0, rb.velocity.z).magnitude;
-        Debug.Log("Current Speed: " + speed);            
+        //Debug.Log("Current Speed: " + speed);            
     }
 
     void Jump()
@@ -106,11 +108,17 @@ public class movement : MonoBehaviour
         rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
     }
 
-    void CameraRoatation()
+    void CameraRotation()
     {
         float horizontalRotation = Input.GetAxis("Mouse X") * mouseSensitivity;
-        transform.Rotate (0,horizontalRotation,0);
-        
+        /*  Checks if player is moving the camera horizontally
+        if (horizontalRotation != 0)
+        {
+            Debug.Log("Player is moving the camera horizontally.");
+        }
+        */
+        transform.Rotate(0,horizontalRotation,0);
+
         verticalRotation -= Input.GetAxis("Mouse Y") * mouseSensitivity;
         verticalRotation = Mathf.Clamp(verticalRotation,-90,90);
 
