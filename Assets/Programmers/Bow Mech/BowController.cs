@@ -12,7 +12,7 @@ public class BowController : MonoBehaviour
     float velocity = 0;
     float chargeTime = 0;
     float minSpeed = 20;
-    float maxSpeed = 80;
+    float maxSpeed = 40;
 
 
     // Update is called once per frame
@@ -38,7 +38,7 @@ public class BowController : MonoBehaviour
             }
             else
             {
-                velocity = (chargeTime /2) * maxSpeed; // calculate velocity based on charge time when it is between 0.5 - 2.0 seconds
+                velocity = Mathf.Lerp(minSpeed, maxSpeed, chargeTime / 2); ; // calculate velocity based on charge time when it is between 0.5 - 2.0 seconds
             }
             FireArrow();
             Debug.Log("charge time: " + chargeTime);
