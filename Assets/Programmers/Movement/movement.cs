@@ -60,13 +60,26 @@ public class movement : MonoBehaviour
         if (!isGrounded && groundCheckTimer <= 0f)
         {
             Vector3 rayOrigin = transform.position + Vector3.up * 0.1f;
-            isGrounded = Physics.Raycast(rayOrigin, Vector3.down, raycastDistance, groundLayer);
-            Debug.Log("Player is not on the ground!");            
+            bool groundDetected = Physics.Raycast(rayOrigin, Vector3.down, raycastDistance, groundLayer);
+
+            //slightly forward and downward raycast
+            Vector3 forwardRayOrigin = transform.position + Vector3.up * 0.1f + transform.forward * 0.1f;
+            bool forwardGroundDetected = Physics.Raycast(forwardRayOrigin, Vector3.down, raycastDistance, groundLayer);
+
+            isGrounded = groundDetected || forwardGroundDetected;
+
+            if (isGrounded)
+            {
+                Debug.Log("Player is grounded!");
+            }
+            else
+            {  
+                Debug.Log("Player is not on the ground!");
+            }          
         }
         else
         {
-            groundCheckTimer -= Time.deltaTime;
-            Debug.Log("Player is grounded!");    
+            groundCheckTimer -= Time.deltaTime;   
         }
     }
 
@@ -79,6 +92,17 @@ public class movement : MonoBehaviour
     {
         //movement direction an target velocity
         Vector3 movement = (transform.right * moveHorizontal + transform.forward * moveForward).normalized;
+
+            // Check for walls in the direction of movement
+        if (moveForward != 0)
+        {
+            Vector3 rayOrigin = transform.position + Vector3.up * 0.1f;
+            if (Physics.Raycast(rayOrigin, transform.forward, 1f, groundLayer))
+            {
+                Debug.Log("Wall detected in front, stopping forward movement.");
+                movement.x = 0;
+            }
+        }
 
         float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : movespeed;
         Vector3 targetVelocity = movement * currentSpeed;
@@ -111,13 +135,13 @@ public class movement : MonoBehaviour
     void CameraRotation()
     {
         float horizontalRotation = Input.GetAxis("Mouse X") * mouseSensitivity;
-        /*  Checks if player is moving the camera horizontally
+        /*  Checks
         if (horizontalRotation != 0)
         {
             Debug.Log("Player is moving the camera horizontally.");
         }
         */
-        transform.Rotate(0,horizontalRotation,0);
+        transform.Rotate (0,horizontalRotation,0);
 
         verticalRotation -= Input.GetAxis("Mouse Y") * mouseSensitivity;
         verticalRotation = Mathf.Clamp(verticalRotation,-90,90);
