@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BowController : MonoBehaviour
@@ -10,8 +11,8 @@ public class BowController : MonoBehaviour
     bool isCharging = false;
     float velocity = 0;
     float chargeTime = 0;
-    float minSpeed = 10;
-    float maxSpeed = 30;
+    float minSpeed = 20;
+    float maxSpeed = 80;
 
 
     // Update is called once per frame
@@ -19,29 +20,29 @@ public class BowController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            isCharging = true;
+            isCharging = true; 
         }
         if (isCharging)
         {
-            chargeTime += Time.deltaTime;
+            chargeTime += Time.deltaTime; // calculate the chargetime
         }
         if (Input.GetMouseButtonUp(0))
         {
-            if (chargeTime <= 1) // setting lowest velocity
+            if (chargeTime <= 0.5) // setting lowest velocity
             {
                 velocity = minSpeed;
             }
-            else if (chargeTime >= 3) // setting highest velocity
+            else if (chargeTime >= 2) // setting highest velocity
             {
                 velocity = maxSpeed;
             }
             else
             {
-                velocity = (chargeTime / 3) * maxSpeed;
+                velocity = (chargeTime /2) * maxSpeed; // calculate velocity based on charge time when it is between 0.5 - 2.0 seconds
             }
             FireArrow();
+            Debug.Log("charge time: " + chargeTime);
             chargeTime = 0;
-
             isCharging = false;
         }
     }
@@ -49,10 +50,18 @@ public class BowController : MonoBehaviour
     void FireArrow()
     {
         //create prefab 
-        GameObject arrow = Instantiate(Arrow_prefab, Arrow_spawn.position, Quaternion.identity);
+        //GameObject arrow = Instantiate(Arrow_prefab, Arrow_spawn.position, Quaternion.identity);
+        GameObject arrow = ObjectPool.SharedInstance.GetPooledObject();
+        if(arrow != null)
+        {
+            arrow.transform.position = Arrow_spawn.position;
+            arrow.transform.rotation = Arrow_spawn.rotation;
+            arrow.SetActive(true);
+        }
+
 
         //control the velocity of arrow
-        Debug.Log(velocity);
+        Debug.Log("arrow: "+ velocity);
         Rigidbody rb = arrow.GetComponent<Rigidbody>();
         rb.velocity = Arrow_spawn.forward * velocity;
     }

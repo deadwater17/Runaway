@@ -5,7 +5,6 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     Rigidbody rb;
-    bool hit = false;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -24,11 +23,17 @@ public class Arrow : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-         Debug.Log(collision.gameObject.name);
-         hit = true;
-         rb.velocity = Vector3.zero; 
-         rb.angularVelocity = Vector3.zero; // stop rotation
-         rb.isKinematic = true;
-         transform.position += transform.forward * 0.1f;
+       
+        rb.isKinematic = true;
+        transform.position += transform.forward * 0.1f;
+        //StartCoroutine(deleteObject());
+    }
+
+
+    IEnumerator deleteObject()
+    {
+        yield return new WaitForSeconds(2f);
+        this.gameObject.SetActive(false);
+        rb.isKinematic = false;
     }
 }
