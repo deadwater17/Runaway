@@ -3,149 +3,148 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class movement : MonoBehaviour
+public class Player : MonoBehaviour
 {
-    //Camera 
-    public float mouseSensitivity = 2f;     //mouse sensitivity
+    [Header("Camera")]
+    // Camera Rotation
+    public float mouseSensitivity = 2f;
     private float verticalRotation = 0f;
-    private Transform cameraTransform;  
-
-    //Player movement
+    private Transform cameraTransform;
+    
+    [Header("Movement")]
+    // Ground Movement
     private Rigidbody rb;
-    public float movespeed = 4f;    //speed of player
-    public float sprintSpeed = 8f; 
-    private float moveHorizontal;   //horizontal movement input
-    private float moveForward;      //forward movement input
+    private float PlayerSpeed = 0f;
+    public float walkSpeed = 5f;
+    public float sprintSpeed = 8f;
+    private float moveHorizontal;
+    private float moveForward;
 
-    //Player jump
-    public float jumpForce = 10f;       
-    bool isGrounded = true;     //checks whether player is on ground or not
-    public LayerMask groundLayer;   //layer to identify ground
-    private float groundCheckTimer = 0f;            //time to check if player is on ground
-    private float groundCheckDelay = 0.3f;      //delay between ground checks
+    [Header("Jumping")]
+    // Jumping
+    public float jumpForce = 10f;
+    public float fallMultiplier = 2.5f; // Multiplies gravity when falling down
+    public float ascendMultiplier = 2f; // Multiplies gravity for ascending to peak of jump
+    private bool isGrounded = true;
+    public LayerMask groundLayer;
+    private float groundCheckTimer = 0f;
+    private float groundCheckDelay = 0.3f;
     private float playerHeight;
-    private float raycastDistance;      //distance to ground
+    private float raycastDistance;
+
     void Start()
     {
-        //initialisation of rigidbody and camera
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         cameraTransform = Camera.main.transform;
 
-        //calculates players height and distance to ground for ground check
+        // Set the raycast to be slightly beneath the player's feet
         playerHeight = GetComponent<CapsuleCollider>().height * transform.localScale.y;
         raycastDistance = (playerHeight / 2) + 0.2f;
 
-        //locks and hides cursor
+        // Hides the mouse
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
-    
+
     void Update()
     {
-        //movement input
         moveHorizontal = Input.GetAxisRaw("Horizontal");
         moveForward = Input.GetAxisRaw("Vertical");
+        
+        Sprinting();
 
-        //handles camera rotation
-        CameraRotation();
+        RotateCamera();
 
-        //jump input
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             Jump();
         }
-        
-        //ground checks
+
+        // Checking when we're on the ground and keeping track of our ground check delay
         if (!isGrounded && groundCheckTimer <= 0f)
         {
             Vector3 rayOrigin = transform.position + Vector3.up * 0.1f;
-            bool groundDetected = Physics.Raycast(rayOrigin, Vector3.down, raycastDistance, groundLayer);
-
-            //slightly forward and downward raycast
-            Vector3 forwardRayOrigin = transform.position + Vector3.up * 0.1f + transform.forward * 0.1f;
-            bool forwardGroundDetected = Physics.Raycast(forwardRayOrigin, Vector3.down, raycastDistance, groundLayer);
-
-            isGrounded = groundDetected || forwardGroundDetected;
-
-            if (isGrounded)
-            {
-                Debug.Log("Player is grounded!");
-            }
-            else
-            {  
-                Debug.Log("Player is not on the ground!");
-            }          
+            isGrounded = Physics.Raycast(rayOrigin, Vector3.down, raycastDistance, groundLayer);
         }
         else
         {
-            groundCheckTimer -= Time.deltaTime;   
+            groundCheckTimer -= Time.deltaTime;
         }
+
     }
 
     void FixedUpdate()
     {
-        Movement();     //player movement
+        MovePlayer();
+        ApplyJumpPhysics();
     }
 
-    void Movement()
+    void MovePlayer()
     {
-        //movement direction an target velocity
+        // Calculate movement direction and target velocity
         Vector3 movement = (transform.right * moveHorizontal + transform.forward * moveForward).normalized;
+        Vector3 targetVelocity = movement * PlayerSpeed;
 
-            // Check for walls in the direction of movement
-        if (moveForward != 0)
-        {
-            Vector3 rayOrigin = transform.position + Vector3.up * 0.1f;
-            if (Physics.Raycast(rayOrigin, transform.forward, 1f, groundLayer))
-            {
-                Debug.Log("Wall detected in front, stopping forward movement.");
-                movement.x = 0;
-            }
-        }
-
-        float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : movespeed;
-        Vector3 targetVelocity = movement * currentSpeed;
-
-        //applies movement to player
+        // Apply movement to the Rigidbody
         Vector3 velocity = rb.velocity;
         velocity.x = targetVelocity.x;
         velocity.z = targetVelocity.z;
         rb.velocity = velocity;
 
-        //stops player if no input is given
+        // If we aren't moving and are on the ground, stop velocity so we don't slide
         if (isGrounded && moveHorizontal == 0 && moveForward == 0)
         {
-            rb.velocity = new Vector3 (0,rb.velocity.y,0);
+            rb.velocity = new Vector3(0, rb.velocity.y, 0);
         }
 
-        //tracking speed
-        float speed = new Vector3(rb.velocity.x, 0, rb.velocity.z).magnitude;
-        //Debug.Log("Current Speed: " + speed);            
+        // Log the current speed
+        float currentSpeed = new Vector3(rb.velocity.x, 0, rb.velocity.z).magnitude;
+        Debug.Log("Current Speed: " + currentSpeed);
+
+    }
+
+    void RotateCamera()
+    {
+        float horizontalRotation = Input.GetAxis("Mouse X") * mouseSensitivity;
+        transform.Rotate(0, horizontalRotation, 0);
+
+        verticalRotation -= Input.GetAxis("Mouse Y") * mouseSensitivity;
+        verticalRotation = Mathf.Clamp(verticalRotation, -90f, 90f);
+
+        cameraTransform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
+    }
+
+    void Sprinting()
+    {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            PlayerSpeed = sprintSpeed;
+        }
+        else
+        {
+            PlayerSpeed = walkSpeed;
+        }
     }
 
     void Jump()
     {
-        //ground state and reset ground check timer
         isGrounded = false;
         groundCheckTimer = groundCheckDelay;
-        rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
+        rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z); // Initial burst for the jump
     }
 
-    void CameraRotation()
+    void ApplyJumpPhysics()
     {
-        float horizontalRotation = Input.GetAxis("Mouse X") * mouseSensitivity;
-        /*  Checks
-        if (horizontalRotation != 0)
+        if (rb.velocity.y < 0) 
         {
-            Debug.Log("Player is moving the camera horizontally.");
+            // Falling: Apply fall multiplier to make descent faster
+            rb.velocity += Vector3.up * Physics.gravity.y * fallMultiplier * Time.fixedDeltaTime;
+        } // Rising
+        else if (rb.velocity.y > 0)
+        {
+            // Rising: Change multiplier to make player reach peak of jump faster
+            rb.velocity += Vector3.up * Physics.gravity.y * ascendMultiplier  * Time.fixedDeltaTime;
         }
-        */
-        transform.Rotate (0,horizontalRotation,0);
-
-        verticalRotation -= Input.GetAxis("Mouse Y") * mouseSensitivity;
-        verticalRotation = Mathf.Clamp(verticalRotation,-90,90);
-
-        cameraTransform.localRotation = Quaternion.Euler(verticalRotation,0,0);
     }
 }
