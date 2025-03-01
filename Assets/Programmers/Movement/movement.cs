@@ -17,11 +17,18 @@ public class Player : MonoBehaviour
     private float PlayerSpeed = 0f;
     public float walkSpeed = 5f;
     public float sprintSpeed = 8f;
+    public float crouchSpeed = 2f;
     private float moveHorizontal;
     private float moveForward;
 
+    [Header("Crouching")]
+
+    public float crouchYScale;
+    public float startYScale;
+    private bool isCrouching = false;
+
     [Header("Jumping")]
-    // Jumping
+    // Jumpingi 
     public float jumpForce = 10f;
     public float fallMultiplier = 2.5f; // Multiplies gravity when falling down
     public float ascendMultiplier = 2f; // Multiplies gravity for ascending to peak of jump
@@ -42,6 +49,8 @@ public class Player : MonoBehaviour
         playerHeight = GetComponent<CapsuleCollider>().height * transform.localScale.y;
         raycastDistance = (playerHeight / 2) + 0.2f;
 
+        startYScale = transform.localScale.y;
+
         // Hides the mouse
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -52,7 +61,8 @@ public class Player : MonoBehaviour
         moveHorizontal = Input.GetAxisRaw("Horizontal");
         moveForward = Input.GetAxisRaw("Vertical");
         
-        Sprinting();
+        Crouching();
+        MovementState();
 
         RotateCamera();
 
@@ -98,10 +108,10 @@ public class Player : MonoBehaviour
             rb.velocity = new Vector3(0, rb.velocity.y, 0);
         }
 
+        
         // Log the current speed
         float currentSpeed = new Vector3(rb.velocity.x, 0, rb.velocity.z).magnitude;
         Debug.Log("Current Speed: " + currentSpeed);
-
     }
 
     void RotateCamera()
@@ -115,8 +125,12 @@ public class Player : MonoBehaviour
         cameraTransform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
     }
 
-    void Sprinting()
+    void MovementState()
     {
+        if (isCrouching)
+        {
+            PlayerSpeed = crouchSpeed;
+        }
         if (Input.GetKey(KeyCode.LeftShift))
         {
             PlayerSpeed = sprintSpeed;
@@ -124,6 +138,28 @@ public class Player : MonoBehaviour
         else
         {
             PlayerSpeed = walkSpeed;
+        }
+    }
+
+    void Crouching()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            isCrouching = !isCrouching; // Toggle the crouching state
+
+            if (isCrouching)
+            {
+                transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
+                rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
+                PlayerSpeed = crouchSpeed;
+                //Debug.Log("Crouching");
+            }
+            else
+            {
+                transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
+                PlayerSpeed = walkSpeed;
+                //Debug.Log("Not Crouching");
+            }
         }
     }
 
