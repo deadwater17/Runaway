@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
 
         RotateCamera();
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded)  //if player is on the ground and presses spacebar, it will jump
         {
             Jump();
         }
@@ -126,7 +126,7 @@ public class Player : MonoBehaviour
         cameraTransform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
     }
 
-    void MovementSpeed()
+    void MovementSpeed()        //changes speed based on player input
     {
         if (isCrouching && Input.GetKey(KeyCode.LeftShift))
         {
@@ -170,19 +170,19 @@ public class Player : MonoBehaviour
     {
         isGrounded = false;
         groundCheckTimer = groundCheckDelay;
-        rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z); // Initial burst for the jump
+        rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z); //initial burst for the jump
     }
 
-    void ApplyJumpPhysics()
+    void ApplyJumpPhysics()         //realistic jump physics
     {
         if (rb.velocity.y < 0) 
         {
-            // Falling: Apply fall multiplier to make descent faster
+            //falling: Applies a fall multiplier to make falling faster
             rb.velocity += Vector3.up * Physics.gravity.y * fallMultiplier * Time.fixedDeltaTime;
         } // Rising
         else if (rb.velocity.y > 0)
         {
-            // Rising: Change multiplier to make player reach peak of jump faster
+            //jumping: Change multiplier to make player reach peak of jump faster
             rb.velocity += Vector3.up * Physics.gravity.y * ascendMultiplier  * Time.fixedDeltaTime;
         }
     }
