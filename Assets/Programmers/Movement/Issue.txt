@@ -1,3 +1,5 @@
-Issue:
+Movement:
+Basically finished
 
-When crouching, player is still moving at walking speed
+Interaction:
+

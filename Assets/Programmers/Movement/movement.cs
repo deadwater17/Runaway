@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     public float walkSpeed = 5f;
     public float sprintSpeed = 8f;
     public float crouchSpeed = 2f;
+    public float crouchRunSpeed = 4f;
     private float moveHorizontal;
     private float moveForward;
 
@@ -62,7 +63,7 @@ public class Player : MonoBehaviour
         moveForward = Input.GetAxisRaw("Vertical");
         
         Crouching();
-        MovementState();
+        MovementSpeed();
 
         RotateCamera();
 
@@ -125,13 +126,17 @@ public class Player : MonoBehaviour
         cameraTransform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
     }
 
-    void MovementState()
+    void MovementSpeed()
     {
-        if (isCrouching)
+        if (isCrouching && Input.GetKey(KeyCode.LeftShift))
+        {
+            PlayerSpeed = crouchRunSpeed;
+        }
+        else if (isCrouching)
         {
             PlayerSpeed = crouchSpeed;
         }
-        if (Input.GetKey(KeyCode.LeftShift))
+        else if (Input.GetKey(KeyCode.LeftShift))
         {
             PlayerSpeed = sprintSpeed;
         }
@@ -151,14 +156,12 @@ public class Player : MonoBehaviour
             {
                 transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
                 rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
-                PlayerSpeed = crouchSpeed;
-                //Debug.Log("Crouching");
+                Debug.Log("Crouching");
             }
             else
             {
                 transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
-                PlayerSpeed = walkSpeed;
-                //Debug.Log("Not Crouching");
+                Debug.Log("Not Crouching");
             }
         }
     }
