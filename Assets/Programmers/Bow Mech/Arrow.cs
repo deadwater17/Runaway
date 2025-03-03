@@ -26,7 +26,7 @@ public class Arrow : MonoBehaviour
        
         rb.isKinematic = true;
         transform.position += transform.forward * 0.1f;
-        //StartCoroutine(deleteObject());
+        StartCoroutine(deleteObject());
     }
 
 
