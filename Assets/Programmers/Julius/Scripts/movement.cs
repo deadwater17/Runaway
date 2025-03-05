@@ -14,7 +14,8 @@ public class Player : MonoBehaviour
     [Header("Movement")]
     // Ground Movement
     private Rigidbody rb;
-    private float PlayerSpeed = 0f;
+    public float PlayerSpeed = 0f;  
+    public float currentSpeed;
     public float walkSpeed = 5f;
     public float sprintSpeed = 8f;
     public float crouchSpeed = 2f;
@@ -109,10 +110,11 @@ public class Player : MonoBehaviour
             rb.velocity = new Vector3(0, rb.velocity.y, 0);
         }
 
-        
+        currentSpeed = new Vector3(rb.velocity.x, 0, rb.velocity.z).magnitude;
+        /*
         // Log the current speed
-        float currentSpeed = new Vector3(rb.velocity.x, 0, rb.velocity.z).magnitude;
         Debug.Log("Current Speed: " + currentSpeed);
+        */
     }
 
     void RotateCamera()

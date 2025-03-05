@@ -2,4 +2,5 @@ Movement:
 Basically finished
 
 Interaction:
-
+Number gen script - 
+i want it to add random number from 1f to 10f and add to inventory 
