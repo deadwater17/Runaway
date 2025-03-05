@@ -18,6 +18,11 @@ ShaderVariantCollection:
       variants:
       - keywords: SOFTMASKABLE
         passType: 0
+  - first: {fileID: 4800000, guid: e62cd687e03624342a80da130ef972ad, type: 3}
+    second:
+      variants:
+      - keywords: SOFTMASKABLE
+        passType: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30,6 +35,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb5b5e33068c14a2bacdd6575e94f505, type: 3}
   m_Name: UISoftMaskProjectSettings
   m_EditorClassIdentifier: 
+  _jsonText: 
   m_SoftMaskEnabled: 1
   m_StereoEnabled: 1
   m_TransformSensitivity: 1
