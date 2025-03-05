@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 20f6d22d93779de4ea6f62f8ab305593, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 56113b3b655ab7349bab4d7d405c258a, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -3497,7 +3497,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2839579828190752346, guid: fe9a602a3a33e164d8b0cb270d8a1c90, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 26a8af3dab5ae244f85fb8d3207abeeb, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4cf98359fcd234e41886eacc5ad1577f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -8401,7 +8401,6 @@ GameObject:
   - component: {fileID: 1929938837}
   - component: {fileID: 1929938836}
   - component: {fileID: 1929938838}
-  - component: {fileID: 1929938839}
   m_Layer: 5
   m_Name: Compass
   m_TagString: Untagged
@@ -8443,7 +8442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8477,35 +8476,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1929938833}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ab5ddac718e38249a1541fa8c96782d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ShowMaskGraphic: 0
-  m_MaskingMode: 0
-  m_AlphaHitTest: 0
-  m_SoftnessRange:
-    m_Min: 0
-    m_Max: 1
-  m_DownSamplingRate: 1
-  m_AntiAliasingThreshold: 0
-  m_Alpha: -1
-  m_Softness: -1
-  m_PartOfParent: 0
---- !u!114 &1929938839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1929938833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bfbd78fd82a7ef4a9c4b40e5fcb3012, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreSelf: 1
-  m_IgnoreChildren: 0
-  m_Power: 1
+  m_Padding: {x: 0, y: 0, z: 0, w: 0}
+  m_Softness: {x: 0, y: 0}
 --- !u!1 &1931602702 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2391086198885659011, guid: fc824f8c2a9348e49ed5889d3bab3c9c, type: 3}
