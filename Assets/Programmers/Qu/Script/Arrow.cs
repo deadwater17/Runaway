@@ -25,6 +25,7 @@ public class Arrow : MonoBehaviour
     {
        
         rb.isKinematic = true;
+        GetComponent<Collider>().enabled = false;
         transform.position += transform.forward * 0.1f;
         StartCoroutine(deleteObject());
     }
@@ -34,6 +35,7 @@ public class Arrow : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         this.gameObject.SetActive(false);
+        GetComponent<Collider>().enabled = true;
         rb.isKinematic = false;
     }
 }

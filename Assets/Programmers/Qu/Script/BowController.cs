@@ -8,12 +8,13 @@ public class BowController : MonoBehaviour
     public GameObject Arrow_prefab;
     public Transform Arrow_spawn;
     public Transform Player;
+    public Camera fpsCam;
     bool isCharging = false;
     float velocity = 0;
     float chargeTime = 0;
     float minSpeed = 20;
     float maxSpeed = 40;
-
+    public float range = 100f;
 
     // Update is called once per frame
     void Update()
@@ -49,6 +50,14 @@ public class BowController : MonoBehaviour
 
     void FireArrow()
     {
+        RaycastHit hit;
+        Vector3 targetPoint = new Vector3(0,0,0);
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+        {
+            targetPoint = hit.point;
+            Debug.Log(hit.transform.name);
+            //transform.LookAt(targetPoint);
+        }
         //create prefab 
         //GameObject arrow = Instantiate(Arrow_prefab, Arrow_spawn.position, Quaternion.identity);
         GameObject arrow = ObjectPool.SharedInstance.GetPooledObject();
@@ -63,6 +72,6 @@ public class BowController : MonoBehaviour
         //control the velocity of arrow
         Debug.Log("arrow: "+ velocity);
         Rigidbody rb = arrow.GetComponent<Rigidbody>();
-        rb.velocity = Arrow_spawn.forward * velocity;
+        rb.velocity = (targetPoint- Arrow_spawn.position).normalized * velocity;
     }
 }
