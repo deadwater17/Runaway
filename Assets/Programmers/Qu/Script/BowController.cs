@@ -14,6 +14,7 @@ public class BowController : MonoBehaviour
     float chargeTime = 0;
     float minSpeed = 20;
     float maxSpeed = 40;
+
     public float range = 100f;
 
     // Update is called once per frame
