@@ -3,21 +3,28 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+    public GameObject bulletPrefab;
     public Transform firePoint;
     public Camera fpsCam;
     //public float damage = 10f;
     public float range = 100f;
     public float bulletSpeed = 100f;
     public float gravity = 9.81f;
-    public GameObject bulletPrefab;
+    float nextshoot = 0.0f;
+    float shootrate = 1f;
 
     
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Time.time >= nextshoot)
         {
-            Shoot();
+            if (Input.GetMouseButtonDown(0))
+            {
+                Shoot();
+                nextshoot = Time.time + 1f / shootrate;
+            }
         }
+        
     }
 
     void Shoot()
@@ -47,4 +54,6 @@ public class Gun : MonoBehaviour
 
         Destroy(bullet, 3.5f);
     }
+
+    
 }
