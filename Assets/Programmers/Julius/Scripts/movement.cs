@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     private Transform cameraTransform;
     
     [Header("Movement")]
+    private InventorySystem m_inventorySystem;        // Reference to the inventory
     // Ground Movement
     private Rigidbody rb;
     public float PlayerSpeed = 0f;  
@@ -56,6 +57,8 @@ public class Player : MonoBehaviour
         // Hides the mouse
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+
     }
 
     void Update()

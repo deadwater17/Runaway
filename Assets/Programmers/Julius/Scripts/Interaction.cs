@@ -13,9 +13,6 @@ public class Interaction : MonoBehaviour
     [Header("Interaction")]
     public float interactionDistance = 3f;
 
-    [Header("Inventory")]
-    public float invenetory;
-
     [Header("Player")]
     public Transform player, player_camera;
 
