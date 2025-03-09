@@ -12,4 +12,13 @@ public class InventorySystem : MonoBehaviour
     {
         inventoryWeight += weight; // Add the weight to the inventory
     }
+
+    void Update()
+    {
+        // Check if the "L" key is pressed
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+          Debug.Log("Total weight of inventory: " + inventoryWeight + ".");
+        }
+    }
 }
