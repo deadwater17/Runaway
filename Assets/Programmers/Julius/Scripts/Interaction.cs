@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 interface IInteractable
@@ -12,11 +13,19 @@ public class Interaction : MonoBehaviour
 {
     [Header("Interaction")]
     public float interactionDistance = 3f;
+    public GameObject interactionUI;
+    public TextMeshProUGUI interactionText;
 
     [Header("Player")]
     public Transform player, player_camera;
 
-    void Update()
+
+    private void Update()
+    {
+        InteractionClick();
+    }
+
+    void InteractionClick()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -25,7 +34,12 @@ public class Interaction : MonoBehaviour
             {
                 if (hitinfo.collider.gameObject.TryGetComponent(out IInteractable interactObj))
                 {
+                    interactionUI.SetActive(true);
                     interactObj.Interact();
+                }
+                else
+                {
+                    interactionUI.SetActive(false);
                 }
             }
         }
