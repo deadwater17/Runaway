@@ -23,7 +23,8 @@ public class Arrow : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-       
+        rb.velocity = Vector3.zero;
+        rb.rotation = Quaternion.Euler(0, 0, 0);
         rb.isKinematic = true;
         GetComponent<Collider>().enabled = false;
         transform.position += transform.forward * 0.1f;

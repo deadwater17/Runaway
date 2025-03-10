@@ -7,12 +7,10 @@ public class Gun : MonoBehaviour
     public Transform firePoint;
     public Camera fpsCam;
     //public float damage = 10f;
-    public float range = 100f;
     public float bulletSpeed = 100f;
     public float gravity = 9.81f;
     float nextshoot = 0.0f;
     float shootrate = 1f;
-
     
     void Update()
     {
@@ -31,13 +29,19 @@ public class Gun : MonoBehaviour
     {
         RaycastHit hit;
         Vector3 targetPoint;
-        if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+        if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit))
         {
             targetPoint = hit.point;
             Debug.Log(hit.transform.name);
-            transform.LookAt(targetPoint);
-            SpawnBullet(firePoint.position, targetPoint);
+           
         }
+        else
+        {
+            targetPoint = fpsCam.transform.position + fpsCam.transform.forward * 10000f; // Arbitrary large distance
+            
+        }
+        SpawnBullet(firePoint.position, targetPoint);
+        StartCoroutine(recoil());
     }
 
     void SpawnBullet(Vector3 start, Vector3 target)
@@ -52,8 +56,50 @@ public class Gun : MonoBehaviour
         Vector3 velocity = (target - start).normalized * bulletSpeed; // aim at camera
         rb.velocity = velocity;
 
-        Destroy(bullet, 3.5f);
+        Destroy(bullet, 10f);
     }
 
-    
+    IEnumerator recoil()
+    {
+        
+        Vector3 originalRotation = fpsCam.transform.eulerAngles;
+        Vector3 recoilRotation = new Vector3(-3f, 0, 0) + originalRotation;
+        Vector3 finalRotation = new Vector3(-1f, 0, 0) + originalRotation;
+        float t = 0f;
+        float recoilSpeed = 10f;
+        while (t <= 1)
+        {
+            t += Time.deltaTime * recoilSpeed; // Increment t directly
+            fpsCam.transform.eulerAngles = Vector3.Lerp(originalRotation, recoilRotation, t);
+            yield return null;
+        }
+
+        t = 0f;
+        while (t <= 1)
+        {
+            t += Time.deltaTime * recoilSpeed; // Increment t directly
+            fpsCam.transform.eulerAngles = Vector3.Lerp(recoilRotation, finalRotation, t);
+            yield return null;
+        }
+        //Quaternion originalRotation = fpsCam.transform.rotation;
+        //Quaternion recoilRotation = originalRotation * Quaternion.Euler(-2f, 0f, 0f);
+        //Debug.Log("angle :" + recoilRotation.ToString());
+
+        //// Instantly apply the recoil
+        //fpsCam.transform.rotation = recoilRotation;
+
+        //float t = 0f;
+        //float recoverySpeed = 2f; // Adjust this to control how fast the camera returns
+
+        //while (t <= 1f)
+        //{
+        //    t += Time.deltaTime * recoverySpeed;
+        //    fpsCam.transform.rotation = Quaternion.Slerp(recoilRotation, originalRotation, t);
+        //    yield return null;
+        //}
+
+
+    }
+
+
 }

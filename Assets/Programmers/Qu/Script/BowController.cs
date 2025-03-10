@@ -15,7 +15,6 @@ public class BowController : MonoBehaviour
     float minSpeed = 20;
     float maxSpeed = 40;
 
-    public float range = 100f;
 
     // Update is called once per frame
     void Update()
@@ -53,11 +52,15 @@ public class BowController : MonoBehaviour
     {
         RaycastHit hit;
         Vector3 targetPoint = new Vector3(0,0,0);
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit))
         {
             targetPoint = hit.point;
             Debug.Log(hit.transform.name);
             //transform.LookAt(targetPoint);
+        }
+        else
+        {
+            targetPoint = fpsCam.transform.position + fpsCam.transform.forward * 10000f; // Arbitrary large distance
         }
         //create prefab 
         //GameObject arrow = Instantiate(Arrow_prefab, Arrow_spawn.position, Quaternion.identity);
