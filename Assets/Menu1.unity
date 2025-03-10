@@ -96,7 +96,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 1f09729e7a87f4148af8652d9c30238f, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -331,6 +331,7 @@ MonoBehaviour:
   fadePanel: {fileID: 1961111955}
   sceneToLoad: Menu2
   fadeDuration: 1.5
+  titleFadeDuration: 1.5
 --- !u!4 &43443728 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4789123329640531635, guid: 43e77256a2184d4a8f66d24ec2c276fb, type: 3}
