@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8024864631254408502}
   - component: {fileID: -6342996721114057823}
   m_Layer: 0
-  m_Name: Animal
+  m_Name: Deer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.59, y: 2.07, z: -2.94}
-  m_LocalScale: {x: 0.46967, y: 0.46967, z: 0.46967}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: cd5ccd702f5d8c243b30ae5e973cbeb2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,6 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fa6ea3bb7c6b844eba47c20f4cae14e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  d_weight: 0
+  m_inventoryS: {fileID: 0}
 --- !u!65 &8024864631254408502
 BoxCollider:
   m_ObjectHideFlags: 0

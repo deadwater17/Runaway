@@ -6,6 +6,7 @@ public class InventorySystem : MonoBehaviour
 {
     [HideInInspector]
     public float inventoryWeight = 0; // The total weight of the inventory
+    [HideInInspector]
     public float inventoryCapacity = 3; // space left in inventory
 
     public void AddWeight(float weight)
@@ -15,10 +16,10 @@ public class InventorySystem : MonoBehaviour
 
     void Update()
     {
-        // Check if the "L" key is pressed
+        // Check if the "M" key is pressed
         if (Input.GetKeyDown(KeyCode.M))
         {
-          Debug.Log("Total space left in inventory: " + inventoryWeight + ".");
+          Debug.Log("Total space left in inventory: " + inventoryCapacity + ".");
         }
     }
 }

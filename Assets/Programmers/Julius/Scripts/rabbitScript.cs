@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class deerScript : MonoBehaviour, IInteractable
+public class rabbitScript : MonoBehaviour, IInteractable
 {
     [HideInInspector]
-    public float d_weight;
+    public float r_weight;
     public InventorySystem m_inventoryS;
 
     void Start()
     {
-        d_weight = Random.Range(160, 180);
+        r_weight = Random.Range(0.7f, 2.5f);
 
         m_inventoryS = FindObjectOfType<InventorySystem>();
     }
@@ -22,7 +22,7 @@ public class deerScript : MonoBehaviour, IInteractable
         }
         else 
         {
-            Debug.Log("Weight added to inventory " + d_weight + ".");
+            Debug.Log("Weight added to inventory " + r_weight + ".");
             m_inventoryS.inventoryCapacity -= 1;
         }
     }

@@ -1,6 +1,11 @@
 Movement:
-Basically finished
+Just collision need to fix up (Basically finished )
 
 Interaction:
-Number gen script - 
-i want it to add random number from 1f to 10f and add to inventory 
+- Inventory maximum of 3 (finished)
+- Made 2 interactable objects E.g, rabbit and deer. Both adds
+to the inventory capacity. (finished)
+
+
+Might want to add tags to animals and other tags for
+other objects
