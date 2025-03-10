@@ -11,14 +11,20 @@ interface IInteractable
 
 public class Interaction : MonoBehaviour
 {
+    private InventorySystem m_inventoryS;
+
     [Header("Interaction")]
     public float interactionDistance = 3f;
-    public GameObject interactionUI;
+    public GameObject interactionUI;            
     public TextMeshProUGUI interactionText;
 
     [Header("Player")]
     public Transform player, player_camera;
 
+    private void Start()
+    {
+        interactionUI.SetActive(false);
+    }
 
     private void Update()
     {
@@ -27,22 +33,33 @@ public class Interaction : MonoBehaviour
 
     void InteractionClick()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        Ray r = new Ray(player_camera.position, player_camera.forward);
+
+        // Raycast to check what the player is looking at
+        if (Physics.Raycast(r, out RaycastHit hitinfo, interactionDistance))
         {
-            Ray r =  new Ray(player_camera.position, player_camera.forward);
-            if (Physics.Raycast(r, out RaycastHit hitinfo, interactionDistance))
+            // If the object hit by the ray is interactable
+            if (hitinfo.collider.gameObject.TryGetComponent(out IInteractable interactObj))
             {
-                if (hitinfo.collider.gameObject.TryGetComponent(out IInteractable interactObj))
+                // Show the interaction UI
+                interactionUI.SetActive(true);
+
+                // When player presses 'E', interact with the object
+                if (Input.GetKeyDown(KeyCode.E))
                 {
-                    interactionUI.SetActive(true);
                     interactObj.Interact();
                 }
-                else
-                {
-                    interactionUI.SetActive(false);
-                }
+            }
+            else
+            {
+                // Hide the interaction UI if the player is not looking at an interactable object
+                interactionUI.SetActive(false);
             }
         }
+        else
+        {
+            // Hide the interaction UI if the ray doesn't hit anything
+            interactionUI.SetActive(false);
+        }
     }
-
 }

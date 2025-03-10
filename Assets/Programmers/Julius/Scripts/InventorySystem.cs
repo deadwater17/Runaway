@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class InventorySystem : MonoBehaviour
 {
-    
-  //  public 
+    [HideInInspector]
     public float inventoryWeight = 0; // The total weight of the inventory
+    public float inventoryCapacity = 3; // space left in inventory
 
     public void AddWeight(float weight)
     {
@@ -18,7 +18,7 @@ public class InventorySystem : MonoBehaviour
         // Check if the "L" key is pressed
         if (Input.GetKeyDown(KeyCode.M))
         {
-          Debug.Log("Total weight of inventory: " + inventoryWeight + ".");
+          Debug.Log("Total space left in inventory: " + inventoryWeight + ".");
         }
     }
 }
