@@ -8541,7 +8541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9697,9 +9697,9 @@ SceneRoots:
   - {fileID: 1342495313}
   - {fileID: 1332377892}
   - {fileID: 2129896209}
-  - {fileID: 1265476890}
   - {fileID: 360814411}
   - {fileID: 617832826}
   - {fileID: 863811783}
   - {fileID: 1458875008}
   - {fileID: 1929406170}
+  - {fileID: 1265476890}
