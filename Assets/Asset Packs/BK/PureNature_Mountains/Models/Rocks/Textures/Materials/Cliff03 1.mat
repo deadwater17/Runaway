@@ -82,6 +82,18 @@ Material:
         m_Texture: {fileID: 2800000, guid: 252ce497984548d781b36860aa49c671, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Noise01:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Noise02:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 2800000, guid: c0a288bd8dc27e946b382ed719061d62, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -104,12 +116,14 @@ Material:
     - _BlendNormals: 0
     - _BlendPower: 0.2
     - _BumpScale: 1
+    - _Coverage: 0.3
     - _Cutoff: 0.5
     - _DepositContrast: 0
     - _DepositPosition: 0
     - _DepositPower: 0.38
     - _DepositThreshold: 50
     - _DetailNormalMapScale: 1
+    - _DistortionPower: 0
     - _DstBlend: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
@@ -121,26 +135,38 @@ Material:
     - _Metallic: 0
     - _MetallicPower: 0
     - _Mode: 0
+    - _Noise01Power: 0.75
+    - _Noise02Power: 0.3
     - _NormalPower: 1
     - _OcclusionPower: 0.25
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _ScatteringPower: 0.1
     - _SecondNormalPower: 0.4
     - _SeeVertexColors: 0
     - _SmoothnessPower: 0.25
     - _SmoothnessTextureChannel: 0
+    - _Softness: 0.25
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Tiling: 0.03
+    - _Tiling01: 0.02
+    - _Tiling02: 0.03
     - _Tiling2: 0.1
     - _UVSec: 0
     - _UseDetail: 0
     - _UseVertexColor: 0
     - _VertexColorChannel: 2
+    - _ViewDistance: 5000
     - _ZWrite: 1
     - __dirty: 0
+    - _cloudsHeight: 1
+    - _cloudsPosition: 1
     m_Colors:
     - _2ndColor: {r: 1, g: 1, b: 1, a: 0}
+    - _CloudsColor: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _DirectionSpeed: {r: 20, g: 5, b: 10, a: -5}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _ScatteringColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
