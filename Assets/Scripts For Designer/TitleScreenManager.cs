@@ -24,7 +24,7 @@ public class TitleScreenManager : MonoBehaviour
         Vector3 startPosition = runawayTitle.position;
         finalPosition = new Vector3(startPosition.x, 86, startPosition.z); // Move to Y = 300
 
-        float duration = 3f;
+        float duration = 5f;
         float elapsedTime = 0f;
 
         // Ensure title starts completely flat and at default scale
@@ -61,7 +61,7 @@ public class TitleScreenManager : MonoBehaviour
             float time = (Time.time - timeOffset) * speedMultiplier;
 
             // Reduced rotation values (30% less)
-            float rotationZ = Mathf.Sin(time * 2f) * 3f;
+            float rotationZ = Mathf.Sin(time * 1.5f) * 2f;
             float rotationX = Mathf.Sin(time * 1.2f) * 1.8f;
             float rotationY = Mathf.Cos(time * 1.8f) * 1.8f;
 
