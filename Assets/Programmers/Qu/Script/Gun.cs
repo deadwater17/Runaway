@@ -25,7 +25,6 @@ public class Gun : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 Shoot();
-                
                 nextshoot = Time.time + 1f / shootrate;
             }
         }
@@ -73,7 +72,6 @@ public class Gun : MonoBehaviour
         
         Quaternion originalRotation = fpsCam.transform.rotation;
         Quaternion recoilRotation = originalRotation * Quaternion.Euler(-2f, 0f, 0f);
-        Debug.Log("angle :" + recoilRotation.ToString());
 
         // Instantly apply the recoil
         fpsCam.transform.rotation = recoilRotation;

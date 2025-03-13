@@ -65,7 +65,7 @@ public class weaponADS : MonoBehaviour
             fpsCam.fieldOfView = Mathf.Lerp(fpsCam.fieldOfView, defaultFOV, Time.deltaTime * aimSpeed);
             
         }
-        Debug.Log("Current FOV: " + fpsCam.fieldOfView);
+        
     }
 
     IEnumerator DelayedScope()
