@@ -16,6 +16,8 @@ Material:
   - _GAMMALINEAR_GAMMA
   - _KEYWORD0_KEY0
   - _KEYWORD0_ON
+  - _NOISEWORLDSPACEUVS_ON
+  - _NORMALWORLDSPACEUVS_ON
   - _USEFOGCOLOR_ON
   - _USEFOG_ON
   - _USESECONDNOISE_ON
@@ -67,7 +69,7 @@ Material:
     - _cloudsHeight: 300
     - _cloudsPosition: 300
     m_Colors:
-    - _CloudsColor: {r: 0.5260196, g: 0.372864, b: 0.5943396, a: 1}
+    - _CloudsColor: {r: 0.6431373, g: 0.25098038, b: 0.44186598, a: 1}
     - _DirectionSpeed: {r: -20, g: -17, b: 0, a: 31}
-    - _ScatteringColor: {r: 0.8679245, g: 0.66844326, b: 0.33161268, a: 1}
+    - _ScatteringColor: {r: 1, g: 0.7381315, b: 0.4198113, a: 1}
   m_BuildTextureStacks: []
