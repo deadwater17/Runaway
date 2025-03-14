@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
@@ -6,23 +7,31 @@ public class Gun : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
     public Camera fpsCam;
+    public CameraShake cameraShake;
     //public float damage = 10f;
     public float bulletSpeed = 100f;
     public float gravity = 9.81f;
-
-    public CameraShake cameraShake;
+    public static int currentAmmo;
+    
     float nextshoot = 0.0f;
     float shootrate = 1f;
 
     private void Start()
     {
         cameraShake = fpsCam.GetComponent<CameraShake>();
+        currentAmmo = AmmoNumber.bullet;
     }
     void Update()
     {
+        if (currentAmmo <= 0)
+        {
+            Debug.Log("ammo is empty");
+            currentAmmo = 0;
+            //UI showing ammo is empty.
+        }
         if (Time.time >= nextshoot)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && currentAmmo != 0)
             {
                 Shoot();
                 nextshoot = Time.time + 1f / shootrate;
@@ -33,6 +42,8 @@ public class Gun : MonoBehaviour
 
     void Shoot()
     {
+        currentAmmo--;
+
         RaycastHit hit;
         Vector3 targetPoint;
         if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit))

@@ -10,8 +10,8 @@ public class CameraShake : MonoBehaviour
     public float zoomFov;
     public IEnumerator shake()
     {
-        float oFov = GetComponent<Camera>().fieldOfView;
-        zoomFov = GetComponent<Camera>().fieldOfView/12;
+       // float oFov = GetComponent<Camera>().fieldOfView;
+       // zoomFov = GetComponent<Camera>().fieldOfView/12;
         Quaternion rotation = transform.localRotation;
         float t = 0f;
 
@@ -32,6 +32,6 @@ public class CameraShake : MonoBehaviour
         //    yield return null;
         //}
 
-        //transform.localRotation = rotation;
+        //transform.localRotation = Quaternion.Euler(0, 0, 0);
     }
 }
