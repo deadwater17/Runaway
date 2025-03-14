@@ -18,6 +18,6 @@ public class SpeedCheck : MonoBehaviour
     {
         m_currentSpeed = m_movementScript.currentSpeed;      // Get the current speed from the Player script
 
-        speedText.text = "Speed: " + m_currentSpeed.ToString();  // Display the speed
+        speedText.text = "Speed: " + Mathf.Round(m_currentSpeed).ToString();  // Display the speed
     }
 }

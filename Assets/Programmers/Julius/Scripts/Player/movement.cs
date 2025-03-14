@@ -58,7 +58,6 @@ public class Player : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-
     }
 
     void Update()
@@ -97,6 +96,7 @@ public class Player : MonoBehaviour
 
     void MovePlayer()
     {
+        /*
         // Calculate movement direction and target velocity
         Vector3 movement = (transform.right * moveHorizontal + transform.forward * moveForward).normalized;
         Vector3 targetVelocity = movement * PlayerSpeed;
@@ -114,10 +114,36 @@ public class Player : MonoBehaviour
         }
 
         currentSpeed = new Vector3(rb.velocity.x, 0, rb.velocity.z).magnitude;
-        /*
-        // Log the current speed
-        Debug.Log("Current Speed: " + currentSpeed);
         */
+
+        // Calculate movement direction and target velocity
+        Vector3 movement = (transform.right * moveHorizontal + transform.forward * moveForward).normalized;
+        Vector3 targetVelocity = movement * PlayerSpeed;
+
+        // If the player is grounded, apply the target velocity directly
+        if (isGrounded)
+        {
+            Vector3 velocity = rb.velocity;
+            velocity.x = targetVelocity.x;
+            velocity.z = targetVelocity.z;
+            rb.velocity = velocity;
+        }
+        else
+        {
+            // If the player is in the air, apply a movement force (to avoid sticking to walls)
+            Vector3 velocity = rb.velocity;
+            velocity.x = Mathf.Lerp(velocity.x, targetVelocity.x, Time.deltaTime * 5f); // Smooth transition
+            velocity.z = Mathf.Lerp(velocity.z, targetVelocity.z, Time.deltaTime * 5f);
+            rb.velocity = velocity;
+        }
+
+        // Prevent sliding on the ground when not moving
+        if (isGrounded && moveHorizontal == 0 && moveForward == 0)
+        {
+            rb.velocity = new Vector3(0, rb.velocity.y, 0);
+        }
+
+        currentSpeed = new Vector3(rb.velocity.x, 0, rb.velocity.z).magnitude;
     }
 
     void RotateCamera()
