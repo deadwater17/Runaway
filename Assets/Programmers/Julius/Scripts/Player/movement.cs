@@ -1,7 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Player : MonoBehaviour
 {
@@ -25,13 +28,12 @@ public class Player : MonoBehaviour
     private float moveForward;
 
     [Header("Crouching")]
-
     public float crouchYScale;
     public float startYScale;
     private bool isCrouching = false;
 
     [Header("Jumping")]
-    // Jumpingi 
+    // Jumping
     public float jumpForce = 10f;
     public float fallMultiplier = 2.5f; // Multiplies gravity when falling down
     public float ascendMultiplier = 2f; // Multiplies gravity for ascending to peak of jump
@@ -41,6 +43,11 @@ public class Player : MonoBehaviour
     private float groundCheckDelay = 0.3f;
     private float playerHeight;
     private float raycastDistance;
+
+    [Header("Slope")]
+    // Slope
+    public float maxSlopeAngle;
+    private RaycastHit slopeHit;
 
     void Start()
     {
@@ -96,26 +103,6 @@ public class Player : MonoBehaviour
 
     void MovePlayer()
     {
-        /*
-        // Calculate movement direction and target velocity
-        Vector3 movement = (transform.right * moveHorizontal + transform.forward * moveForward).normalized;
-        Vector3 targetVelocity = movement * PlayerSpeed;
-
-        // Apply movement to the Rigidbody
-        Vector3 velocity = rb.velocity;
-        velocity.x = targetVelocity.x;
-        velocity.z = targetVelocity.z;
-        rb.velocity = velocity;
-
-        // If we aren't moving and are on the ground, stop velocity so we don't slide
-        if (isGrounded && moveHorizontal == 0 && moveForward == 0)
-        {
-            rb.velocity = new Vector3(0, rb.velocity.y, 0);
-        }
-
-        currentSpeed = new Vector3(rb.velocity.x, 0, rb.velocity.z).magnitude;
-        */
-
         // Calculate movement direction and target velocity
         Vector3 movement = (transform.right * moveHorizontal + transform.forward * moveForward).normalized;
         Vector3 targetVelocity = movement * PlayerSpeed;
@@ -135,6 +122,12 @@ public class Player : MonoBehaviour
             velocity.x = Mathf.Lerp(velocity.x, targetVelocity.x, Time.deltaTime * 5f); // Smooth transition
             velocity.z = Mathf.Lerp(velocity.z, targetVelocity.z, Time.deltaTime * 5f);
             rb.velocity = velocity;
+        }
+
+        // Handles slope movement
+        if (OnSlope())
+        {
+            rb.AddForce(GetSlopeMovement(movement)* PlayerSpeed,ForceMode.Force);
         }
 
         // Prevent sliding on the ground when not moving
@@ -216,5 +209,18 @@ public class Player : MonoBehaviour
             //jumping: Change multiplier to make player reach peak of jump faster
             rb.velocity += Vector3.up * Physics.gravity.y * ascendMultiplier  * Time.fixedDeltaTime;
         }
+    }
+
+    private bool OnSlope(){
+        if(Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight / 2 + 0.3f)){
+            float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
+            return angle < maxSlopeAngle && angle > 0;
+        }
+        return false;
+    }
+
+    private Vector3 GetSlopeMovement(Vector3 movement){
+        
+        return Vector3.ProjectOnPlane(movement, slopeHit.normal).normalized;
     }
 }
