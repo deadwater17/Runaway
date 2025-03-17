@@ -7591,6 +7591,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4600282374971346404, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
+      propertyPath: maxSlopeAngle
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 8547865131827239211, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
       propertyPath: m_Enabled
       value: 0

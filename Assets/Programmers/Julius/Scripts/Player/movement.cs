@@ -1,22 +1,13 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class Player : MonoBehaviour
+public class Movement : MonoBehaviour
 {
     [Header("Camera")]
-    // Camera Rotation
-    public float mouseSensitivity = 2f;
-    private float verticalRotation = 0f;
-    private Transform cameraTransform;
+    public Transform playerCamera;
     
     [Header("Movement")]
-    private InventorySystem m_inventorySystem;        // Reference to the inventory
-    // Ground Movement
     private Rigidbody rb;
     public float PlayerSpeed = 0f;  
     public float currentSpeed;
@@ -28,15 +19,14 @@ public class Player : MonoBehaviour
     private float moveForward;
 
     [Header("Crouching")]
-    public float crouchYScale;
-    public float startYScale;
+    public float crouchYScale = 0.5f;
+    private float startYScale;
     private bool isCrouching = false;
 
     [Header("Jumping")]
-    // Jumping
     public float jumpForce = 10f;
-    public float fallMultiplier = 2.5f; // Multiplies gravity when falling down
-    public float ascendMultiplier = 2f; // Multiplies gravity for ascending to peak of jump
+    public float fallMultiplier = 2.5f;
+    public float ascendMultiplier = 2f;
     private bool isGrounded = true;
     public LayerMask groundLayer;
     private float groundCheckTimer = 0f;
@@ -45,7 +35,6 @@ public class Player : MonoBehaviour
     private float raycastDistance;
 
     [Header("Slope")]
-    // Slope
     public float maxSlopeAngle;
     private RaycastHit slopeHit;
 
@@ -53,36 +42,28 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-        cameraTransform = Camera.main.transform;
 
-        // Set the raycast to be slightly beneath the player's feet
+        // Calculate player height for ground checks
         playerHeight = GetComponent<CapsuleCollider>().height * transform.localScale.y;
         raycastDistance = (playerHeight / 2) + 0.2f;
 
         startYScale = transform.localScale.y;
-
-        // Hides the mouse
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
     }
 
     void Update()
     {
         moveHorizontal = Input.GetAxisRaw("Horizontal");
         moveForward = Input.GetAxisRaw("Vertical");
-        
+
         Crouching();
         MovementSpeed();
 
-        RotateCamera();
-
-        if (Input.GetButtonDown("Jump") && isGrounded)  //if player is on the ground and presses spacebar, it will jump
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
             Jump();
         }
 
-        // Checking when we're on the ground and keeping track of our ground check delay
+        // Ground check logic
         if (!isGrounded && groundCheckTimer <= 0f)
         {
             Vector3 rayOrigin = transform.position + Vector3.up * 0.1f;
@@ -92,7 +73,6 @@ public class Player : MonoBehaviour
         {
             groundCheckTimer -= Time.deltaTime;
         }
-
     }
 
     void FixedUpdate()
@@ -103,11 +83,12 @@ public class Player : MonoBehaviour
 
     void MovePlayer()
     {
-        // Calculate movement direction and target velocity
-        Vector3 movement = (transform.right * moveHorizontal + transform.forward * moveForward).normalized;
-        Vector3 targetVelocity = movement * PlayerSpeed;
+        //Vector3 movement = (transform.right * moveHorizontal + transform.forward * moveForward).normalized;
+        Vector3 moveDirection = (playerCamera.forward * moveForward + playerCamera.right * moveHorizontal).normalized;
+        moveDirection.y = 0; 
+        
+        Vector3 targetVelocity = moveDirection * PlayerSpeed;
 
-        // If the player is grounded, apply the target velocity directly
         if (isGrounded)
         {
             Vector3 velocity = rb.velocity;
@@ -117,20 +98,17 @@ public class Player : MonoBehaviour
         }
         else
         {
-            // If the player is in the air, apply a movement force (to avoid sticking to walls)
             Vector3 velocity = rb.velocity;
-            velocity.x = Mathf.Lerp(velocity.x, targetVelocity.x, Time.deltaTime * 5f); // Smooth transition
+            velocity.x = Mathf.Lerp(velocity.x, targetVelocity.x, Time.deltaTime * 5f);
             velocity.z = Mathf.Lerp(velocity.z, targetVelocity.z, Time.deltaTime * 5f);
             rb.velocity = velocity;
         }
 
-        // Handles slope movement
         if (OnSlope())
         {
-            rb.AddForce(GetSlopeMovement(movement)* PlayerSpeed,ForceMode.Force);
+            rb.AddForce(GetSlopeMovement(moveDirection) * PlayerSpeed, ForceMode.Force);
         }
 
-        // Prevent sliding on the ground when not moving
         if (isGrounded && moveHorizontal == 0 && moveForward == 0)
         {
             rb.velocity = new Vector3(0, rb.velocity.y, 0);
@@ -139,18 +117,7 @@ public class Player : MonoBehaviour
         currentSpeed = new Vector3(rb.velocity.x, 0, rb.velocity.z).magnitude;
     }
 
-    void RotateCamera()
-    {
-        float horizontalRotation = Input.GetAxis("Mouse X") * mouseSensitivity;
-        transform.Rotate(0, horizontalRotation, 0);
-
-        verticalRotation -= Input.GetAxis("Mouse Y") * mouseSensitivity;
-        verticalRotation = Mathf.Clamp(verticalRotation, -90f, 90f);
-
-        cameraTransform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
-    }
-
-    void MovementSpeed()        //changes speed based on player input
+    void MovementSpeed()
     {
         if (isCrouching && Input.GetKey(KeyCode.LeftShift))
         {
@@ -174,18 +141,16 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            isCrouching = !isCrouching; // Toggle the crouching state
+            isCrouching = !isCrouching;
 
             if (isCrouching)
             {
                 transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
                 rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
-                Debug.Log("Crouching");
             }
             else
             {
                 transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
-                Debug.Log("Not Crouching");
             }
         }
     }
@@ -194,33 +159,33 @@ public class Player : MonoBehaviour
     {
         isGrounded = false;
         groundCheckTimer = groundCheckDelay;
-        rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z); //initial burst for the jump
+        rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
     }
 
-    void ApplyJumpPhysics()         //realistic jump physics
+    void ApplyJumpPhysics()
     {
-        if (rb.velocity.y < 0) 
+        if (rb.velocity.y < 0)
         {
-            //falling: Applies a fall multiplier to make falling faster
             rb.velocity += Vector3.up * Physics.gravity.y * fallMultiplier * Time.fixedDeltaTime;
-        } // Rising
+        }
         else if (rb.velocity.y > 0)
         {
-            //jumping: Change multiplier to make player reach peak of jump faster
-            rb.velocity += Vector3.up * Physics.gravity.y * ascendMultiplier  * Time.fixedDeltaTime;
+            rb.velocity += Vector3.up * Physics.gravity.y * ascendMultiplier * Time.fixedDeltaTime;
         }
     }
 
-    private bool OnSlope(){
-        if(Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight / 2 + 0.3f)){
+    private bool OnSlope()
+    {
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight / 2 + 0.3f))
+        {
             float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
             return angle < maxSlopeAngle && angle > 0;
         }
         return false;
     }
 
-    private Vector3 GetSlopeMovement(Vector3 movement){
-        
+    private Vector3 GetSlopeMovement(Vector3 movement)
+    {
         return Vector3.ProjectOnPlane(movement, slopeHit.normal).normalized;
     }
 }

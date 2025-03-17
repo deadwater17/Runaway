@@ -44,10 +44,10 @@ GameObject:
   - component: {fileID: 4245872844665539644}
   - component: {fileID: 9072424414838696255}
   - component: {fileID: 6541536886199166954}
-  - component: {fileID: 8317058086740700224}
+  - component: {fileID: 2827257978576598185}
   - component: {fileID: 4576348546544648108}
-  - component: {fileID: 4600282374971346404}
   - component: {fileID: 8547865131827239211}
+  - component: {fileID: 8317058086740700224}
   - component: {fileID: 446509357571373994}
   m_Layer: 0
   m_Name: PlayerObj
@@ -130,7 +130,7 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &8317058086740700224
+--- !u!114 &2827257978576598185
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,11 +139,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 6615416372945677414}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3072f5fd0fdbc94f9e8ce3cce2624a6, type: 3}
+  m_Script: {fileID: 11500000, guid: f8f51137381528541a469e80331485a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryWeight: 0
-  inventoryCapacity: 3
+  PlayerSpeed: 0
+  currentSpeed: 0
+  walkSpeed: 5
+  sprintSpeed: 8
+  crouchSpeed: 2
+  crouchRunSpeed: 4
+  crouchYScale: 0.5
+  jumpForce: 10
+  fallMultiplier: 2.5
+  ascendMultiplier: 2
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  maxSlopeAngle: 40
 --- !u!114 &4576348546544648108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,33 +173,6 @@ MonoBehaviour:
   interactionText: {fileID: 0}
   player: {fileID: 5629219560671247870}
   player_camera: {fileID: 3258646018739633050}
---- !u!114 &4600282374971346404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6615416372945677414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4643dbc8f035ae4b9679256ce5f43f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mouseSensitivity: 2
-  PlayerSpeed: 0
-  currentSpeed: 0
-  walkSpeed: 5
-  sprintSpeed: 8
-  crouchSpeed: 2
-  crouchRunSpeed: 4
-  crouchYScale: 0.6
-  startYScale: 1
-  jumpForce: 10
-  fallMultiplier: 2.5
-  ascendMultiplier: 2
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!114 &8547865131827239211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,6 +186,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedText: {fileID: 0}
+--- !u!114 &8317058086740700224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6615416372945677414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3072f5fd0fdbc94f9e8ce3cce2624a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryWeight: 0
+  inventoryCapacity: 3
 --- !u!23 &446509357571373994
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -253,6 +252,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7655990346173521134}
   - component: {fileID: 3257116805938210763}
+  - component: {fileID: 1267011047499149266}
   m_Layer: 0
   m_Name: CamHolder
   m_TagString: Untagged
@@ -291,6 +291,20 @@ MonoBehaviour:
   amount: 0.01
   frequency: 26.5
   smoothness: 86.3
+--- !u!114 &1267011047499149266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7551364521442824694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34b34ea80cc70894a840c4ea5abe581c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseSensitivity: 2
+  playerBody: {fileID: 5629219560671247870}
 --- !u!1 &8582255143706730740
 GameObject:
   m_ObjectHideFlags: 0
