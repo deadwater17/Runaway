@@ -1,9 +1,78 @@
 Movement (finished )
 
 Interaction:
-- Inventory maximum of 3 (finished)
-- Made 2 interactable objects E.g, rabbit and deer. Both adds
-to the inventory capacity. (finished)
+Changing interaction system - we are now changing it into world canvas. 
+                            - It will show world canvas when player is looking at it
+                            - im gonna copy and paste all code within coPilot
+
+
+Interaction:
+using System;
+using TMPro;
+using UnityEngine;
+
+interface IInteractable
+{
+    void Interact();
+}
+
+public class Interaction : MonoBehaviour
+{
+    private InventorySystem m_inventoryS;
+
+    [Header("Interaction")]
+    public float interactionDistance = 3f;
+    public GameObject interactionUI;            
+    public TextMeshProUGUI interactionText;
+
+    [Header("Player")]
+    public Transform player, player_camera;
+
+    private void Start()
+    {
+        interactionUI.SetActive(false);
+    }
+
+    private void Update()
+    {
+        InteractionClick();
+    }
+
+    void InteractionClick()
+    {
+        Ray r = new Ray(player_camera.position, player_camera.forward);
+
+        if (Physics.Raycast(r, out RaycastHit hitinfo, interactionDistance))
+        {
+            if (hitinfo.collider.gameObject.TryGetComponent(out IInteractable interactObj))
+            {
+                interactionUI.SetActive(true);
+                interactionText.text = "Press 'E' to interact with " + hitinfo.collider.gameObject.name;
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    interactObj.Interact();
+                }
+
+                // Enable world canvas for animals and shop items
+                if (hitinfo.collider.gameObject.CompareTag("Animal") || hitinfo.collider.gameObject.CompareTag("ShopItem"))
+                {
+                    WorldCanvasManager.Instance.EnableCanvas(hitinfo.collider.gameObject);
+                }
+            }
+            else
+            {
+                interactionUI.SetActive(false);
+                WorldCanvasManager.Instance.DisableCanvas();
+            }
+        }
+        else
+        {
+            interactionUI.SetActive(false);
+            WorldCanvasManager.Instance.DisableCanvas();
+        }
+    }
+}
 
 Update on weight:
 -Issue with the new top weight not updating
