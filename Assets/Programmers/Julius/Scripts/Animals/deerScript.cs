@@ -8,12 +8,9 @@ public class deerScript : MonoBehaviour, IInteractable
     public float d_weight;
     public InventorySystem m_inventoryS;
 
-    private bool m_isActive;
-
     void Start()
     {
         d_weight = Random.Range(160, 180);
-        m_isActive = true;
         m_inventoryS = FindObjectOfType<InventorySystem>();
     }
 

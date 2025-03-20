@@ -1,9 +1,62 @@
-Movement (finished )
+
+
+Movement:
+Issue with crouching - can't move when crouched
+Issue with jumping - only jumped once
 
 Interaction:
 Changing interaction system - we are now changing it into world canvas. 
                             - It will show world canvas when player is looking at it
                             - im gonna copy and paste all code within coPilot
+
+make a bool, if an object is being looked at, the world canvas will activate
+
+animal script, opens the world canvas
+
+animal consist: 
+- Info script
+- Looked at script
+- Will have the world canvas as a child of it, and then the prefab will be updated obvsly
+
+DeerWorldCanvas show
+    public GameObject interactionUI;    
+    
+    private void Start()
+    {
+        interactionUI.SetActive(false);
+    }
+
+        void InteractionClick()
+    {
+        Ray r = new Ray(player_camera.position, player_camera.forward);
+
+        // Raycast to check what the player is looking at
+        if (Physics.Raycast(r, out RaycastHit hitinfo, interactionDistance))
+        {
+            // If the object hit by the ray is interactable
+            if (hitinfo.collider.gameObject.TryGetComponent(out IInteractable interactObj))
+            {
+                // Show the interaction UI
+                interactionUI.SetActive(true);
+
+                // When player presses 'E', interact with the object
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    interactObj.Interact();
+                }
+            }
+            else
+            {
+                // Hide the interaction UI if the player is not looking at an interactable object
+                interactionUI.SetActive(false);
+            }
+        }
+        else
+        {
+            // Hide the interaction UI if the ray doesn't hit anything
+            interactionUI.SetActive(false);
+        }
+    }
 
 
 Interaction:

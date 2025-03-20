@@ -25,13 +25,11 @@ public class CheckTopWeight : MonoBehaviour
         {
             TopWeight = m_newWeight; // Update to the new heaviest deer weight
             Debug.Log("New heaviest deer weight: " + TopWeight);
-            
-
         }
     }
 
     private void CheckWeight()
     {
-
+        
     }
 }
