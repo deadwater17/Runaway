@@ -1,17 +1,9 @@
-
-
-Movement:
+Movement: 
 Issue with crouching - can't move when crouched
 Issue with jumping - only jumped once
 
 Interaction:
-Changing interaction system - we are now changing it into world canvas. 
-                            - It will show world canvas when player is looking at it
-                            - im gonna copy and paste all code within coPilot
-
-make a bool, if an object is being looked at, the world canvas will activate
-
-animal script, opens the world canvas
+Changing interaction system, updated UI (Done)
 
 animal consist: 
 - Info script
