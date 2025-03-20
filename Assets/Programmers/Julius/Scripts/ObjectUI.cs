@@ -6,22 +6,22 @@ public class ObjectUI : MonoBehaviour
 {
 
     public GameObject Interact_ObjectUI;
-    private Interaction m_interaction;
+    public bool isLookedAt = false;
 
     void Start()
     {
-        m_interaction = GetComponent<Interaction>();
         Interact_ObjectUI.SetActive(false);
     }
     
     void Update()
     {
-        ActivateInteractionUI();
+        ActivateUI();
+        SetLookedAt(isLookedAt);
     }
 
-    void ActivateInteractionUI()
+    void ActivateUI()
     {
-        if (m_interaction.LookedAt == true)
+        if (isLookedAt == true)
         {
             Interact_ObjectUI.SetActive(true);
         }
@@ -29,5 +29,11 @@ public class ObjectUI : MonoBehaviour
         {
             Interact_ObjectUI.SetActive(false);
         }
+    }
+
+
+    public void SetLookedAt(bool lookedAt)
+    {
+        isLookedAt = lookedAt;
     }
 }
