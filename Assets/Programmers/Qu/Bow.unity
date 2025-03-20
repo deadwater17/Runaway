@@ -178,7 +178,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 123600979}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &123600981
 Camera:
   m_ObjectHideFlags: 0
@@ -436,7 +436,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 390210466}
   range: 10
+  player: {fileID: 1991230022}
   centrePoint: {fileID: 1116366436}
+  isHear: 0
+  isWonder: 0
 --- !u!195 &390210466
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -459,6 +462,27 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &390210469
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390210463}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &425199595 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100002, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
@@ -469,7 +493,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
   m_PrefabInstance: {fileID: 1944697368}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &425199597
+--- !u!20 &425199600 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 2000000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+  m_PrefabInstance: {fileID: 1944697368}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &425199601
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -485,11 +514,6 @@ MonoBehaviour:
   maxRotate: 2
   minRotate: -1.5
   zoomFov: 5
---- !u!20 &425199600 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 2000000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
-  m_PrefabInstance: {fileID: 1944697368}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &432044025
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,7 +1079,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 36.4, y: 8.409779, z: 29.7}
-  m_LocalScale: {x: 40, y: 1, z: 40}
+  m_LocalScale: {x: 60, y: 1, z: 60}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1134,7 +1158,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 760562133620488188, guid: 8fc39d078c8d3554d9cc4084b540a49d, type: 3}
   firePoint: {fileID: 331936763}
   fpsCam: {fileID: 425199600}
-  cameraShake: {fileID: 425199597}
+  cameraShake: {fileID: 0}
   bulletSpeed: 300
   gravity: 9.81
   shootSound: {fileID: 8300000, guid: 608d2a6a96b1e214195bebc2ef80766e, type: 3}
@@ -1919,7 +1943,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 760562133620488188, guid: 8fc39d078c8d3554d9cc4084b540a49d, type: 3}
   firePoint: {fileID: 814887334}
   fpsCam: {fileID: 425199600}
-  cameraShake: {fileID: 425199597}
+  cameraShake: {fileID: 0}
   bulletSpeed: 150
   gravity: 9.81
   shootSound: {fileID: 0}
@@ -2200,7 +2224,7 @@ PrefabInstance:
       addedObject: {fileID: 1991230028}
     - targetCorrespondingSourceObject: {fileID: 100002, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 425199597}
+      addedObject: {fileID: 425199601}
   m_SourcePrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
 --- !u!1 &1960776984
 GameObject:
@@ -2386,6 +2410,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 133577378980343757, guid: 99c33756518525a429cd918eaf1f461e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 390210464}
+    - targetCorrespondingSourceObject: {fileID: 133577378980343757, guid: 99c33756518525a429cd918eaf1f461e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 390210469}
   m_SourcePrefab: {fileID: 100100000, guid: 99c33756518525a429cd918eaf1f461e, type: 3}
 --- !u!1 &2059140815
 GameObject:

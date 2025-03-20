@@ -27,6 +27,7 @@ public class SoundAdjust : MonoBehaviour
         {
 
         }
+        AnimalsInRange();
         //...
     }
     public void adjust(int min,int max)
@@ -35,5 +36,18 @@ public class SoundAdjust : MonoBehaviour
         m_audiosource.maxDistance = max;
     }
 
+    private void AnimalsInRange()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, m_audiosource.maxDistance);
+        foreach (Collider collider in hitColliders) 
+        {
+            AnimalMovement animal = collider.GetComponent<AnimalMovement>();
+            if(animal != null)
+            {
+                animal.isHear = true;
+            }
+        
+        }
+    }
     
 }
