@@ -43,7 +43,12 @@ public class AnimalMovement : MonoBehaviour
         {
             //Run away from player
             Vector3 direction = (transform.position - player.transform.position).normalized;
-            Vector3 destination = transform.position + 25 * direction;
+            Vector3 fleetdirec = direction + new Vector3(Random.Range(-1, 1), 0,Random.Range(-1,1));
+            fleetdirec.Normalize();
+            //add randomness to the animal's eun away path
+            Vector3 destination = transform.position + 25 * fleetdirec;
+            
+            
             agent.SetDestination(destination);
             isWonder = false;
             isHear = false;
@@ -51,7 +56,7 @@ public class AnimalMovement : MonoBehaviour
             Debug.Log("animal run");
         }
 
-        if(agent.remainingDistance <= agent.stoppingDistance && !isHear &&!isWonder)
+        if(agent.remainingDistance <= agent.stoppingDistance && !isHear &&!isWonder) //decide whether to come back to wondering mode
         {
             Debug.Log("end run");
             isWonder = true;
