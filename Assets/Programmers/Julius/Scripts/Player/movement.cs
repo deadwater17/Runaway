@@ -95,6 +95,12 @@ public class Movement : MonoBehaviour
             velocity.x = targetVelocity.x;
             velocity.z = targetVelocity.z;
             rb.velocity = velocity;
+            
+            // Apply slope movement only if on a slope
+            if (OnSlope())
+            {
+                rb.AddForce(GetSlopeMovement(moveDirection) * PlayerSpeed, ForceMode.Force);
+            }
         }
         else
         {
@@ -102,11 +108,6 @@ public class Movement : MonoBehaviour
             velocity.x = Mathf.Lerp(velocity.x, targetVelocity.x, Time.deltaTime * 5f);
             velocity.z = Mathf.Lerp(velocity.z, targetVelocity.z, Time.deltaTime * 5f);
             rb.velocity = velocity;
-        }
-
-        if (OnSlope())
-        {
-            rb.AddForce(GetSlopeMovement(moveDirection) * PlayerSpeed, ForceMode.Force);
         }
 
         if (isGrounded && moveHorizontal == 0 && moveForward == 0)
@@ -173,17 +174,19 @@ public class Movement : MonoBehaviour
             rb.velocity += Vector3.up * Physics.gravity.y * ascendMultiplier * Time.fixedDeltaTime;
         }
     }
-
+    
     private bool OnSlope()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight / 2 + 0.3f))
+        float currentHeight = GetComponent<CapsuleCollider>().height * transform.localScale.y; // Adjust for crouching
+        float rayDistance = (currentHeight / 2) + 0.3f; // Adjust raycast distance based on current height
+
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, rayDistance))
         {
             float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
             return angle < maxSlopeAngle && angle > 0;
         }
         return false;
     }
-
     private Vector3 GetSlopeMovement(Vector3 movement)
     {
         return Vector3.ProjectOnPlane(movement, slopeHit.normal).normalized;

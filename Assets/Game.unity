@@ -4750,7 +4750,7 @@ GameObject:
   - component: {fileID: 1118022821}
   - component: {fileID: 1118022820}
   - component: {fileID: 1118022819}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7554,7 +7554,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1688819386792654141, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 19.8994
+      value: 21.54
       objectReference: {fileID: 0}
     - target: {fileID: 1688819386792654141, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7596,6 +7596,10 @@ PrefabInstance:
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 1229935392}
+    - target: {fileID: 2827257978576598185, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4576348546544648108, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -7603,6 +7607,10 @@ PrefabInstance:
     - target: {fileID: 4600282374971346404, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
       propertyPath: maxSlopeAngle
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5629219560671247870, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8547865131827239211, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
       propertyPath: m_Enabled
