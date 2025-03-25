@@ -21,6 +21,9 @@ public class FadeToBlack : MonoBehaviour
         }
     }
 
+
+
+
     public void StartFade()
     {
         if (!isFading)
@@ -57,5 +60,7 @@ public class FadeToBlack : MonoBehaviour
 
         // Load the scene
         SceneManager.LoadScene(sceneToLoad);
+
+        
     }
 }
