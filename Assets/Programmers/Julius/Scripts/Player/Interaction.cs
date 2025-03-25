@@ -16,8 +16,6 @@ public class Interaction : MonoBehaviour
 
     [Header("Interaction")]
     public float interactionDistance = 3f;
-        
-    public TextMeshProUGUI interactionText;
 
     [Header("Player")]
     public Transform player, player_camera;

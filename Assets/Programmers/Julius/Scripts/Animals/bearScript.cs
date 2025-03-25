@@ -2,24 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class deerScript : MonoBehaviour, IInteractable
+public class bearScript : MonoBehaviour, IInteractable
 {
     [HideInInspector]
-    public float d_weight;
+    public float b_weight;
     public InventorySystem m_inventoryS;
 
     void Start()
     {
-        d_weight = Random.Range(45, 68);
+        b_weight = Random.Range(100f, 200f);
+
         m_inventoryS = FindObjectOfType<InventorySystem>();
     }
-
     public void Interact()
     {
         if (m_inventoryS.inventoryCapacity > 0)
         {
-            Debug.Log("Weight added to inventory " + d_weight + ".");
-            m_inventoryS.AddAnimal("Deer", d_weight);
+            Debug.Log("Weight added to inventory " + b_weight + ".");
+            m_inventoryS.AddAnimal("Bear", b_weight);
             Destroy(this.gameObject);
         }
         else
@@ -27,5 +27,4 @@ public class deerScript : MonoBehaviour, IInteractable
             Debug.Log("Inventory is full!");
         }
     }
-
 }

@@ -6,6 +6,8 @@ Interaction:
 Changing interaction system, updated UI (Done)
 
 animal consist: 
+- Need to make it so it saves weight data
+
 - Info script
 - Looked at script
 - Will have the world canvas as a child of it, and then the prefab will be updated obvsly

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class InventorySystem : MonoBehaviour
@@ -9,12 +10,33 @@ public class InventorySystem : MonoBehaviour
     [HideInInspector]
     public float inventoryCapacity = 3; // space left in inventory
 
+    public GameObject inventoryUI; // Reference to the inventory UI
+
+    public TextMeshPro rabbitNum;
+    public TextMeshPro deerNum;
+    public TextMeshPro bearNum;
+
+    private int rabbitCount = 0;
+    private int deerCount = 0;
+    private int bearCount = 0;
+
     public void AddWeight(float weight)
     {
         inventoryWeight += weight; // Add the weight to the inventory
     }
 
+    void Start()
+    {
+        inventoryUI.SetActive(false); // Set the inventory UI to inactive
+    }
+
     void Update()
+    {
+        InventorySpaceCheck(); 
+        OpenInventory();
+    }
+
+    void InventorySpaceCheck()
     {
         // Check if the "M" key is pressed
         if (Input.GetKeyDown(KeyCode.M))
@@ -22,4 +44,47 @@ public class InventorySystem : MonoBehaviour
           Debug.Log("Total space left in inventory: " + inventoryCapacity + ".");
         }
     }
+
+    void OpenInventory()
+    {
+        // Check if the "T" key is pressed
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            inventoryUI.SetActive(true); // Set the inventory UI to active
+        }
+        else if (Input.GetKeyDown(KeyCode.T))
+        {
+            inventoryUI.SetActive(false); // Set the inventory UI to inactive
+        }
+    }
+
+    public void AddAnimal(string animalType, float weight)
+    {
+        if (inventoryCapacity > 0)
+        {
+            inventoryCapacity--;
+            AddWeight(weight);
+
+            switch (animalType)
+            {
+                case "Rabbit":
+                    rabbitCount++;
+                    rabbitNum.text = rabbitCount.ToString();
+                    break;
+                case "Deer":
+                    deerCount++;
+                    deerNum.text = deerCount.ToString();
+                    break;
+                case "Bear":
+                    bearCount++;
+                    bearNum.text = bearCount.ToString();
+                    break;
+            }
+        }
+        else
+        {
+            Debug.Log("Inventory is full!");
+        }
+    }
+
 }
