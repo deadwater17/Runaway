@@ -1,6 +1,6 @@
 Movement: 
 Issue with crouch and jump (Done)
-- Just amke sure that the layers on the player is set to ground and terrain is set to ground
+- Just make sure that the layers on the player is set to ground and terrain is set to ground
 
 Interaction:
 Changing interaction system, updated UI (Done)

@@ -50,11 +50,7 @@ public class InventorySystem : MonoBehaviour
         // Check if the "T" key is pressed
         if (Input.GetKeyDown(KeyCode.T))
         {
-            inventoryUI.SetActive(true); // Set the inventory UI to active
-        }
-        else if (Input.GetKeyDown(KeyCode.T))
-        {
-            inventoryUI.SetActive(false); // Set the inventory UI to inactive
+            inventoryUI.SetActive(!inventoryUI.activeSelf); // Set the inventory UI to active/inactive
         }
     }
 
