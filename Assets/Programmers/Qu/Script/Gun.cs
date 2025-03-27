@@ -71,6 +71,7 @@ public class Gun : MonoBehaviour
     void SpawnBullet(Vector3 start, Vector3 target)
     {
         GameObject bullet = Instantiate(bulletPrefab, start, Quaternion.identity);
+        
 
         Rigidbody rb = bullet.GetComponent<Rigidbody>(); // Get the Rigidbody component
         if (rb == null)

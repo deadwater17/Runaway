@@ -12,9 +12,11 @@ public class AnimalMovement : MonoBehaviour
     public Transform centrePoint;
     public bool isHear;
     public bool isWonder;
+    Animator animator;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
         isWonder = true;
         isHear = false;
     }
@@ -27,6 +29,8 @@ public class AnimalMovement : MonoBehaviour
         {
             if (agent.remainingDistance <= agent.stoppingDistance)
             {
+                animator.SetBool("walk", true);
+                animator.SetBool("run", false);
                 Vector3 point;
                 if (RandomPoint(centrePoint.position, range, out point))
                 {
@@ -41,11 +45,13 @@ public class AnimalMovement : MonoBehaviour
         //Runaway mode;
         if (isHear)
         {
+            animator.SetBool("run", true);
+            animator.SetBool("walk", false);
             //Run away from player
             Vector3 direction = (transform.position - player.transform.position).normalized;
             Vector3 fleetdirec = direction + new Vector3(Random.Range(-1, 1), 0,Random.Range(-1,1));
             fleetdirec.Normalize();
-            //add randomness to the animal's eun away path
+            //add randomness to the animal's run away path
             Vector3 destination = transform.position + 25 * fleetdirec;
             
             
