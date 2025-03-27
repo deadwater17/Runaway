@@ -10,20 +10,20 @@ public class rabbitScript : MonoBehaviour, IInteractable
 
     void Start()
     {
-        r_weight = Random.Range(0.7f, 2.5f);
-
+        r_weight = Random.Range(1f, 3f);
         m_inventoryS = FindObjectOfType<InventorySystem>();
     }
     public void Interact()
     {
-        if (m_inventoryS.inventoryCapacity == 0 ) 
-        {
-            Debug.Log("Inventory is full!");
-        }
-        else 
+        if (m_inventoryS.inventoryCapacity > 0 ) 
         {
             Debug.Log("Weight added to inventory " + r_weight + ".");
-            m_inventoryS.inventoryCapacity -= 1;
+            m_inventoryS.AddAnimal("Rabbit", r_weight);
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Debug.Log("Inventory is full.");
         }
     }
 }

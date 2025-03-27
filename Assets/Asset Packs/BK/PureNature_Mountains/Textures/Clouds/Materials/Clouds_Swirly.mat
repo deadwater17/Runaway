@@ -16,6 +16,8 @@ Material:
   - _GAMMALINEAR_GAMMA
   - _KEYWORD0_KEY0
   - _KEYWORD0_ON
+  - _NOISEWORLDSPACEUVS_ON
+  - _NORMALWORLDSPACEUVS_ON
   - _USEFOGCOLOR_ON
   - _USEFOG_ON
   - _USESECONDNOISE_ON
@@ -52,22 +54,22 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Coverage: 0.65
+    - _Coverage: 0.544
     - _DistortionPower: 0.005
     - _Float0: 0.01
     - _Noise01Power: 1
     - _Noise02Power: 0.576
-    - _ScatteringPower: 2
-    - _Softness: 1
+    - _ScatteringPower: 2.5
+    - _Softness: 0.706
     - _Tiling01: 0.5
     - _Tiling02: 2
     - _UseFog: 1
     - _ViewDistance: 10000
     - __dirty: 0
     - _cloudsHeight: 300
-    - _cloudsPosition: 500
+    - _cloudsPosition: 300
     m_Colors:
-    - _CloudsColor: {r: 0.37732878, g: 0.6339269, b: 0.745283, a: 1}
+    - _CloudsColor: {r: 0.6431373, g: 0.25098038, b: 0.44186598, a: 1}
     - _DirectionSpeed: {r: -20, g: -17, b: 0, a: 31}
-    - _ScatteringColor: {r: 1, g: 1, b: 1, a: 1}
+    - _ScatteringColor: {r: 1, g: 0.7381315, b: 0.4198113, a: 1}
   m_BuildTextureStacks: []
