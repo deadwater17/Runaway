@@ -173,9 +173,9 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 0.8
   m_Text: 'Lost and hopeless, Ethan abandons his old life and travels to Black Hollow,
-    a desolate town in Alaska, where his father lived as a hunter and survivalist. '
+    a tranquil forrest in Alaska, where his father lived as a hunter and survivalist. '
 --- !u!222 &394749333
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -193,14 +193,14 @@ RectTransform:
   m_GameObject: {fileID: 394749331}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5217, y: 1.5217, z: 1.5217}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1604172038}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 38.2363, y: -5.7522}
+  m_AnchoredPosition: {x: -7.9999886, y: 9}
   m_SizeDelta: {x: 340.3376, y: 216.6916}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &394749335
@@ -275,10 +275,10 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 0.8
   m_Text: '"Mr. Graves, this is Officer Langston from Fairbanks, Alaska. Your father,
-    Samuel Graves, has been missing for a week. We need you to come up here and claim
-    his property." '
+    Samuel Graves, has been missing for four weeks. We need you to come up here and
+    claim his property." '
 --- !u!222 &442843007
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -296,14 +296,14 @@ RectTransform:
   m_GameObject: {fileID: 442843005}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5217, y: 1.5217, z: 1.5217}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1604172038}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 38.2363, y: -5.7522}
+  m_AnchoredPosition: {x: -7.9999886, y: -6.000003}
   m_SizeDelta: {x: 340.3376, y: 216.6916}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &442843009
@@ -399,7 +399,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 0.8
   m_Text: "Determined to uncover the truth, Ethan slowly assumes his father\u2019s
     life\u2014hunting, surviving, and piecing together the mystery of Samuel\u2019s
     disappearance."
@@ -420,14 +420,14 @@ RectTransform:
   m_GameObject: {fileID: 1043348251}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5217, y: 1.5217, z: 1.5217}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1604172038}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 38.2363, y: -5.7522}
+  m_AnchoredPosition: {x: -7.9999886, y: 9}
   m_SizeDelta: {x: 340.3376, y: 216.6916}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1121718216
@@ -594,9 +594,12 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 0.8
   m_Text: '"Your old man? He ain''t dead... but he ain''t here either. Went into
-    them mines. No one ever comes back from there." Dave muttered.'
+    them mines. No one ever comes back from there." Dave muttered.
+
+    Was this
+    forrest really so tranquil?'
 --- !u!222 &1177726896
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -614,14 +617,14 @@ RectTransform:
   m_GameObject: {fileID: 1177726893}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5217, y: 1.5217, z: 1.5217}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1604172038}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 38.2363, y: -5.7522}
+  m_AnchoredPosition: {x: -7.9999886, y: -6.000003}
   m_SizeDelta: {x: 340.3376, y: 216.6916}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1238151907
@@ -759,7 +762,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1d3b0eec271c7094baceb3909af3af74, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 88b4356178bc0924dbde4d1967bad931, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -786,14 +789,14 @@ RectTransform:
   m_GameObject: {fileID: 1248582548}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0719497, y: 1.0317516, z: 1.0719497}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1604172038}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.8752, y: -0.0496}
+  m_AnchoredPosition: {x: 33, y: -1}
   m_SizeDelta: {x: 808.5234, y: 457.2733}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1267839163
@@ -962,7 +965,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 0.8
   m_Text: "Upon arrival, he finds his father\u2019s cabin abandoned, his hunting
     gear untouched, and one man left behind \u2014 Crazy Dave, a wild-eyed old friend
     who runs the hunting supply shop."
@@ -983,14 +986,14 @@ RectTransform:
   m_GameObject: {fileID: 1316763836}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5217, y: 1.5217, z: 1.5217}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1604172038}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 38.2363, y: -5.7522}
+  m_AnchoredPosition: {x: -7.9999886, y: -6.000003}
   m_SizeDelta: {x: 340.3376, y: 216.6916}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1604172033
@@ -1301,7 +1304,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 0.8
   m_Text: "The protagonist, Ethan Graves, is an average man with a wife and two kids\u2014until
     a brutal divorce rips his life apart. His wife wins full custody, and the court
     orders him to stay away. Three days later, a phone call from an Alaskan police
@@ -1323,14 +1326,14 @@ RectTransform:
   m_GameObject: {fileID: 2070490483}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5217, y: 1.5217, z: 1.5217}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1604172038}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 38.2363, y: -5.7522}
+  m_AnchoredPosition: {x: -8, y: -5}
   m_SizeDelta: {x: 340.3376, y: 216.6916}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &2070490487

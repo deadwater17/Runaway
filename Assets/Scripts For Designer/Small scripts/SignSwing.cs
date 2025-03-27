@@ -5,11 +5,17 @@ using System.Collections;
 public class UIPushUp : MonoBehaviour
 {
     public RectTransform targetImage;  // Assign your UI Image's RectTransform in the Inspector
-    public float startY = -35f;        // Starting Y position
+    public float startY = -32.2f;        // Starting Y position
     public float endY = -21.5f;        // Ending Y position
-    public float pushDuration = 1f;    // Duration of the push animation
+    public float pushDuration = 0.5f;    // Duration of the push animation
 
     private bool isAnimating = false;
+    private bool isOpen = false;       // Track the current state
+
+    // Sound Variables
+    public AudioClip openSound;        // Sound to play when opening
+    public AudioClip closeSound;       // Sound to play when closing
+    private AudioSource audioSource;
 
     void Start()
     {
@@ -19,14 +25,38 @@ public class UIPushUp : MonoBehaviour
         targetImage.anchoredPosition = startPosition;
 
         // Add a listener to the button click event
-        GetComponent<Button>().onClick.AddListener(StartPushUp);
+        GetComponent<Button>().onClick.AddListener(TogglePushUp);
+
+        // Initialize the audio source
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.volume = 0.1f;  // Set volume to 30%
     }
 
-    public void StartPushUp()
+    public void TogglePushUp()
     {
         if (!isAnimating)
         {
+            // Play the appropriate sound based on the current state
+            if (isOpen)
+            {
+                PlaySound(closeSound);
+            }
+            else
+            {
+                PlaySound(openSound);
+            }
+
             StartCoroutine(PushUpCoroutine());
+            isOpen = !isOpen;  // Toggle the state
+        }
+    }
+
+    // Play the specified sound
+    private void PlaySound(AudioClip clip)
+    {
+        if (clip != null)
+        {
+            audioSource.PlayOneShot(clip);
         }
     }
 
@@ -35,7 +65,7 @@ public class UIPushUp : MonoBehaviour
         isAnimating = true;
         float elapsedTime = 0f;
         Vector2 startPosition = targetImage.anchoredPosition;
-        Vector2 endPosition = new Vector2(startPosition.x, endY);
+        Vector2 endPosition = isOpen ? new Vector2(startPosition.x, startY) : new Vector2(startPosition.x, endY);
 
         while (elapsedTime < pushDuration)
         {
