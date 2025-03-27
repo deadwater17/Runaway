@@ -1,0 +1,9 @@
+Movement (finished )
+
+Interaction:
+- Inventory maximum of 3 (finished)
+- Made 2 interactable objects E.g, rabbit and deer. Both adds
+to the inventory capacity. (finished)
+
+Update on weight:
+-Issue with the new top weight not updating

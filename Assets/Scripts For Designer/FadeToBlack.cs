@@ -7,7 +7,7 @@ public class FadeToBlack : MonoBehaviour
 {
     public Image fadePanel; // Assign UI Fade Panel
     public float fadeDuration = 2f; // Fade-out duration
-    public string sceneToLoad = "Game"; // Set in Inspector
+    public string sceneToLoad = "IntroCutscene"; // Set in Inspector
 
     private bool isFading = false;
 
@@ -20,6 +20,9 @@ public class FadeToBlack : MonoBehaviour
             fadePanel.color = panelColor;
         }
     }
+
+
+
 
     public void StartFade()
     {
@@ -57,5 +60,7 @@ public class FadeToBlack : MonoBehaviour
 
         // Load the scene
         SceneManager.LoadScene(sceneToLoad);
+
+        
     }
 }
