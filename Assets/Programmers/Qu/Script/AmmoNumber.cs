@@ -15,7 +15,6 @@ public class AmmoNumber : MonoBehaviour
     void Start()
     {
         text = GetComponent<TextMeshProUGUI>();
-        GetComponent<Gun>();
     }
 
     // Update is called once per frame
