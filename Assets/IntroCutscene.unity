@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 394749332}
   - component: {fileID: 394749335}
   m_Layer: 5
-  m_Name: ThirdSentence
+  m_Name: SixthSentence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -162,9 +162,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 1f26b44db3958464088644cb4b1b4753, type: 3}
-    m_FontSize: 23
-    m_FontStyle: 2
+    m_Font: {fileID: 12800000, guid: abd8ae3fde48acb4895d6f1d909f8719, type: 3}
+    m_FontSize: 12
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 300
@@ -174,9 +174,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.8
-  m_Text: 'Lost, broken, and desperate for answers, Ethan left behind the remnants
-    of his old life. He made his way to Black Hollow, a picturesque forest in Alaska
-    where his father had lived as a hunter and survivalist. '
+  m_Text: Lost, broken, and desperate for answers, Ethan left behind the remnants
+    of his old life.
 --- !u!222 &394749333
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -201,8 +200,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7.9999886, y: 9}
-  m_SizeDelta: {x: 340.3376, y: 216.6916}
+  m_AnchoredPosition: {x: 0, y: -133.27362}
+  m_SizeDelta: {x: 420.7314, y: 48.099}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &394749335
 Animator:
@@ -238,7 +237,7 @@ GameObject:
   - component: {fileID: 442843006}
   - component: {fileID: 442843009}
   m_Layer: 5
-  m_Name: SecondSentence
+  m_Name: FithSentence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -257,7 +256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -265,9 +264,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 1f26b44db3958464088644cb4b1b4753, type: 3}
-    m_FontSize: 23
-    m_FontStyle: 2
+    m_Font: {fileID: 12800000, guid: abd8ae3fde48acb4895d6f1d909f8719, type: 3}
+    m_FontSize: 12
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 300
@@ -304,8 +303,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7.9999886, y: -6.000003}
-  m_SizeDelta: {x: 340.3376, y: 216.6916}
+  m_AnchoredPosition: {x: 0, y: -133.27362}
+  m_SizeDelta: {x: 420.7314, y: 48.099}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &442843009
 Animator:
@@ -328,6 +327,107 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &465844142
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 465844146}
+  - component: {fileID: 465844145}
+  - component: {fileID: 465844144}
+  - component: {fileID: 465844143}
+  m_Layer: 5
+  m_Name: SecondSentence
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!95 &465844143
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465844142}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &465844144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465844142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: abd8ae3fde48acb4895d6f1d909f8719, type: 3}
+    m_FontSize: 12
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 0.8
+  m_Text: 'But everything changed when a brutal divorce tore his world apart. '
+--- !u!222 &465844145
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465844142}
+  m_CullTransparentMesh: 1
+--- !u!224 &465844146
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465844142}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5217, y: 1.5217, z: 1.5217}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1604172038}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -133.2737}
+  m_SizeDelta: {x: 420.7314, y: 48.099}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1043348251
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,7 +441,7 @@ GameObject:
   - component: {fileID: 1043348253}
   - component: {fileID: 1043348252}
   m_Layer: 5
-  m_Name: SixthSentence
+  m_Name: EleventhSentence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -381,7 +481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -389,9 +489,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 1f26b44db3958464088644cb4b1b4753, type: 3}
-    m_FontSize: 23
-    m_FontStyle: 2
+    m_Font: {fileID: 12800000, guid: abd8ae3fde48acb4895d6f1d909f8719, type: 3}
+    m_FontSize: 12
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 300
@@ -427,8 +527,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7.9999886, y: 9}
-  m_SizeDelta: {x: 340.3376, y: 216.6916}
+  m_AnchoredPosition: {x: 0, y: -133.27362}
+  m_SizeDelta: {x: 420.7314, y: 48.099}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1121718216
 GameObject:
@@ -522,6 +622,108 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1171385939
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1171385943}
+  - component: {fileID: 1171385942}
+  - component: {fileID: 1171385941}
+  - component: {fileID: 1171385940}
+  m_Layer: 5
+  m_Name: SeventhSentence
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!95 &1171385940
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171385939}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1171385941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171385939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: abd8ae3fde48acb4895d6f1d909f8719, type: 3}
+    m_FontSize: 12
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 0.8
+  m_Text: ' He made his way to Black Hollow, a picturesque forest in Alaska where
+    his father had lived as a hunter and survivalist.'
+--- !u!222 &1171385942
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171385939}
+  m_CullTransparentMesh: 1
+--- !u!224 &1171385943
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171385939}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5217, y: 1.5217, z: 1.5217}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1604172038}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -133.27362}
+  m_SizeDelta: {x: 420.7314, y: 48.099}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1177726893
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,7 +737,7 @@ GameObject:
   - component: {fileID: 1177726895}
   - component: {fileID: 1177726894}
   m_Layer: 5
-  m_Name: FithSentence
+  m_Name: TenthSentence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -575,7 +777,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -583,9 +785,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 1f26b44db3958464088644cb4b1b4753, type: 3}
-    m_FontSize: 23
-    m_FontStyle: 2
+    m_Font: {fileID: 12800000, guid: abd8ae3fde48acb4895d6f1d909f8719, type: 3}
+    m_FontSize: 12
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 300
@@ -621,8 +823,110 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7.9999886, y: -6.000003}
-  m_SizeDelta: {x: 340.3376, y: 216.6916}
+  m_AnchoredPosition: {x: 0, y: -133.27362}
+  m_SizeDelta: {x: 420.7314, y: 48.099}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1235789621
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1235789625}
+  - component: {fileID: 1235789624}
+  - component: {fileID: 1235789623}
+  - component: {fileID: 1235789622}
+  m_Layer: 5
+  m_Name: FourthSentence
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!95 &1235789622
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235789621}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1235789623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235789621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: abd8ae3fde48acb4895d6f1d909f8719, type: 3}
+    m_FontSize: 12
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 0.8
+  m_Text: Three days later, a call from an Alaskan police officer would alter the
+    course of his life forever.
+--- !u!222 &1235789624
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235789621}
+  m_CullTransparentMesh: 1
+--- !u!224 &1235789625
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235789621}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5217, y: 1.5217, z: 1.5217}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1604172038}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -133.2737}
+  m_SizeDelta: {x: 420.7314, y: 48.099}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1238151907
 GameObject:
@@ -903,7 +1207,7 @@ GameObject:
   - component: {fileID: 1316763838}
   - component: {fileID: 1316763837}
   m_Layer: 5
-  m_Name: FourthSentence
+  m_Name: EighthSentence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -943,7 +1247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -951,9 +1255,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 1f26b44db3958464088644cb4b1b4753, type: 3}
-    m_FontSize: 23
-    m_FontStyle: 2
+    m_Font: {fileID: 12800000, guid: abd8ae3fde48acb4895d6f1d909f8719, type: 3}
+    m_FontSize: 12
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 300
@@ -963,9 +1267,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.8
-  m_Text: "When Ethan arrived, he found his father's cabin abandoned. His hunting
-    gear was left untouched, and the only soul left behind was Crazy Dave\u2014a
-    wild-eyed old friend, who ran the local hunting supply shop. "
+  m_Text: When Ethan arrived, he found his father's cabin abandoned.
 --- !u!222 &1316763839
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -990,8 +1292,110 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7.9999886, y: -6.000003}
-  m_SizeDelta: {x: 340.3376, y: 216.6916}
+  m_AnchoredPosition: {x: 0, y: -133.27362}
+  m_SizeDelta: {x: 420.7314, y: 48.099}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1457878529
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1457878533}
+  - component: {fileID: 1457878532}
+  - component: {fileID: 1457878531}
+  - component: {fileID: 1457878530}
+  m_Layer: 5
+  m_Name: NinthSentence
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!95 &1457878530
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457878529}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1457878531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457878529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: abd8ae3fde48acb4895d6f1d909f8719, type: 3}
+    m_FontSize: 12
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 0.8
+  m_Text: " His hunting gear was left untouched, and the only soul left behind was
+    Crazy Dave\u2014a wild-eyed old friend, who ran the local hunting supply shop. "
+--- !u!222 &1457878532
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457878529}
+  m_CullTransparentMesh: 1
+--- !u!224 &1457878533
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457878529}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5217, y: 1.5217, z: 1.5217}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1604172038}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -133.27362}
+  m_SizeDelta: {x: 420.7314, y: 48.099}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1604172033
 GameObject:
@@ -1030,20 +1434,30 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: 3169279221684671189, guid: f64fa56a3d849a648a55b0ec85335bcb, type: 2}
     value: {fileID: 1890076650}
-  - key: {fileID: 8444189909131636283, guid: f64fa56a3d849a648a55b0ec85335bcb, type: 2}
-    value: {fileID: 2070490487}
-  - key: {fileID: -4106743946722294037, guid: f64fa56a3d849a648a55b0ec85335bcb, type: 2}
-    value: {fileID: 442843009}
-  - key: {fileID: -8718930703483221151, guid: f64fa56a3d849a648a55b0ec85335bcb, type: 2}
-    value: {fileID: 394749335}
-  - key: {fileID: -8419895378528084954, guid: f64fa56a3d849a648a55b0ec85335bcb, type: 2}
-    value: {fileID: 1316763837}
-  - key: {fileID: 8396230295156184196, guid: f64fa56a3d849a648a55b0ec85335bcb, type: 2}
-    value: {fileID: 1177726894}
-  - key: {fileID: -5071909828273538154, guid: f64fa56a3d849a648a55b0ec85335bcb, type: 2}
-    value: {fileID: 1043348252}
   - key: {fileID: -7279061281986363939, guid: f64fa56a3d849a648a55b0ec85335bcb, type: 2}
     value: {fileID: 1248582549}
+  - key: {fileID: -291231777736976453, guid: f64fa56a3d849a648a55b0ec85335bcb, type: 2}
+    value: {fileID: 2070490483}
+  - key: {fileID: 7251056116122366494, guid: f64fa56a3d849a648a55b0ec85335bcb, type: 2}
+    value: {fileID: 465844142}
+  - key: {fileID: 1643993295106095953, guid: f64fa56a3d849a648a55b0ec85335bcb, type: 2}
+    value: {fileID: 1718358044}
+  - key: {fileID: -574869698781956591, guid: f64fa56a3d849a648a55b0ec85335bcb, type: 2}
+    value: {fileID: 1235789621}
+  - key: {fileID: 4947605967349357343, guid: f64fa56a3d849a648a55b0ec85335bcb, type: 2}
+    value: {fileID: 442843005}
+  - key: {fileID: -3344783108263597974, guid: f64fa56a3d849a648a55b0ec85335bcb, type: 2}
+    value: {fileID: 394749331}
+  - key: {fileID: -1749512247615760964, guid: f64fa56a3d849a648a55b0ec85335bcb, type: 2}
+    value: {fileID: 1171385939}
+  - key: {fileID: -2547840269082441919, guid: f64fa56a3d849a648a55b0ec85335bcb, type: 2}
+    value: {fileID: 1316763836}
+  - key: {fileID: 3538047600204307128, guid: f64fa56a3d849a648a55b0ec85335bcb, type: 2}
+    value: {fileID: 1457878529}
+  - key: {fileID: 5194564024016253772, guid: f64fa56a3d849a648a55b0ec85335bcb, type: 2}
+    value: {fileID: 1177726893}
+  - key: {fileID: 2294197213461823649, guid: f64fa56a3d849a648a55b0ec85335bcb, type: 2}
+    value: {fileID: 1043348251}
   m_ExposedReferences:
     m_References:
     - c01cee97b3025d040a2b3e42deb1c5f3: {fileID: 394749331}
@@ -1125,9 +1539,14 @@ RectTransform:
   - {fileID: 1238151908}
   - {fileID: 1248582552}
   - {fileID: 2070490486}
+  - {fileID: 465844146}
+  - {fileID: 1718358048}
+  - {fileID: 1235789625}
   - {fileID: 442843008}
   - {fileID: 394749334}
+  - {fileID: 1171385943}
   - {fileID: 1316763840}
+  - {fileID: 1457878533}
   - {fileID: 1177726897}
   - {fileID: 1043348255}
   m_Father: {fileID: 0}
@@ -1137,6 +1556,107 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1718358044
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1718358048}
+  - component: {fileID: 1718358047}
+  - component: {fileID: 1718358046}
+  - component: {fileID: 1718358045}
+  m_Layer: 5
+  m_Name: ThirdSentence
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!95 &1718358045
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718358044}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1718358046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718358044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: abd8ae3fde48acb4895d6f1d909f8719, type: 3}
+    m_FontSize: 12
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 0.8
+  m_Text: 'His wife won full custody, and the court ordered him to stay away. '
+--- !u!222 &1718358047
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718358044}
+  m_CullTransparentMesh: 1
+--- !u!224 &1718358048
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718358044}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5217, y: 1.5217, z: 1.5217}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1604172038}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -133.2737}
+  m_SizeDelta: {x: 420.7314, y: 48.099}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1800357876
 GameObject:
   m_ObjectHideFlags: 0
@@ -1282,7 +1802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1290,9 +1810,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 1f26b44db3958464088644cb4b1b4753, type: 3}
-    m_FontSize: 23
-    m_FontStyle: 2
+    m_Font: {fileID: 12800000, guid: abd8ae3fde48acb4895d6f1d909f8719, type: 3}
+    m_FontSize: 12
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 300
@@ -1302,10 +1822,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.8
-  m_Text: 'Ethan Graves was once just an ordinary family man, living a simple life.
-    But everything changed when a brutal divorce tore his world apart. His wife won
-    full custody, and the court ordered him to stay away. Three days later, a call
-    from an Alaskan police officer would alter the course of his life forever. '
+  m_Text: Ethan Graves was once just an ordinary family man, living a simple life.
 --- !u!222 &2070490485
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1330,8 +1847,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8, y: -5}
-  m_SizeDelta: {x: 340.3376, y: 216.6916}
+  m_AnchoredPosition: {x: 0, y: -133.2737}
+  m_SizeDelta: {x: 420.7314, y: 48.099}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &2070490487
 Animator:
