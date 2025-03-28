@@ -39,13 +39,19 @@ public class SoundAdjust : MonoBehaviour
     private void AnimalsInRange()
     {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, m_audiosource.maxDistance);
+
         foreach (Collider collider in hitColliders) 
         {
             AnimalMovement animal = collider.GetComponent<AnimalMovement>();
+            BearMovement bear = collider.GetComponent<BearMovement>();
             if(animal != null)
             {
                 animal.isHear = true;
                 Debug.Log("yes,hear");
+            }
+            if(bear != null)
+            {
+                bear.isHear = true;
             }
         
         }
