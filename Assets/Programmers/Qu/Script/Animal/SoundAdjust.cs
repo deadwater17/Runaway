@@ -45,6 +45,7 @@ public class SoundAdjust : MonoBehaviour
             if(animal != null)
             {
                 animal.isHear = true;
+                Debug.Log("yes,hear");
             }
         
         }
