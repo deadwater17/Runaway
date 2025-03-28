@@ -1,19 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using TMPro;
 using UnityEngine;
 
 public class CheckTopWeight : MonoBehaviour
 {
     [HideInInspector]
     public float TopWeight = 0; // The total weight of the inventory
+    private rabbitScript rabbitScript;
     private deerScript deerScript;
+    private bearScript bearScript;
     private float m_newWeight;
 
+    private int m_rabbitCount;
+    private int m_deerCount;  
+    private int m_bearCount;
+
     
-    public GameObject rabbittxt;
-    public GameObject deertxt;
-    public GameObject beartxt;
+    public TextMeshProUGUI rabbittxt;
+    public TextMeshProUGUI deertxt;
+    public TextMeshProUGUI beartxt;
     private float m_RoldWeight;
     private float m_DoldWeight;
     private float m_BoldWeight;
@@ -21,52 +28,44 @@ public class CheckTopWeight : MonoBehaviour
     private float m_DnewWeight;
     private float m_BnewWeight;
 
-
-    void Update()
+    void Start()
     {
-        //CheckWeight();
-        if (Input.GetKeyDown(KeyCode.Y)) // Show the heaviest deer weight when Y is pressed
-        {
-            Debug.Log("Heaviest Deer carried: " + TopWeight + " kg.");
-        }
+        rabbitScript = FindObjectOfType<rabbitScript>();
+        deerScript = FindObjectOfType<deerScript>();
+        bearScript = FindObjectOfType<bearScript>();
     }
 
     public void UpdateWeight(string animalType, float weight)
     {
-        if (TopWeight < m_newWeight)
-        {
-            TopWeight = m_newWeight; // Update to the new heaviest deer weight
-            Debug.Log("New heaviest deer weight: " + TopWeight);
-        }
-    /*
         switch (animalType)
         {
             case "Rabbit":
-                rabbitCount++;
-                rabbitNum.text = rabbitCount.ToString();
+                m_RnewWeight = weight;
+                if (m_RoldWeight < m_RnewWeight)
+                {
+                    m_RoldWeight = m_RnewWeight;
+                }
+                //rabbitScript.r_weight = m_RnewWeight;
+                rabbittxt.text = Mathf.Round(m_RoldWeight).ToString();  
                 break;
             case "Deer":
-                deerCount++;
-                deerNum.text = deerCount.ToString();
+                m_DnewWeight = weight;
+                if (m_DoldWeight < m_DnewWeight)
+                {
+                    m_DoldWeight = m_DnewWeight;
+                }
+               // deerScript.d_weight = m_DnewWeight;
+                deertxt.text = Mathf.Round(m_DoldWeight).ToString();  
                 break;
             case "Bear":
-                bearCount++;
-                bearNum.text = bearCount.ToString();
+                m_BnewWeight = weight;
+                if (m_BoldWeight < m_BnewWeight)
+                {
+                    m_BoldWeight = m_BnewWeight;
+                }
+               // bearScript.b_weight = m_BnewWeight;
+                beartxt.text = Mathf.Round(m_BoldWeight).ToString();  
                 break;
         }
-    */
     }
-
-    /*
-    private void UpdateWeight()
-    {
-        if (m_oldweight < d_weight)
-    }
-
-    private void CheckWeight()
-    {
-
-    }
-
-    */
 }

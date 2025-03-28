@@ -6,25 +6,26 @@ public class deerScript : MonoBehaviour, IInteractable
 {
     [HideInInspector]
     public float d_weight;
-    public InventorySystem m_inventoryS;
+    public InventorySystem inventoryS;
+    public CheckTopWeight ctw;
     private float m_oldweight;
-
-    public GameObject rabbitTXT;
 
     void Start()
     {
         d_weight = Random.Range(45, 68);
-        m_inventoryS = FindObjectOfType<InventorySystem>();
+        inventoryS = FindObjectOfType<InventorySystem>();
         m_oldweight = d_weight;
     }
 
     public void Interact()
     {
-        if (m_inventoryS.inventoryCapacity > 0)
+        if (inventoryS.inventoryCapacity > 0)
         {
             Debug.Log("Weight added to inventory " + d_weight + ".");
-            m_inventoryS.AddAnimal("Deer", d_weight);
+            inventoryS.AddAnimal("Deer", d_weight);
+            ctw.UpdateWeight("Deer", d_weight);
             Destroy(this.gameObject);
+            
         }
         else
         {

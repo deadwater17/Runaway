@@ -7,7 +7,7 @@ public class bearScript : MonoBehaviour, IInteractable
     [HideInInspector]
     public float b_weight;
     public InventorySystem m_inventoryS;
-
+    public CheckTopWeight ctw; 
     void Start()
     {
         b_weight = Random.Range(100f, 200f);
@@ -20,6 +20,7 @@ public class bearScript : MonoBehaviour, IInteractable
         {
             Debug.Log("Weight added to inventory " + b_weight + ".");
             m_inventoryS.AddAnimal("Bear", b_weight);
+            ctw.UpdateWeight("Bear", b_weight);
             Destroy(this.gameObject);
         }
         else
