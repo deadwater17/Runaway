@@ -7,6 +7,8 @@ Changing interaction system, updated UI (Done)
 
 animal consist: Inspiration Stardew Valley, Fish length
 - Need to make it so it saves weight data
+- Display weight on the notepad
+- Make an object so it can dispose all the inventory space ( inventory clearer to test otehr stuff )
 
 - Info script
 - Looked at script
