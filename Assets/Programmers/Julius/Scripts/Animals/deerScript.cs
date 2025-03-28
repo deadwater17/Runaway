@@ -7,11 +7,15 @@ public class deerScript : MonoBehaviour, IInteractable
     [HideInInspector]
     public float d_weight;
     public InventorySystem m_inventoryS;
+    private float m_oldweight;
+
+    public GameObject rabbitTXT;
 
     void Start()
     {
         d_weight = Random.Range(45, 68);
         m_inventoryS = FindObjectOfType<InventorySystem>();
+        m_oldweight = d_weight;
     }
 
     public void Interact()
