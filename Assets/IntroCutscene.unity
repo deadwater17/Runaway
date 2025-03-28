@@ -174,8 +174,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.8
-  m_Text: 'Lost and hopeless, Ethan abandons his old life and travels to Black Hollow,
-    a tranquil forrest in Alaska, where his father lived as a hunter and survivalist. '
+  m_Text: 'Lost, broken, and desperate for answers, Ethan left behind the remnants
+    of his old life. He made his way to Black Hollow, a picturesque forest in Alaska
+    where his father had lived as a hunter and survivalist. '
 --- !u!222 &394749333
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -276,9 +277,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.8
-  m_Text: '"Mr. Graves, this is Officer Langston from Fairbanks, Alaska. Your father,
-    Samuel Graves, has been missing for four weeks. We need you to come up here and
-    claim his property." '
+  m_Text: 'Officer Langston: "Mr. Graves, this is Officer Langston from Fairbanks,
+    Alaska. Your father, Samuel Graves, has been missing for a week. We need you
+    to come up here and claim his property." '
 --- !u!222 &442843007
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -400,9 +401,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.8
-  m_Text: "Determined to uncover the truth, Ethan slowly assumes his father\u2019s
-    life\u2014hunting, surviving, and piecing together the mystery of Samuel\u2019s
-    disappearance."
+  m_Text: "With nothing left to lose, Ethan embraced his father's life\u2014hunting,
+    surviving, and unravelling the dark mystery behind Samuel's disappearance. "
 --- !u!222 &1043348254
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -595,11 +595,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.8
-  m_Text: '"Your old man? He ain''t dead... but he ain''t here either. Went into
-    them mines. No one ever comes back from there." Dave muttered.
-
-    Was this
-    forrest really so tranquil?'
+  m_Text: 'Crazy Dave: "Your old man? He ain''t dead... but he ain''t here either.
+    He went into them mines. No one''s ever come back from there." '
 --- !u!222 &1177726896
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -966,9 +963,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.8
-  m_Text: "Upon arrival, he finds his father\u2019s cabin abandoned, his hunting
-    gear untouched, and one man left behind \u2014 Crazy Dave, a wild-eyed old friend
-    who runs the hunting supply shop."
+  m_Text: "When Ethan arrived, he found his father's cabin abandoned. His hunting
+    gear was left untouched, and the only soul left behind was Crazy Dave\u2014a
+    wild-eyed old friend, who ran the local hunting supply shop. "
 --- !u!222 &1316763839
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1305,10 +1302,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.8
-  m_Text: "The protagonist, Ethan Graves, is an average man with a wife and two kids\u2014until
-    a brutal divorce rips his life apart. His wife wins full custody, and the court
-    orders him to stay away. Three days later, a phone call from an Alaskan police
-    officer changes everything. "
+  m_Text: 'Ethan Graves was once just an ordinary family man, living a simple life.
+    But everything changed when a brutal divorce tore his world apart. His wife won
+    full custody, and the court ordered him to stay away. Three days later, a call
+    from an Alaskan police officer would alter the course of his life forever. '
 --- !u!222 &2070490485
 CanvasRenderer:
   m_ObjectHideFlags: 0
