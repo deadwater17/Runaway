@@ -5,7 +5,7 @@ Issue with crouch and jump (Done)
 Interaction:
 Changing interaction system, updated UI (Done)
 
-animal consist: 
+animal consist: Inspiration Stardew Valley, Fish length
 - Need to make it so it saves weight data
 
 - Info script
