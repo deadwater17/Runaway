@@ -6,65 +6,79 @@ using UnityEngine.AI;
 public class BearMovement : MonoBehaviour
 {
     public NavMeshAgent agent;
-    public float range;
     public GameObject player;
     public Transform centrePoint;
+    public LayerMask obstacle;
     public bool isHear;
-    public bool isWonder;
+    public bool isWander;
+
     public bool seePlayer;
-    public float time = 0;
+    public float range;
+    public float viewAngle;
+    private float chaseSpeed = 4f;
+
     //Animator animator;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         //animator = GetComponent<Animator>();
-        isWonder = true;
+        isWander = true;
         isHear = false;
+        seePlayer = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //wondering mode;
-        if (isWonder)
+
+        SearchPlayer();
+        //wandering mode;
+        if (isWander)
         {
-            //animator.SetBool("walk", true);
-            //animator.SetBool("run", false);
-            if (agent.remainingDistance <= agent.stoppingDistance)
-            {
-                Vector3 point;
-                if (RandomPoint(centrePoint.position, range, out point))
-                {
-                    Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f);
-                    agent.SetDestination(point);
-                    agent.speed = 2.5f;
-                }
-            }
+            Wander();
         }
 
         //chasing mode;
         if (isHear)
         {
-
-            //animator.SetBool("run", true);
-            //animator.SetBool("walk", false);
-            //Run towards player
-            Vector3 destination = player.transform.position ;
-            agent.speed = 4f;
-            agent.SetDestination(destination);
-            isWonder = false;
+            ChasePlayer();
+            isWander = false;
             Debug.Log("animal run : " + agent.speed);
         }
 
-        if (agent.remainingDistance <= agent.stoppingDistance && !isWonder) //decide whether to come back to wondering mode
-        {
-            Debug.Log("end run");
-            isWonder = true;
-        }
-
-
+        CheckReturnTowander();
     }
 
+    void ChasePlayer()
+    {
+        agent.speed = chaseSpeed;
+        agent.SetDestination(player.transform.position);
+    }
+
+    void Wander()
+    {
+        if (agent.remainingDistance <= agent.stoppingDistance)
+        {
+            Vector3 point;
+            if (RandomPoint(centrePoint.position, range, out point))
+            {
+                Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f);
+                agent.SetDestination(point);
+                agent.speed = 2.5f;
+            }
+        }
+    }
+
+    void CheckReturnTowander()
+    {
+        if (Vector3.Distance(transform.position, player.transform.position) > range) //decide whether to come back to wondering mode
+        {
+            Debug.Log("end run");
+            isWander = true;
+            isHear = false;
+            seePlayer = false;
+        }
+    }
     bool RandomPoint(Vector3 center, float range, out Vector3 result)
     {
         Vector3 randomPoint = center + Random.insideUnitSphere * range;
@@ -83,21 +97,27 @@ public class BearMovement : MonoBehaviour
     void SearchPlayer()
     {
         Collider[] playerRange = Physics.OverlapSphere(transform.position, range);
-        foreach(Collider player in playerRange)
+        foreach (Collider target in playerRange)
         {
-            Vector3 dirToplayer = (player.transform.position - transform.position).normalized;
-            if (Vector3.Angle(dirToplayer, transform.forward) < 80 / 2)
+            if (target.gameObject == player) // Ensure it is the actual player
             {
-                float desToPlayer = Vector3.Distance(transform.position, player.transform.position);
-                if(!Physics.Raycast(transform.position, dirToplayer,desToPlayer))
+                Vector3 dirToplayer = (player.transform.position - transform.position).normalized;
+
+                if (Vector3.Angle(dirToplayer, transform.forward) < viewAngle / 2) // if the player is within the view of bear
                 {
-                    seePlayer = true;
-                }
-                else
-                {
-                    seePlayer=false;
+                    float desToPlayer = Vector3.Distance(transform.position, player.transform.position);
+                    if (!Physics.Raycast(transform.position, dirToplayer, desToPlayer, obstacle))
+                    {
+                        seePlayer = true;
+                        isHear = true;
+                    }
+                    else
+                    {
+                        seePlayer = false;
+                    }
                 }
             }
         }
     }
 }
+
