@@ -11,15 +11,7 @@ public class InventorySystem : MonoBehaviour
     public float inventoryCapacity = 3; // space left in inventory
 
     public GameObject inventoryUI; // Reference to the inventory UI
-/*
-    public TextMeshPro rabbitNum;
-    public TextMeshPro deerNum;
-    public TextMeshPro bearNum;
 
-    private int rabbitCount = 0;
-    private int deerCount = 0;
-    private int bearCount = 0;
-*/
     public void AddWeight(float weight)
     {
         inventoryWeight += weight; // Add the weight to the inventory
@@ -67,4 +59,18 @@ public class InventorySystem : MonoBehaviour
         }
     }
 
+    public void SoldAnimal() // string animalType, float weight)
+    {
+        if (inventoryCapacity > 0)
+        {
+            inventoryCapacity = 0; // Reset the inventory capacity to 0
+            Debug.Log("Inventory cleared.");
+            // This is a temp solution to clear the inventory.
+            // Need to add a function to check every animal in the inventory and remove it.
+        }
+        else
+        {
+            Debug.Log("Inventory is empty!");
+        }
+    }
 }

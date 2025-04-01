@@ -11,3 +11,5 @@ animal consist:
 
 - Need to make a interaction object that clears inventory (to test if higher weight gets saved)
 
+- Whenever I try to clear, it says inventory is empty, but when I try to get animals, it says
+theres more ( need to fix ASAP )
