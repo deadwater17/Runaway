@@ -9,7 +9,7 @@ public class InventorySystem : MonoBehaviour
     public float inventoryWeight = 0; // The total weight of the inventory
     [HideInInspector]
     public float inventoryCapacity = 3; // space left in inventory
-
+    private float maxInventoryCapacity = 3; // Maximum inventory capacity
     public GameObject inventoryUI; // Reference to the inventory UI
 
     public void AddWeight(float weight)
@@ -61,16 +61,15 @@ public class InventorySystem : MonoBehaviour
 
     public void SoldAnimal() // string animalType, float weight)
     {
-        if (inventoryCapacity > 0)
+        if (inventoryCapacity < maxInventoryCapacity)
         {
-            inventoryCapacity = 0; // Reset the inventory capacity to 0
-            Debug.Log("Inventory cleared.");
-            // This is a temp solution to clear the inventory.
-            // Need to add a function to check every animal in the inventory and remove it.
+            inventoryCapacity = maxInventoryCapacity; // Reset the inventory capacity to its maximum
+            inventoryWeight = 0; // Reset the inventory weight to 0
+            Debug.Log("Inventory cleared and capacity reset.");
         }
         else
         {
-            Debug.Log("Inventory is empty!");
+            Debug.Log("Inventory is already empty!");
         }
     }
 }
