@@ -5,11 +5,12 @@ Issue with crouch and jump (Done)
 Interaction:
 Changing interaction system, updated UI (Done)
 
+
 animal consist: 
 - Need to make it so it saves weight data (Done)
 - Display weight on the notepad (Done)
 
-- Need to make a interaction object that clears inventory (to test if higher weight gets saved)
+- Need to make a interaction object that clears inventory ( Done)
 
 - Whenever I try to clear, it says inventory is empty, but when I try to get animals, it says
-theres more ( need to fix ASAP )
+theres more ( Fixed)
