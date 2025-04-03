@@ -23,5 +23,14 @@ public class Bullet : MonoBehaviour
         rb.rotation = Quaternion.Euler(0,0,0);
         rb.isKinematic = true;
         //GetComponent<Collider>().enabled = false;
+        //StartCoroutine(deleteObject());
     }
+
+    //IEnumerator deleteObject()
+    //{
+    //    yield return new WaitForSeconds(2f);
+    //    this.gameObject.SetActive(false);
+    //    GetComponent<Collider>().enabled = true;
+    //    rb.isKinematic = false;
+    //}
 }

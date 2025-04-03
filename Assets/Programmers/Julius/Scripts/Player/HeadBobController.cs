@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HeadBobController : MonoBehaviour
 {
+    [Header("Headbob Controller")]
     [Range(0.001f,0.01f)]
     public float amount;
 

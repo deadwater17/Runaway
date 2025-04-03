@@ -16,9 +16,14 @@ public class Gun : MonoBehaviour
     float nextshoot = 0.0f;
     float shootrate = 1f;
 
+    //sound system
+    public AudioClip shootSound;
+    AudioSource m_audioSource;
+
     private void Start()
     {
         cameraShake = fpsCam.GetComponent<CameraShake>();
+        m_audioSource = GetComponent<AudioSource>();
         currentAmmo = AmmoNumber.bullet;
     }
     void Update()
@@ -34,6 +39,7 @@ public class Gun : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && currentAmmo != 0)
             {
                 Shoot();
+                PlayShootSound();
                 nextshoot = Time.time + 1f / shootrate;
             }
         }
@@ -65,6 +71,7 @@ public class Gun : MonoBehaviour
     void SpawnBullet(Vector3 start, Vector3 target)
     {
         GameObject bullet = Instantiate(bulletPrefab, start, Quaternion.identity);
+        
 
         Rigidbody rb = bullet.GetComponent<Rigidbody>(); // Get the Rigidbody component
         if (rb == null)
@@ -97,6 +104,14 @@ public class Gun : MonoBehaviour
             yield return null;
         }
 
+
+    }
+
+    void PlayShootSound()
+    {
+        m_audioSource.clip = shootSound;
+        FindObjectOfType<SoundAdjust>().soundRangeAdjust(m_audioSource);
+        m_audioSource.Play();
 
     }
 

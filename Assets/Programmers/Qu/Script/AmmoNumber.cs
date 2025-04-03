@@ -7,7 +7,7 @@ using UnityEngine;
 public class AmmoNumber : MonoBehaviour
 {
     public static int arrow = 10;
-    public static int bullet = 10; //later another script manage the ammo inventory
+    public static int bullet = 50; //later another script manage the ammo inventory
 
     public GameObject gun;
     public GameObject bow;
@@ -15,7 +15,6 @@ public class AmmoNumber : MonoBehaviour
     void Start()
     {
         text = GetComponent<TextMeshProUGUI>();
-        GetComponent<Gun>();
     }
 
     // Update is called once per frame
