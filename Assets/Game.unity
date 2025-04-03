@@ -1516,6 +1516,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6364011522336682700, guid: 60a7e591c3334a2eb8fc45d9427fe0bf, type: 3}
+--- !u!1 &441575688 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 846260830762633935, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
+  m_PrefabInstance: {fileID: 1619010276}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &474514315
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5950,11 +5955,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 491420, guid: 4982275e186455342a472e320445fdda, type: 3}
   m_PrefabInstance: {fileID: 1364110710}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1377439702 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2018204415832004731, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
-  m_PrefabInstance: {fileID: 1619010276}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1391771995
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7540,7 +7540,7 @@ PrefabInstance:
     - target: {fileID: 8317058086740700224, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
       propertyPath: inventoryUI
       value: 
-      objectReference: {fileID: 1377439702}
+      objectReference: {fileID: 441575688}
     - target: {fileID: 8547865131827239211, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
       propertyPath: m_Enabled
       value: 0
