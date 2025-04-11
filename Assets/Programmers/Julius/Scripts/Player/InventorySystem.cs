@@ -3,14 +3,20 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+
 public class InventorySystem : MonoBehaviour
 {
+    public ItemSlot[] itemSlot;
+
     [HideInInspector]
     public float inventoryWeight = 0; // The total weight of the inventory
     [HideInInspector]
     public float inventoryCapacity = 3; // space left in inventory
     private float maxInventoryCapacity = 3; // Maximum inventory capacity
     public GameObject inventoryUI; // Reference to the inventory UI
+
+
+    //std::vec3 <Animals> animals; // List of animals in the inventory
 
     public void AddWeight(float weight)
     {
@@ -47,11 +53,20 @@ public class InventorySystem : MonoBehaviour
     }
 
 
-    public void AddAnimal(string animalType, float weight)
+    public void PickupAnimal(string animalType, int quantity)
     {
         if (inventoryCapacity > 0)
         {
             inventoryCapacity--; // Decrease the inventory capacity
+            for (int i = 0; i < itemSlot.Length; i++)
+            {
+                if (itemSlot[i].animalName == null) // Check if the slot is empty
+                {
+                    itemSlot[i].AddAnimal(animalType, quantity); // Add the animal to the slot
+                    Debug.Log("Added " + animalType + " to inventory. Remaining capacity: " + inventoryCapacity + ".");
+                    break; // Exit the loop after adding the animal
+                }
+            }
         }
         else
         {

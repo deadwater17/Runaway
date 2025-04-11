@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class deerScript : MonoBehaviour, IInteractable
 {
+    public Sprite d_Sprite;   
+    
     [HideInInspector]
     public float d_weight;
     public InventorySystem inventoryS;
     public CheckTopWeight ctw;
-    private float m_oldweight;
-
+    private float m_oldweight;    
+    
     void Start()
     {
         d_weight = Random.Range(45, 68);
@@ -19,17 +21,16 @@ public class deerScript : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if (inventoryS.inventoryCapacity > 0)
+        if (inventoryS.inventoryCapacity > 0 ) 
         {
             Debug.Log("Weight added to inventory " + d_weight + ".");
-            inventoryS.AddAnimal("Deer", d_weight);
+            inventoryS.PickupAnimal("Deer", 1); // Add the animal to the inventory
             ctw.UpdateWeight("Deer", d_weight);
             Destroy(this.gameObject);
-            
         }
         else
         {
-            Debug.Log("Inventory is full!");
+            Debug.Log("Inventory is full.");
         }
     }
 

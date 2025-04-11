@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class bearScript : MonoBehaviour, IInteractable
 {
+    
     [HideInInspector]
     public float b_weight;
     public InventorySystem m_inventoryS;
@@ -19,7 +20,7 @@ public class bearScript : MonoBehaviour, IInteractable
         if (m_inventoryS.inventoryCapacity > 0)
         {
             Debug.Log("Weight added to inventory " + b_weight + ".");
-            m_inventoryS.AddAnimal("Bear", b_weight);
+            //m_inventoryS.AddAnimal("Bear", b_weight);
             ctw.UpdateWeight("Bear", b_weight);
             Destroy(this.gameObject);
         }

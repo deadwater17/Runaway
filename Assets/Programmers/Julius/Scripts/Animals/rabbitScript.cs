@@ -1,13 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class rabbitScript : MonoBehaviour, IInteractable
 {
+    public Sprite r_Sprite;       //this needs to be the immage of the animal in the inventory
+
     [HideInInspector]
-    public float r_weight;
+    private float r_weight;
     public InventorySystem m_inventoryS;
     public CheckTopWeight ctw;
+
+
 
     void Start()
     {
@@ -19,7 +25,7 @@ public class rabbitScript : MonoBehaviour, IInteractable
         if (m_inventoryS.inventoryCapacity > 0 ) 
         {
             Debug.Log("Weight added to inventory " + r_weight + ".");
-            m_inventoryS.AddAnimal("Rabbit", r_weight);
+            m_inventoryS.PickupAnimal("Rabbit", 1); // Add the animal to the inventory
             ctw.UpdateWeight("Rabbit", r_weight);
             Destroy(this.gameObject);
         }
