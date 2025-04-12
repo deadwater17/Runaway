@@ -23,8 +23,7 @@ public class deerScript : MonoBehaviour, IInteractable
     {
         if (inventoryS.inventoryCapacity > 0 ) 
         {
-            Debug.Log("Weight added to inventory " + d_weight + ".");
-            inventoryS.PickupAnimal("Deer", 1); // Add the animal to the inventory
+            inventoryS.PickupAnimal("Deer", d_Sprite); // Add the animal to the inventory
             ctw.UpdateWeight("Deer", d_weight);
             Destroy(this.gameObject);
         }

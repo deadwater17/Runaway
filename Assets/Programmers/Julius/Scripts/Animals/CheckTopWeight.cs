@@ -45,8 +45,8 @@ public class CheckTopWeight : MonoBehaviour
                 {
                     m_RoldWeight = m_RnewWeight;
                 }
-                //rabbitScript.r_weight = m_RnewWeight;
                 rabbittxt.text = Mathf.Round(m_RoldWeight).ToString();  
+                Debug.Log("Rabbit weight updated: " + m_RoldWeight);
                 break;
             case "Deer":
                 m_DnewWeight = weight;
@@ -54,8 +54,8 @@ public class CheckTopWeight : MonoBehaviour
                 {
                     m_DoldWeight = m_DnewWeight;
                 }
-               // deerScript.d_weight = m_DnewWeight;
                 deertxt.text = Mathf.Round(m_DoldWeight).ToString();  
+                Debug.Log("Deer weight updated: " + m_DoldWeight);
                 break;
             case "Bear":
                 m_BnewWeight = weight;
@@ -63,8 +63,8 @@ public class CheckTopWeight : MonoBehaviour
                 {
                     m_BoldWeight = m_BnewWeight;
                 }
-               // bearScript.b_weight = m_BnewWeight;
                 beartxt.text = Mathf.Round(m_BoldWeight).ToString();  
+                Debug.Log("Bear weight updated: " + m_BoldWeight);
                 break;
         }
     }

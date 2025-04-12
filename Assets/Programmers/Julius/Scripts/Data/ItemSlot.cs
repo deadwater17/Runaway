@@ -1,30 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class ItemSlot : MonoBehaviour
 {
     public string animalName;
-    private int m_quantity;
-    private float weight; // Weight of the animal
+    public Sprite animalSprite; 
+    public bool usedSlot; // Check if the slot is used
 
-    public TMP_Text itemQuantityText; // Reference to the text component for the item name
+    [SerializeField]
+    public UnityEngine.UI.Image animalImage;
 
     public InventorySystem inventory;
 
-    public void AddAnimal(string animalType, int quantity)
+    void Start()
     {
-        if (inventory.inventoryCapacity > 0) // Check if there is space in the inventory
-        {
-            this.animalName = animalType; // Set the item name to the animal type
-            this.m_quantity = quantity; // Set the weight of the item
-            quantity++; // Increase the quantity of the item in the slot
-            itemQuantityText.text = quantity.ToString(); // Update the text component with the new quantity
-        }
-        else
-        {
-            Debug.Log("Inventory is full."); // Log a message if the inventory is full
-        }
+        usedSlot = false; // Initialize the slot as unused
+        animalImage.enabled = false;
+    }
+
+    public void AddAnimal(string animalType, Sprite animalSprite)
+    {
+        this.animalName = animalType; // Set the item name to the animal type
+        this.animalSprite = animalSprite; // Set the sprite of the item      
+
+        animalImage.sprite = animalSprite;
+        animalImage.enabled = true; // Enable the image to show the animal sprite
+
+        Debug.Log ("Added " + animalType + " to inventory slot.");
+
+        usedSlot = true; // Mark the slot as used
+
     }
 }

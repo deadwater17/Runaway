@@ -287,6 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fa6ea3bb7c6b844eba47c20f4cae14e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  d_Sprite: {fileID: 21300000, guid: 0afc3aeefb8ed944a8dc57dcf0163486, type: 3}
   d_weight: 0
   inventoryS: {fileID: 0}
   ctw: {fileID: 0}

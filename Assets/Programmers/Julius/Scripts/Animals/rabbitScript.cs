@@ -24,8 +24,7 @@ public class rabbitScript : MonoBehaviour, IInteractable
     {
         if (m_inventoryS.inventoryCapacity > 0 ) 
         {
-            Debug.Log("Weight added to inventory " + r_weight + ".");
-            m_inventoryS.PickupAnimal("Rabbit", 1); // Add the animal to the inventory
+            m_inventoryS.PickupAnimal("Rabbit", r_Sprite); // Add the animal to the inventory
             ctw.UpdateWeight("Rabbit", r_weight);
             Destroy(this.gameObject);
         }

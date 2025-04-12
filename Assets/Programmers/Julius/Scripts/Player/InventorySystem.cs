@@ -53,18 +53,21 @@ public class InventorySystem : MonoBehaviour
     }
 
 
-    public void PickupAnimal(string animalType, int quantity)
+    public void PickupAnimal(string animalType, Sprite animalSprite)
     {
         if (inventoryCapacity > 0)
         {
             inventoryCapacity--; // Decrease the inventory capacity
+            
             for (int i = 0; i < itemSlot.Length; i++)
             {
-                if (itemSlot[i].animalName == null) // Check if the slot is empty
+                Debug.Log("Checking slot " + i + " for empty space.");
+                if (itemSlot[i].usedSlot == false) // Check if the slot is empty
                 {
-                    itemSlot[i].AddAnimal(animalType, quantity); // Add the animal to the slot
+                    Debug.Log("Found empty slot at index " + i + ".");
+                    itemSlot[i].AddAnimal(animalType, animalSprite); // Add the animal to the slot
                     Debug.Log("Added " + animalType + " to inventory. Remaining capacity: " + inventoryCapacity + ".");
-                    break; // Exit the loop after adding the animal
+                    return; // Exit the loop after adding the animal
                 }
             }
         }
@@ -80,6 +83,18 @@ public class InventorySystem : MonoBehaviour
         {
             inventoryCapacity = maxInventoryCapacity; // Reset the inventory capacity to its maximum
             inventoryWeight = 0; // Reset the inventory weight to 0
+            
+            for (int i = 0; i < itemSlot.Length; i++)
+            {
+                if (itemSlot[i].usedSlot == true) // Check if the slot is used
+                {
+                    itemSlot[i].animalImage.enabled = false; // Disable the image to hide the animal sprite
+                    itemSlot[i].usedSlot = false; // Mark the slot as unused
+                    itemSlot[i].animalName = ""; // Clear the animal name
+                    itemSlot[i].animalSprite = null; // Clear the animal sprite
+                }
+            }
+            
             Debug.Log("Inventory cleared and capacity reset.");
         }
         else
