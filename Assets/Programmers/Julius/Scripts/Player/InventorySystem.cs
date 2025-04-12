@@ -84,19 +84,19 @@ public class InventorySystem : MonoBehaviour
         {
             inventoryCapacity = maxInventoryCapacity; // Reset the inventory capacity to its maximum
             inventoryWeight = 0; // Reset the inventory weight to 0  
+            
             for (int i = 0; i < itemSlot.Length; i++)
             {
-                money.SoldAnimals(animalName); 
-
                 if (itemSlot[i].usedSlot == true) // Check if the slot is used
                 {
+                    money.SoldAnimals(animalName); 
+
                     itemSlot[i].animalImage.enabled = false; // Disable the image to hide the animal sprite
                     itemSlot[i].usedSlot = false; // Mark the slot as unused
                     itemSlot[i].animalName = ""; // Clear the animal name
                     itemSlot[i].animalSprite = null; // Clear the animal sprite
                 }
             }
-
             Debug.Log("Inventory cleared and capacity reset.");
         }
         else

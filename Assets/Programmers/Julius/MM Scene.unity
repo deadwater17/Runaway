@@ -622,15 +622,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3247735253151047606, guid: 64a8b5fceb05a3d41845bd51bcda5c56, type: 3}
       propertyPath: m_Name
-      value: Bear
+      value: ItemSlot
       objectReference: {fileID: 0}
     - target: {fileID: 6430298369192341365, guid: 64a8b5fceb05a3d41845bd51bcda5c56, type: 3}
       propertyPath: inventory
       value: 
-      objectReference: {fileID: 1628096179}
-    - target: {fileID: 6430298369192341365, guid: 64a8b5fceb05a3d41845bd51bcda5c56, type: 3}
-      propertyPath: animalName
-      value: Bear
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -727,15 +723,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3247735253151047606, guid: 64a8b5fceb05a3d41845bd51bcda5c56, type: 3}
       propertyPath: m_Name
-      value: Deer
+      value: ItemSlot
       objectReference: {fileID: 0}
     - target: {fileID: 6430298369192341365, guid: 64a8b5fceb05a3d41845bd51bcda5c56, type: 3}
       propertyPath: inventory
       value: 
-      objectReference: {fileID: 1628096179}
-    - target: {fileID: 6430298369192341365, guid: 64a8b5fceb05a3d41845bd51bcda5c56, type: 3}
-      propertyPath: animalName
-      value: Deer
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1417,6 +1409,7 @@ GameObject:
   - component: {fileID: 914347272}
   - component: {fileID: 914347271}
   - component: {fileID: 914347270}
+  - component: {fileID: 914347273}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1474,6 +1467,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &914347273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914347269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec608a7b46b40b448b65731b78a5cba8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyText: {fileID: 1280433077}
 --- !u!20 &994654000 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 6833299404076791220, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
@@ -1568,6 +1574,7 @@ GameObject:
   - component: {fileID: 1198666295}
   - component: {fileID: 1198666297}
   - component: {fileID: 1198666296}
+  - component: {fileID: 1198666298}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -1635,6 +1642,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1198666294}
   m_CullTransparentMesh: 1
+--- !u!114 &1198666298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198666294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3072f5fd0fdbc94f9e8ce3cce2624a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSlot:
+  - {fileID: 1244953710}
+  - {fileID: 2142977028}
+  - {fileID: 1577399286}
+  inventoryWeight: 0
+  inventoryCapacity: 3
+  animalName: 
+  inventoryUI: {fileID: 1379036305}
+  money: {fileID: 914347273}
 --- !u!224 &1244953707 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2944337213746174004, guid: 64a8b5fceb05a3d41845bd51bcda5c56, type: 3}
@@ -2401,10 +2429,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1332598697539562273, guid: 9944dde1ce0ba7f4a87520b35471a1be, type: 3}
-      propertyPath: rabbittxt
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4031700086348660776, guid: 9944dde1ce0ba7f4a87520b35471a1be, type: 3}
       propertyPath: ctw
       value: 
@@ -2412,11 +2436,7 @@ PrefabInstance:
     - target: {fileID: 4031700086348660776, guid: 9944dde1ce0ba7f4a87520b35471a1be, type: 3}
       propertyPath: inventoryS
       value: 
-      objectReference: {fileID: 1628096179}
-    - target: {fileID: 4031700086348660776, guid: 9944dde1ce0ba7f4a87520b35471a1be, type: 3}
-      propertyPath: m_inventoryS
-      value: 
-      objectReference: {fileID: 1628096179}
+      objectReference: {fileID: 0}
     - target: {fileID: 6819683027959156290, guid: 9944dde1ce0ba7f4a87520b35471a1be, type: 3}
       propertyPath: m_Name
       value: Deer
@@ -2493,7 +2513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   b_weight: 0
-  m_inventoryS: {fileID: 1628096179}
+  m_inventoryS: {fileID: 0}
   ctw: {fileID: 1379036310}
 --- !u!114 &1490373696
 MonoBehaviour:
@@ -2719,22 +2739,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c52db44184b4b2e499b8021ba93e68cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1607209089 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7655990346173521134, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
-  m_PrefabInstance: {fileID: 9153604076696884581}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1628096179 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8317058086740700224, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
-  m_PrefabInstance: {fileID: 9153604076696884581}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3072f5fd0fdbc94f9e8ce3cce2624a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1660760578
 GameObject:
   m_ObjectHideFlags: 0
@@ -2855,7 +2859,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0b80deed5090c943892f37472437647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryS: {fileID: 1628096179}
+  inventoryS: {fileID: 0}
+  animalName: 
 --- !u!114 &1660760584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4041,13 +4046,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1379036310}
     - target: {fileID: 4742176698798764125, guid: 43c9ced7bebed7f44b21ec8528f55991, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742176698798764125, guid: 43c9ced7bebed7f44b21ec8528f55991, type: 3}
       propertyPath: m_inventoryS
       value: 
-      objectReference: {fileID: 1628096179}
+      objectReference: {fileID: 0}
     - target: {fileID: 7310887559122138219, guid: 43c9ced7bebed7f44b21ec8528f55991, type: 3}
       propertyPath: m_Camera
       value: 
@@ -4147,12 +4148,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3247735253151047606, guid: 64a8b5fceb05a3d41845bd51bcda5c56, type: 3}
       propertyPath: m_Name
-      value: Rabbit
+      value: ItemSlot
       objectReference: {fileID: 0}
     - target: {fileID: 6430298369192341365, guid: 64a8b5fceb05a3d41845bd51bcda5c56, type: 3}
       propertyPath: inventory
       value: 
-      objectReference: {fileID: 1628096179}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4210,59 +4211,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2018204415832004731, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2827257978576598185, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
-      propertyPath: playerCamera
-      value: 
-      objectReference: {fileID: 1607209089}
-    - target: {fileID: 2827257978576598185, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
-      propertyPath: groundLayer.m_Bits
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4576348546544648108, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4576348546544648108, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
-      propertyPath: interactionUI
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4576348546544648108, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
-      propertyPath: interactionText
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4600282374971346404, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8317058086740700224, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8317058086740700224, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
-      propertyPath: inventoryUI
-      value: 
-      objectReference: {fileID: 1379036305}
-    - target: {fileID: 8317058086740700224, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
-      propertyPath: itemSlot.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8317058086740700224, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
-      propertyPath: itemSlot.Array.data[0]
-      value: 
-      objectReference: {fileID: 1244953710}
-    - target: {fileID: 8317058086740700224, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
-      propertyPath: itemSlot.Array.data[1]
-      value: 
-      objectReference: {fileID: 2142977028}
-    - target: {fileID: 8317058086740700224, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
-      propertyPath: itemSlot.Array.data[2]
-      value: 
-      objectReference: {fileID: 1577399286}
-    - target: {fileID: 8547865131827239211, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
+    - target: {fileID: 2940440393930861538, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
       propertyPath: speedText
       value: 
       objectReference: {fileID: 1876683930}
@@ -4283,7 +4232,7 @@ SceneRoots:
   - {fileID: 1379036309}
   - {fileID: 5343126750098407932}
   - {fileID: 1450470827}
-  - {fileID: 150174960}
   - {fileID: 336076018}
+  - {fileID: 150174960}
   - {fileID: 869523529}
   - {fileID: 1660760582}
