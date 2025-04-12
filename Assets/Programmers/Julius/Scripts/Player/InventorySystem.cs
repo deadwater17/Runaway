@@ -13,10 +13,10 @@ public class InventorySystem : MonoBehaviour
     [HideInInspector]
     public float inventoryCapacity = 3; // space left in inventory
     private float maxInventoryCapacity = 3; // Maximum inventory capacity
+    public string animalName;
+    
     public GameObject inventoryUI; // Reference to the inventory UI
-
-
-    //std::vec3 <Animals> animals; // List of animals in the inventory
+    public Money money;
 
     public void AddWeight(float weight)
     {
@@ -55,10 +55,11 @@ public class InventorySystem : MonoBehaviour
 
     public void PickupAnimal(string animalType, Sprite animalSprite)
     {
+
         if (inventoryCapacity > 0)
         {
             inventoryCapacity--; // Decrease the inventory capacity
-            
+            animalName = animalType; // Set the animal type
             for (int i = 0; i < itemSlot.Length; i++)
             {
                 Debug.Log("Checking slot " + i + " for empty space.");
@@ -77,15 +78,16 @@ public class InventorySystem : MonoBehaviour
         }
     }
 
-    public void SoldAnimal() // string animalType, float weight)
+    public void sellingAnimal() // string animalType
     {
         if (inventoryCapacity < maxInventoryCapacity)
         {
             inventoryCapacity = maxInventoryCapacity; // Reset the inventory capacity to its maximum
-            inventoryWeight = 0; // Reset the inventory weight to 0
-            
+            inventoryWeight = 0; // Reset the inventory weight to 0  
             for (int i = 0; i < itemSlot.Length; i++)
             {
+                money.SoldAnimals(animalName); 
+
                 if (itemSlot[i].usedSlot == true) // Check if the slot is used
                 {
                     itemSlot[i].animalImage.enabled = false; // Disable the image to hide the animal sprite
@@ -94,7 +96,7 @@ public class InventorySystem : MonoBehaviour
                     itemSlot[i].animalSprite = null; // Clear the animal sprite
                 }
             }
-            
+
             Debug.Log("Inventory cleared and capacity reset.");
         }
         else

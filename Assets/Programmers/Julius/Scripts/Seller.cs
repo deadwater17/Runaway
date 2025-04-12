@@ -5,6 +5,7 @@ using UnityEngine;
 public class Seller : MonoBehaviour, IInteractable
 {
     public InventorySystem inventoryS;
+    public string animalName; // Name of the animal to be sold
 
     void Start()
     {
@@ -12,7 +13,7 @@ public class Seller : MonoBehaviour, IInteractable
     }
     public void Interact()
     {
-        inventoryS.SoldAnimal();
+        inventoryS.sellingAnimal(); // Add the animal to the inventory
     }
     
 
