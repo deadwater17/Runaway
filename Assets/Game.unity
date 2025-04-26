@@ -1516,6 +1516,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6364011522336682700, guid: 60a7e591c3334a2eb8fc45d9427fe0bf, type: 3}
+--- !u!4 &457671471 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5629219560671247870, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
+  m_PrefabInstance: {fileID: 1619010276}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &474514315
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2196,7 +2201,7 @@ GameObject:
   - component: {fileID: 582938273}
   - component: {fileID: 582938272}
   - component: {fileID: 582938271}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: OCEAN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4750,12 +4755,13 @@ GameObject:
   - component: {fileID: 1118022821}
   - component: {fileID: 1118022820}
   - component: {fileID: 1118022819}
+  - component: {fileID: 1118022822}
   m_Layer: 3
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!154 &1118022819
 TerrainCollider:
@@ -4832,6 +4838,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1118022822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118022818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab31f364d2dd894c8da043b9d5eecb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalPrefabs:
+  - {fileID: 133577378980343757, guid: bbbafbd0dea07e645ac915113418d6cf, type: 3}
+  - {fileID: 133577378980343757, guid: 7ab0cb0b4dc3b0c4fb76653c13e5a8e3, type: 3}
+  - {fileID: 133577378980343757, guid: 99c33756518525a429cd918eaf1f461e, type: 3}
+  spawnRadius: 100
+  MaxspawnCount: 10
+  respawntime: 10
+  player: {fileID: 457671471}
 --- !u!1 &1137187409 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2391086198885659011, guid: fc824f8c2a9348e49ed5889d3bab3c9c, type: 3}
@@ -7590,6 +7616,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2018204415832004731, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2018204415832004731, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2827257978576598185, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
