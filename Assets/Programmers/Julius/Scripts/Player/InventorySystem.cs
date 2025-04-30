@@ -12,9 +12,9 @@ public class InventorySystem : MonoBehaviour
 
     public GameObject inventoryUI; // Reference to the inventory UI
 
-    public TextMeshPro rabbitNum;
-    public TextMeshPro deerNum;
-    public TextMeshPro bearNum;
+    public TMP_Text rabbitNum;
+    public TMP_Text deerNum;
+    public TMP_Text bearNum;
 
     private int rabbitCount = 0;
     private int deerCount = 0;
