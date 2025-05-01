@@ -12,13 +12,13 @@ public class InventorySystem : MonoBehaviour
 
     public GameObject inventoryUI; // Reference to the inventory UI
 
-    public TMP_Text rabbitNum;
-    public TMP_Text deerNum;
-    public TMP_Text bearNum;
+    [SerializeField] TMP_Text rabbitNum;
+    [SerializeField] TMP_Text deerNum;
+    [SerializeField] TMP_Text bearNum;
 
-    private int rabbitCount = 0;
-    private int deerCount = 0;
-    private int bearCount = 0;
+    public int rabbitCount = 0;
+    public int deerCount = 0;
+    public int bearCount = 0;
 
     public void AddWeight(float weight)
     {
