@@ -23,6 +23,11 @@ public class Arrow : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        if(collision.gameObject.CompareTag("Deer"))
+        {
+            collision.collider.GetComponent<AnimalMovement>().TakeDamage(15);
+            transform.SetParent(collision.transform);
+        }
         rb.velocity = Vector3.zero;
         rb.rotation = Quaternion.Euler(0, 0, 0);
         rb.isKinematic = true;

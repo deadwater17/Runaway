@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SocialPlatforms.GameCenter;
@@ -13,8 +14,13 @@ public class AnimalMovement : MonoBehaviour
     public bool isHear;
     public bool isWonder;
     Animator animator;
+
+    // health setting
+    public float maxHealth = 100;
+    public float currentHealth;
     void Start()
     {
+        currentHealth = maxHealth;
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         isWonder = true;
@@ -68,8 +74,9 @@ public class AnimalMovement : MonoBehaviour
             isWonder = true;
         }
 
-
+        
     }
+
 
     bool RandomPoint(Vector3 center, float range, out Vector3 result)
     {
@@ -83,5 +90,22 @@ public class AnimalMovement : MonoBehaviour
 
         result = Vector3.zero;
         return false;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        currentHealth -= damage;
+        if(currentHealth < 0)
+        {
+            Die();
+            //animation dying
+        }
+    }
+
+    void Die()
+    {
+        Debug.Log("enemy die");
+        this.enabled = false;
+        GetComponent<Collider>().enabled = false;
     }
 }
