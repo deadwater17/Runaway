@@ -15,7 +15,7 @@ public class Seller : MonoBehaviour, IInteractable
     int count;
 
     [SerializeField] TMP_Text moneyCount;
-    int money;
+    public int money;
 
     InventorySystem invSys;
 
