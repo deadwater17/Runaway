@@ -8,7 +8,7 @@ public class Seller : MonoBehaviour, IInteractable
     [SerializeField] TMP_Text rabNum;
     [SerializeField] int rabPrice = 25;
     [SerializeField] TMP_Text deerNum;
-   [SerializeField] int deerPrice = 50;
+    [SerializeField] int deerPrice = 50;
     [SerializeField] TMP_Text bearNum;
     [SerializeField] int bearPrice  = 100;
 
