@@ -1,3 +1,5 @@
+
+
 Movement: 
 Issue with crouch and jump (Done)
 - Just make sure that the layers on the player is set to ground and terrain is set to ground
@@ -5,12 +7,9 @@ Issue with crouch and jump (Done)
 Interaction:
 Changing interaction system, updated UI (Done)
 
-
 animal consist: 
-- Need to make it so it saves weight data (Done)
-- Display weight on the notepad (Done)
+- Need to make it so it saves weight data
 
-- Need to make a interaction object that clears inventory ( Done)
-
-- Whenever I try to clear, it says inventory is empty, but when I try to get animals, it says
-theres more ( Fixed)
+- Info script
+- Looked at script
+- Will have the world canvas as a child of it, and then the prefab will be updated obvsly

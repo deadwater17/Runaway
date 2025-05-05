@@ -9,8 +9,16 @@ public class InventorySystem : MonoBehaviour
     public float inventoryWeight = 0; // The total weight of the inventory
     [HideInInspector]
     public float inventoryCapacity = 3; // space left in inventory
-    private float maxInventoryCapacity = 3; // Maximum inventory capacity
+
     public GameObject inventoryUI; // Reference to the inventory UI
+
+    [SerializeField] TMP_Text rabbitNum;
+    [SerializeField] TMP_Text deerNum;
+    [SerializeField] TMP_Text bearNum;
+
+    public int rabbitCount = 0;
+    public int deerCount = 0;
+    public int bearCount = 0;
 
     public void AddWeight(float weight)
     {
@@ -46,12 +54,28 @@ public class InventorySystem : MonoBehaviour
         }
     }
 
-
     public void AddAnimal(string animalType, float weight)
     {
         if (inventoryCapacity > 0)
         {
-            inventoryCapacity--; // Decrease the inventory capacity
+            inventoryCapacity--;
+            AddWeight(weight);
+
+            switch (animalType)
+            {
+                case "Rabbit":
+                    rabbitCount++;
+                    rabbitNum.text = rabbitCount.ToString();
+                    break;
+                case "Deer":
+                    deerCount++;
+                    deerNum.text = deerCount.ToString();
+                    break;
+                case "Bear":
+                    bearCount++;
+                    bearNum.text = bearCount.ToString();
+                    break;
+            }
         }
         else
         {
@@ -59,17 +83,4 @@ public class InventorySystem : MonoBehaviour
         }
     }
 
-    public void SoldAnimal() // string animalType, float weight)
-    {
-        if (inventoryCapacity < maxInventoryCapacity)
-        {
-            inventoryCapacity = maxInventoryCapacity; // Reset the inventory capacity to its maximum
-            inventoryWeight = 0; // Reset the inventory weight to 0
-            Debug.Log("Inventory cleared and capacity reset.");
-        }
-        else
-        {
-            Debug.Log("Inventory is already empty!");
-        }
-    }
 }

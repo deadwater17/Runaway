@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SocialPlatforms.GameCenter;
@@ -13,8 +14,13 @@ public class AnimalMovement : MonoBehaviour
     public bool isHear;
     public bool isWonder;
     Animator animator;
+
+    // health setting
+    public float maxHealth = 100;
+    public float currentHealth;
     void Start()
     {
+        currentHealth = maxHealth;
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         isWonder = true;
@@ -25,24 +31,26 @@ public class AnimalMovement : MonoBehaviour
     void Update()
     {
         //wondering mode;
-        if (isWonder&& agent.remainingDistance <= agent.stoppingDistance)
+        if (isWonder)
         {
-            animator.SetBool("walk", true);
-            animator.SetBool("run", false);
-            Vector3 point;
-            if (RandomPoint(centrePoint.position, range, out point))
+            if (agent.remainingDistance <= agent.stoppingDistance)
             {
-                Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f);
-                agent.SetDestination(point);
-                agent.speed = 2.5f;
+                animator.SetBool("walk", true);
+                animator.SetBool("run", false);
+                Vector3 point;
+                if (RandomPoint(centrePoint.position, range, out point))
+                {
+                    Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f);
+                    agent.SetDestination(point);
+                    agent.speed = 2.5f;
+                }
             }
-
+            
         }
 
         //Runaway mode;
         if (isHear)
         {
-
             animator.SetBool("run", true);
             animator.SetBool("walk", false);
             //Run away from player
@@ -51,11 +59,13 @@ public class AnimalMovement : MonoBehaviour
             fleetdirec.Normalize();
             //add randomness to the animal's run away path
             Vector3 destination = transform.position + 25 * fleetdirec;
-            agent.speed = 7f;
+            
+            
             agent.SetDestination(destination);
             isWonder = false;
             isHear = false;
-            Debug.Log("animal run : "+agent.speed);
+            agent.speed = 7f;
+            Debug.Log("animal run");
         }
 
         if(agent.remainingDistance <= agent.stoppingDistance && !isHear &&!isWonder) //decide whether to come back to wondering mode
@@ -64,8 +74,9 @@ public class AnimalMovement : MonoBehaviour
             isWonder = true;
         }
 
-
+        
     }
+
 
     bool RandomPoint(Vector3 center, float range, out Vector3 result)
     {
@@ -79,5 +90,22 @@ public class AnimalMovement : MonoBehaviour
 
         result = Vector3.zero;
         return false;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        currentHealth -= damage;
+        if(currentHealth < 0)
+        {
+            Die();
+            //animation dying
+        }
+    }
+
+    void Die()
+    {
+        Debug.Log("enemy die");
+        this.enabled = false;
+        GetComponent<Collider>().enabled = false;
     }
 }

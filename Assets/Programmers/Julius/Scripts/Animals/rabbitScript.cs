@@ -7,7 +7,6 @@ public class rabbitScript : MonoBehaviour, IInteractable
     [HideInInspector]
     public float r_weight;
     public InventorySystem m_inventoryS;
-    public CheckTopWeight ctw;
 
     void Start()
     {
@@ -20,7 +19,6 @@ public class rabbitScript : MonoBehaviour, IInteractable
         {
             Debug.Log("Weight added to inventory " + r_weight + ".");
             m_inventoryS.AddAnimal("Rabbit", r_weight);
-            ctw.UpdateWeight("Rabbit", r_weight);
             Destroy(this.gameObject);
         }
         else
