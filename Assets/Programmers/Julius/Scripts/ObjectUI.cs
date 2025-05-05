@@ -23,7 +23,7 @@ public class ObjectUI : MonoBehaviour
     {
         if (isLookedAt == true)
         {
-            Interact_ObjectUI.SetActive(true);
+            Interact_ObjectUI.SetActive(true);  
         }
         else
         {
