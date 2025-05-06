@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BowController : MonoBehaviour
 {
-    public GameObject Arrow_prefab;
+    [SerializeField] GameObject Arrow_prefab;
     public Transform Arrow_spawn;
     public Transform Player;
     public Camera fpsCam;
