@@ -629,6 +629,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: animal  (temp)
       objectReference: {fileID: 0}
+    - target: {fileID: 3498506774358262010, guid: 07b1e812f6e46c443bd527f4adac1b32, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3788946111029782481, guid: 07b1e812f6e46c443bd527f4adac1b32, type: 3}
       propertyPath: m_Name
       value: animal
@@ -2056,6 +2060,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bear_attack Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8966528104107651536, guid: acbd01b202c7fbe4d8253f58923a2a79, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2070,6 +2078,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1807929176 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6940139317724860643, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
+  m_PrefabInstance: {fileID: 9153604076696884581}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e7518ee94a56894cb58306957fae27d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1876683929
@@ -2228,6 +2247,10 @@ PrefabInstance:
       propertyPath: moneyCount
       value: 
       objectReference: {fileID: 1175496315}
+    - target: {fileID: 347908987728688125, guid: 382e0cb8fba8ffe43a78598a0755f55c, type: 3}
+      propertyPath: weaponSwitch
+      value: 
+      objectReference: {fileID: 1807929176}
     - target: {fileID: 2255195441232864770, guid: 382e0cb8fba8ffe43a78598a0755f55c, type: 3}
       propertyPath: m_Camera
       value: 
@@ -2433,6 +2456,10 @@ PrefabInstance:
     - target: {fileID: 2018204415832004731, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2247779584717233764, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2561350424402807679, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
       propertyPath: m_Icon
