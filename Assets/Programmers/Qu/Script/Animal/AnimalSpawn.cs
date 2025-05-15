@@ -57,18 +57,6 @@ public class AnimalSpawn : MonoBehaviour
         Vector3 spawnPos = Vector3.zero;
         RaycastHit hit;
         Ray ray;
-        //do
-        //{
-        //    float randomRangeX = Random.Range(-spawnRadius, spawnRadius);
-        //    float randomRangeZ = Random.Range(-spawnRadius, spawnRadius);
-        //    spawnPos = player.position + new Vector3((randomRangeX), 0, randomRangeZ);
-        //    spawnPos.y = Terrain.activeTerrain.SampleHeight(spawnPos);
-        //    ray = new Ray(new Vector3(spawnPos.x, spawnPos.y + 100f, spawnPos.z), Vector3.down);
-
-        //} while (!Physics.Raycast(ray, out hit, 200f) || !(hit.collider is TerrainCollider));
-        //GameObject animal = animalPrefabs[Random.Range(0, animalPrefabs.Length)];
-        //GameObject newAnimal = Instantiate(animal,spawnPos,Quaternion.identity);
-        //spawnList.Add(newAnimal);
         int tryCount = 0;
         int maxTry = 20;
         while (tryCount < maxTry)

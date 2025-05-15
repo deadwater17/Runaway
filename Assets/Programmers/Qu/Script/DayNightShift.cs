@@ -7,22 +7,20 @@ using UnityEngine;
 public class DayNightShift : MonoBehaviour
 {
     public Material[] skyMaterials;
-    public float fullDayDuration = 120f;
-    public float transitionDuration = 3;
+    public float fullDayDuration;
+    public float transitionDuration;
 
-    private int currentIndex = 0;
-    
-    private float timer = 0f;
+    int currentIndex = 0;
+    TimeController timeController;
 
-
+    void Start()
+    {
+        timeController = FindObjectOfType<TimeController>();
+    }
     void Update()
     {
-        timer += Time.deltaTime;
-        if(timer > fullDayDuration)
-        {
-            timer = 0f;
-        }
-        float progress = timer / fullDayDuration;
+        float progress = (float)timeController.currentTime.TimeOfDay.TotalHours/24f;
+        Debug.Log(progress);
         int newIndex = (int)(progress * skyMaterials.Length);
         transform.rotation = Quaternion.Lerp(Quaternion.Euler(0,0,0),Quaternion.Euler(360,0,0),progress);
         if(newIndex!=currentIndex)

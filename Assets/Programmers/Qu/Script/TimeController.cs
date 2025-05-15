@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using TMPro;
 using UnityEngine;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 public class TimeController: MonoBehaviour
 {
@@ -30,7 +31,8 @@ public class TimeController: MonoBehaviour
 
     TimeSpan sunriseTime;
     TimeSpan sunsetTime;
-    DateTime currentTime;
+    public DateTime currentTime;
+    public Animator fadeAnimator;
     void Start()
     {
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(startHour);
@@ -95,5 +97,36 @@ public class TimeController: MonoBehaviour
         }
 
         return difference;
+    }
+
+    public void sleepUntil(float wakeUpHour)
+    {
+        StartCoroutine(SleepWithFade(wakeUpHour));
+               Debug.Log(currentTime);
+
+    }
+
+    IEnumerator SleepWithFade(float wakeUpHour)
+    {
+        fadeAnimator.Play("fade out");
+        yield return new WaitForSeconds(4f);
+        // Get current time in hours
+        float currentHour = (float)currentTime.TimeOfDay.TotalHours;
+
+        // Calculate hours to skip
+        float hoursToSkip;
+        if (wakeUpHour > currentHour)
+        {
+            hoursToSkip = wakeUpHour - currentHour;
+        }
+        else
+        {
+            hoursToSkip = (24f - currentHour) + wakeUpHour;
+        }
+        
+        // Advance the currentTime by the hours to skip
+        currentTime = currentTime.AddHours(hoursToSkip);
+
+        fadeAnimator.Play("fade in");
     }
 }

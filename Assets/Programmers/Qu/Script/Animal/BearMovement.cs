@@ -8,9 +8,11 @@ public class BearMovement : MonoBehaviour
     public NavMeshAgent agent;
     public GameObject player;
     public Transform centrePoint;
+    TimeController timeController;
     public LayerMask obstacle;
     public bool isHear;
     public bool isWander;
+    public bool hasAttacked;
 
     public bool seePlayer;
     public float range;
@@ -21,6 +23,7 @@ public class BearMovement : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        timeController = FindObjectOfType<TimeController>();
         //animator = GetComponent<Animator>();
         isWander = true;
         isHear = false;
@@ -47,6 +50,7 @@ public class BearMovement : MonoBehaviour
         }
 
         CheckReturnTowander();
+        TryAttackPlayer();
     }
 
     void ChasePlayer()
@@ -117,6 +121,23 @@ public class BearMovement : MonoBehaviour
                     }
                 }
             }
+        }
+    }
+
+    void TryAttackPlayer()
+    {
+        if (hasAttacked) return;
+        float distance = Vector3.Distance(transform.position, player.transform.position);
+        if (distance <= 2f) // close enough to "attack"
+        {
+            hasAttacked = true;
+            // Skip time to 7:00
+            if (timeController != null)
+            {
+                timeController.sleepUntil(7f);
+            }
+
+            Debug.Log("Bear attacked! Player sleeps.");
         }
     }
 }
