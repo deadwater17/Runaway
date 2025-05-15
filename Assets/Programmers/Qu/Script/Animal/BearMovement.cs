@@ -8,7 +8,7 @@ public class BearMovement : MonoBehaviour
     public NavMeshAgent agent;
     public GameObject player;
     public Transform centrePoint;
-    TimeController timeController;
+    
     public LayerMask obstacle;
     public bool isHear;
     public bool isWander;
@@ -17,13 +17,17 @@ public class BearMovement : MonoBehaviour
     public bool seePlayer;
     public float range;
     public float viewAngle;
-    private float chaseSpeed = 4f;
+    public float chaseSpeed = 4f;
+    public float walkSpeed = 2.5f;
+    TimeController timeController;
+    Animator bearAnimator;
 
     //Animator animator;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         timeController = FindObjectOfType<TimeController>();
+        bearAnimator = GetComponent<Animator>();
         //animator = GetComponent<Animator>();
         isWander = true;
         isHear = false;
@@ -38,14 +42,16 @@ public class BearMovement : MonoBehaviour
         //wandering mode;
         if (isWander)
         {
+            bearAnimator.SetFloat("Speed", walkSpeed);
             Wander();
         }
 
         //chasing mode;
         if (isHear)
         {
-            ChasePlayer();
             isWander = false;
+            bearAnimator.SetFloat("Speed", chaseSpeed);
+            ChasePlayer();
             Debug.Log("animal run : " + agent.speed);
         }
 
@@ -68,7 +74,7 @@ public class BearMovement : MonoBehaviour
             {
                 Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f);
                 agent.SetDestination(point);
-                agent.speed = 2.5f;
+                agent.speed = walkSpeed;
             }
         }
     }
@@ -131,6 +137,7 @@ public class BearMovement : MonoBehaviour
         if (distance <= 2f) // close enough to "attack"
         {
             hasAttacked = true;
+            bearAnimator.SetBool("Attack", true);
             // Skip time to 7:00
             if (timeController != null)
             {

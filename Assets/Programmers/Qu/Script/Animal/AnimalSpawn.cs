@@ -8,12 +8,13 @@ public class AnimalSpawn : MonoBehaviour
     public float spawnRadius = 100f;
     public int MaxspawnCount = 10;
     public float respawntime = 3f;
-    
+    TimeController timeController;
     private List<GameObject> spawnList = new List<GameObject>();
     public Transform player;
     void Start()
     {
         player = player.GetComponent<Transform>();
+        timeController = FindObjectOfType<TimeController>();
         StartCoroutine(SpawnRoutine());
     }
 
@@ -54,6 +55,8 @@ public class AnimalSpawn : MonoBehaviour
 
     void spawnAnimal()
     {
+        float hour = (float)timeController.currentTime.TimeOfDay.TotalHours;
+        bool isNight = hour >= 20f || hour < 6f;  // night setting
         Vector3 spawnPos = Vector3.zero;
         RaycastHit hit;
         Ray ray;
@@ -75,9 +78,13 @@ public class AnimalSpawn : MonoBehaviour
                 {
                     Debug.Log("Trying to spawn at position: " + spawnPos);
                     GameObject animal = animalPrefabs[Random.Range(0, animalPrefabs.Length)];
-                    GameObject newAnimal = Instantiate(animal, spawnPos, Quaternion.identity);
-                    spawnList.Add(newAnimal);
-                    return;
+                    bool isBear = animal.CompareTag("Bear");
+                    if ((isBear && isNight) || (!isBear && !isNight))  // only spawn bear in night,spawn other animal on day
+                    {
+                        GameObject newAnimal = Instantiate(animal, spawnPos, Quaternion.identity);
+                        spawnList.Add(newAnimal);
+                        return;
+                    }
                 }
             }
             tryCount++;
