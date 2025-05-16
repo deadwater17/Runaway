@@ -26,6 +26,7 @@ public class GunShopUI : MonoBehaviour, IInteractable
             Debug.Log(money);
             moneyCount.text = money.ToString();
             weaponSwitch.gunUpgraded = true;        // allow usasge of upgraded gun
+            weaponSwitch.checkGunUpgraded();
         }
         else
         {

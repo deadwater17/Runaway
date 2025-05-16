@@ -56,7 +56,7 @@ public class WeaponSwitch : MonoBehaviour
         }
     }
 
-    void checkGunUpgraded()
+    public void checkGunUpgraded()
     {
         if (!gunUpgraded)
         {

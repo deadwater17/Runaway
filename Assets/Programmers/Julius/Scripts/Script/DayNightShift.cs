@@ -20,7 +20,7 @@ public class DayNightShift : MonoBehaviour
     void Update()
     {
         float progress = (float)timeController.currentTime.TimeOfDay.TotalHours/24f;
-        Debug.Log(progress);
+        //Debug.Log(progress);
         int newIndex = (int)(progress * skyMaterials.Length);
         transform.rotation = Quaternion.Lerp(Quaternion.Euler(0,0,0),Quaternion.Euler(360,0,0),progress);
         if(newIndex!=currentIndex)
