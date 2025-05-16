@@ -19,16 +19,19 @@ public class BearMovement : MonoBehaviour
     public float viewAngle;
     public float chaseSpeed = 4f;
     public float walkSpeed = 2.5f;
+    public float maxHealth = 100;
+    public float currentHealth;
     TimeController timeController;
     Animator bearAnimator;
 
     //Animator animator;
     void Start()
-    {
+    { 
         agent = GetComponent<NavMeshAgent>();
         timeController = FindObjectOfType<TimeController>();
         bearAnimator = GetComponent<Animator>();
         //animator = GetComponent<Animator>();
+        currentHealth = maxHealth;
         isWander = true;
         isHear = false;
         seePlayer = false;
@@ -146,6 +149,27 @@ public class BearMovement : MonoBehaviour
 
             Debug.Log("Bear attacked! Player sleeps.");
         }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        currentHealth -= damage;
+        if (currentHealth <= 0)
+        {
+            Die();
+            //animation dying
+        }
+    }
+
+    void Die()
+    {
+        isWander = false;
+        isHear = false;
+        agent.speed = 0;
+        bearAnimator.SetFloat("Speed", 0f);
+        Debug.Log("enemy die");
+        this.enabled = false;
+        GetComponent<Collider>().enabled = false;
     }
 }
 

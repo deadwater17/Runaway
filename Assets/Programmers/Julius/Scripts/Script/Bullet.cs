@@ -27,6 +27,11 @@ public class Bullet : MonoBehaviour
             collision.collider.GetComponent<AnimalMovement>().TakeDamage(attackDamage);
             transform.SetParent(collision.transform);
         }
+        if (collision.gameObject.CompareTag("Bear"))
+        {
+            collision.collider.GetComponent<BearMovement>().TakeDamage(attackDamage);
+            transform.SetParent(collision.transform);
+        }
         rb.velocity = Vector3.zero;
         rb.rotation = Quaternion.Euler(0,0,0);
         rb.isKinematic = true;
