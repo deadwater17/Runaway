@@ -169,7 +169,6 @@ public class BearMovement : MonoBehaviour
         bearAnimator.SetFloat("Speed", 0f);
         Debug.Log("enemy die");
         this.enabled = false;
-        GetComponent<Collider>().enabled = false;
     }
 }
 

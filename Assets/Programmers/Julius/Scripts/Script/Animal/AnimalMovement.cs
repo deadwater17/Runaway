@@ -106,6 +106,6 @@ public class AnimalMovement : MonoBehaviour
     {
         Debug.Log("enemy die");
         this.enabled = false;
-        GetComponent<Collider>().enabled = false;
+       
     }
 }
