@@ -137,7 +137,7 @@ public class BearMovement : MonoBehaviour
         if (distance <= 2f) // close enough to "attack"
         {
             hasAttacked = true;
-            bearAnimator.SetBool("Attack", true);
+            bearAnimator.SetTrigger("Attack");
             // Skip time to 7:00
             if (timeController != null)
             {
