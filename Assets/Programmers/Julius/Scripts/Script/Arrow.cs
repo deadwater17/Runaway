@@ -5,6 +5,7 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     Rigidbody rb;
+    public float damage;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -25,7 +26,12 @@ public class Arrow : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Deer"))
         {
-            collision.collider.GetComponent<AnimalMovement>().TakeDamage(15);
+            collision.collider.GetComponent<AnimalMovement>().TakeDamage(damage);
+            transform.SetParent(collision.transform);
+        }
+        if (collision.gameObject.CompareTag("Bear"))
+        {
+            collision.collider.GetComponent<BearMovement>().TakeDamage(damage);
             transform.SetParent(collision.transform);
         }
         rb.velocity = Vector3.zero;

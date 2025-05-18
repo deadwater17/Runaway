@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class WeaponSwitch : MonoBehaviour
 {
-
+    public bool gunUpgraded;
     public int selectedWeapon = 0;
     void Start()
     {
         SelectWeapon();
+        gunUpgraded = false;
     }
 
     // Update is called once per frame
@@ -27,12 +28,10 @@ public class WeaponSwitch : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Alpha2)) 
         { 
-            selectedWeapon = 1; 
+            checkGunUpgraded();
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            selectedWeapon = 2;
-        }
+
+        //if (Input.GetKeyDown(KeyCode.Alpha3)){selectedWeapon = 2;}
 
         if (previousSelectedWeapon != selectedWeapon) 
         {
@@ -54,6 +53,18 @@ public class WeaponSwitch : MonoBehaviour
                 weapon.gameObject.SetActive(false);
             }
             i++;
+        }
+    }
+
+    public void checkGunUpgraded()
+    {
+        if (!gunUpgraded)
+        {
+            selectedWeapon = 1; 
+        }
+        else if (gunUpgraded)
+        {
+            selectedWeapon = 2;
         }
     }
 }

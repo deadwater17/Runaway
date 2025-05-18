@@ -7,7 +7,7 @@ using TMPro;
 public class GunShopUI : MonoBehaviour, IInteractable
 {
     [SerializeField]private TMP_Text moneyCount;
-
+    [SerializeField]WeaponSwitch weaponSwitch;
     [SerializeField] private int cost = 100;
     private int money;
 
@@ -22,11 +22,11 @@ public class GunShopUI : MonoBehaviour, IInteractable
         Debug.Log("Trying to sell");
         if (money >= cost)
         {   
-            
             money = money - cost;
             Debug.Log(money);
             moneyCount.text = money.ToString();
-
+            weaponSwitch.gunUpgraded = true;        // allow usasge of upgraded gun
+            weaponSwitch.checkGunUpgraded();
         }
         else
         {

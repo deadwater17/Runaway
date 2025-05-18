@@ -42,9 +42,14 @@ public class SoundAdjust : MonoBehaviour
         foreach (Collider collider in hitColliders) 
         {
             AnimalMovement animal = collider.GetComponent<AnimalMovement>();
+            BearMovement bear = collider.GetComponent<BearMovement>();
             if(animal != null)
             {
                 animal.isHear = true;
+            }
+            if(bear !=null)
+            {
+                bear.isHear = true;
             }
         
         }

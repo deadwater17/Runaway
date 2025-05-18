@@ -10,7 +10,7 @@ public class deerScript : MonoBehaviour, IInteractable
 
     void Start()
     {
-        d_weight = Random.Range(45, 68);
+        d_weight = Random.Range(45, 68);        // randomises weight when spawned
         m_inventoryS = FindObjectOfType<InventorySystem>();
     }
 
@@ -19,7 +19,7 @@ public class deerScript : MonoBehaviour, IInteractable
         if (m_inventoryS.inventoryCapacity > 0)
         {
             Debug.Log("Weight added to inventory " + d_weight + ".");
-            m_inventoryS.AddAnimal("Deer", d_weight);
+            m_inventoryS.AddAnimal("Deer", d_weight);       // sends to inventory function
             Destroy(this.gameObject);
         }
         else
