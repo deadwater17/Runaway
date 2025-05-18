@@ -12,7 +12,6 @@ public class CheckTopWeight : MonoBehaviour
 
     void Update()
     {
-        CheckWeight();
         if (Input.GetKeyDown(KeyCode.Y)) // Show the heaviest deer weight when Y is pressed
         {
             Debug.Log("Heaviest Deer carried: " + TopWeight + " kg.");
@@ -26,10 +25,5 @@ public class CheckTopWeight : MonoBehaviour
             TopWeight = m_newWeight; // Update to the new heaviest deer weight
             Debug.Log("New heaviest deer weight: " + TopWeight);
         }
-    }
-
-    private void CheckWeight()
-    {
-        
     }
 }
