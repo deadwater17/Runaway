@@ -8,7 +8,7 @@ public class InventorySystem : MonoBehaviour
     [HideInInspector]
     public float inventoryWeight = 0; // The total weight of the inventory
     [HideInInspector]
-    public float inventoryCapacity = 3; // space left in inventory
+    public float inventoryCapacity = 3; // Space left in inventory
 
     public GameObject inventoryUI; // Reference to the inventory UI
 
@@ -20,6 +20,9 @@ public class InventorySystem : MonoBehaviour
     public int deerCount = 0;
     public int bearCount = 0;
 
+    public Animator inventoryAnimator; // Reference to the animator
+    private bool isInventoryUp = false; // Tracks current animation state
+
     public void AddWeight(float weight)
     {
         inventoryWeight += weight; // Add the weight to the inventory
@@ -27,30 +30,44 @@ public class InventorySystem : MonoBehaviour
 
     void Start()
     {
-        inventoryUI.SetActive(false); // Set the inventory UI to inactive
+        inventoryUI.SetActive(true); // Ensure inventory UI is active
+        inventoryAnimator = inventoryUI.GetComponent<Animator>();
+        if (inventoryAnimator == null)
+        {
+            Debug.LogWarning("Animator not found on inventoryUI!");
+        }
     }
 
     void Update()
     {
-        InventorySpaceCheck(); 
+        InventorySpaceCheck();
         OpenInventory();
     }
 
     void InventorySpaceCheck()
     {
-        // Check if the "M" key is pressed
         if (Input.GetKeyDown(KeyCode.M))
         {
-          Debug.Log("Total space left in inventory: " + inventoryCapacity + ".");
+            Debug.Log("Total space left in inventory: " + inventoryCapacity + ".");
         }
     }
 
     void OpenInventory()
     {
-        // Check if the "T" key is pressed
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.T) && inventoryAnimator != null)
         {
-            inventoryUI.SetActive(!inventoryUI.activeSelf); // Set the inventory UI to active/inactive
+            if (!isInventoryUp)
+            {
+                inventoryAnimator.SetTrigger("InventoryUp"); // Trigger the up animation
+                isInventoryUp = true;
+            }
+            else
+            {
+                inventoryAnimator.SetTrigger("InventoryDown"); // Trigger the down animation
+                isInventoryUp = false;
+            }
+
+            Debug.Log("Toggled inventory animation");
         }
     }
 
@@ -82,5 +99,4 @@ public class InventorySystem : MonoBehaviour
             Debug.Log("Inventory is full!");
         }
     }
-
 }

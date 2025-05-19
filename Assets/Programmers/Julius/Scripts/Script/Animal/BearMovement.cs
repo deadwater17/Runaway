@@ -86,7 +86,7 @@ public class BearMovement : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, player.transform.position) > range) //decide whether to come back to wondering mode
         {
-            Debug.Log("end run");
+           // Debug.Log("end run");
             isWander = true;
             isHear = false;
             seePlayer = false;
