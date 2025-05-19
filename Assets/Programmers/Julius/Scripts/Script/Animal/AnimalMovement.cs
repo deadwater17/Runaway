@@ -93,6 +93,7 @@ public class AnimalMovement : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        isHear = true;
         currentHealth -= damage;
         if(currentHealth <= 0)
         {
