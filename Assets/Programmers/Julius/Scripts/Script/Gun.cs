@@ -11,6 +11,7 @@ public class Gun : MonoBehaviour
     //public float damage = 10f;
     public float bulletSpeed = 100f;
     public float gravity = 9.81f;
+    public int bulletNumber = 40;
     public static int currentAmmo;
     
     float nextshoot = 0.0f;
@@ -24,7 +25,7 @@ public class Gun : MonoBehaviour
     {
         cameraShake = fpsCam.GetComponent<CameraShake>();
         m_audioSource = GetComponent<AudioSource>();
-        currentAmmo = AmmoNumber.bullet;
+        currentAmmo = bulletNumber;
     }
     void Update()
     {
@@ -60,7 +61,7 @@ public class Gun : MonoBehaviour
         }
         else
         {
-            targetPoint = fpsCam.transform.position + fpsCam.transform.forward * 10000f; // Arbitrary large distance
+            targetPoint = fpsCam.transform.position + fpsCam.transform.forward * 10000f; // large distance
             
         }
         SpawnBullet(firePoint.position, targetPoint);
@@ -87,7 +88,6 @@ public class Gun : MonoBehaviour
     IEnumerator recoil()
     {
 
-        
         Quaternion originalRotation = fpsCam.transform.rotation;
         Quaternion recoilRotation = originalRotation * Quaternion.Euler(-2f, 0f, 0f);
 
