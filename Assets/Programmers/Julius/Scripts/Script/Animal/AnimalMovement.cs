@@ -13,16 +13,18 @@ public class AnimalMovement : MonoBehaviour
     public Transform centrePoint;
     public bool isHear;
     public bool isWonder;
-    Animator animator;
+    Animator DeerAnimator;
 
     // health setting
+    public float walkSpeed;
+    public float runSpeed;
     public float maxHealth = 100;
     public float currentHealth;
     void Start()
     {
         currentHealth = maxHealth;
         agent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
+        DeerAnimator = GetComponent<Animator>();
         isWonder = true;
         isHear = false;
     }
@@ -35,14 +37,13 @@ public class AnimalMovement : MonoBehaviour
         {
             if (agent.remainingDistance <= agent.stoppingDistance)
             {
-                animator.SetBool("walk", true);
-                animator.SetBool("run", false);
+                DeerAnimator.SetFloat("Speed", 2.5f);
                 Vector3 point;
                 if (RandomPoint(centrePoint.position, range, out point))
                 {
                     Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f);
                     agent.SetDestination(point);
-                    agent.speed = 2.5f;
+                    agent.speed = walkSpeed;
                 }
             }
             
@@ -51,20 +52,18 @@ public class AnimalMovement : MonoBehaviour
         //Runaway mode;
         if (isHear)
         {
-            animator.SetBool("run", true);
-            animator.SetBool("walk", false);
+            DeerAnimator.SetFloat("Speed", 7.5f);
             //Run away from player
             Vector3 direction = (transform.position - player.transform.position).normalized;
             Vector3 fleetdirec = direction + new Vector3(Random.Range(-1, 1), 0,Random.Range(-1,1));
             fleetdirec.Normalize();
             //add randomness to the animal's run away path
             Vector3 destination = transform.position + 25 * fleetdirec;
-            
-            
+
+            agent.speed = runSpeed;
             agent.SetDestination(destination);
             isWonder = false;
             isHear = false;
-            agent.speed = 7f;
             Debug.Log("animal run");
         }
 
@@ -105,6 +104,7 @@ public class AnimalMovement : MonoBehaviour
     void Die()
     {
         Debug.Log("enemy die");
+        DeerAnimator.SetFloat("Speed", 0.0f);
         this.enabled = false;
        
     }

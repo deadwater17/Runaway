@@ -137,7 +137,7 @@ public class BearMovement : MonoBehaviour
     {
         if (hasAttacked) return;
         float distance = Vector3.Distance(transform.position, player.transform.position);
-        if (distance <= 2f) // close enough to "attack"
+        if (distance <= 5f) // close enough to "attack"
         {
             hasAttacked = true;
             bearAnimator.SetTrigger("Attack");
@@ -146,13 +146,13 @@ public class BearMovement : MonoBehaviour
             {
                 timeController.sleepUntil(7f);
             }
-
             Debug.Log("Bear attacked! Player sleeps.");
         }
     }
 
     public void TakeDamage(float damage)
     {
+        isHear = true;
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
@@ -170,5 +170,6 @@ public class BearMovement : MonoBehaviour
         Debug.Log("enemy die");
         this.enabled = false;
     }
+    
 }
 
