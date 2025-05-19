@@ -822,7 +822,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7176086011310121089
 Transform:
   m_ObjectHideFlags: 0
@@ -983,7 +983,7 @@ GameObject:
   - component: {fileID: 2682032069280282752}
   - component: {fileID: 8919882510424517481}
   m_Layer: 0
-  m_Name: Bear_AI
+  m_Name: animal
   m_TagString: Deer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1065,7 +1065,7 @@ MonoBehaviour:
   agent: {fileID: 7903106367449521559}
   range: 10
   player: {fileID: 0}
-  centrePoint: {fileID: 0}
+  centrePoint: {fileID: 1938585722941724804}
   isHear: 0
   isWonder: 0
   maxHealth: 100
