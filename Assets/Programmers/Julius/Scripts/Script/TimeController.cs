@@ -33,6 +33,7 @@ public class TimeController: MonoBehaviour
     TimeSpan sunsetTime;
     public DateTime currentTime;
     public Animator fadeAnimator;
+    public bool isDayTime;
     void Start()
     {
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(startHour);
@@ -71,6 +72,7 @@ public class TimeController: MonoBehaviour
             moonLightRotation  = Mathf.Lerp(180, 360, (float)percentage);
             sunlight.gameObject.SetActive(true);
             moonlight.gameObject.SetActive(false);
+            isDayTime = true;
         }
         else //night mode
         {
@@ -82,6 +84,7 @@ public class TimeController: MonoBehaviour
             moonLightRotation = Mathf.Lerp(0, 180, (float)percentage);
             sunlight.gameObject.SetActive(false);
             moonlight.gameObject.SetActive(true);
+            isDayTime = false;
         }
 
         sunlight.transform.rotation = Quaternion.AngleAxis(sunLightRotation, Vector3.right);

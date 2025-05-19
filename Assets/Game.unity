@@ -6087,6 +6087,7 @@ GameObject:
   m_Component:
   - component: {fileID: 863811783}
   - component: {fileID: 863811782}
+  - component: {fileID: 863811784}
   m_Layer: 0
   m_Name: BGMusic
   m_TagString: Untagged
@@ -6104,7 +6105,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2839579828190752346, guid: fe9a602a3a33e164d8b0cb270d8a1c90, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 4cf98359fcd234e41886eacc5ad1577f, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -6205,6 +6206,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &863811784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863811781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbe223f4296bed44ebf39b8b418925d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 863811782}
+  dayClips:
+  - {fileID: 8300000, guid: 11ab4026ec59b4142985dc7f067a5872, type: 3}
+  - {fileID: 8300000, guid: 26a8af3dab5ae244f85fb8d3207abeeb, type: 3}
+  - {fileID: 8300000, guid: 4cf98359fcd234e41886eacc5ad1577f, type: 3}
+  nightClips:
+  - {fileID: 8300000, guid: e9e29cbbf90284c498c4b9278bcc5663, type: 3}
+  - {fileID: 8300000, guid: 4dfd077c4ff396e4fa46cfa7bcc8c9a3, type: 3}
+  - {fileID: 8300000, guid: 4e95ff718efb4604abb105864e9f8348, type: 3}
+  timeController: {fileID: 2136989953}
+  fadeDuration: 2
 --- !u!1001 &880333480
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15486,6 +15510,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 733064714}
   m_SourcePrefab: {fileID: 100100000, guid: a1e73004b0494cd490a59d71a3b9bfa9, type: 3}
+--- !u!114 &2136989953 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2587232866122674647, guid: 4986517b0387cfc44983bb4395648776, type: 3}
+  m_PrefabInstance: {fileID: 193410155}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f2403d65a7f4fa44a24a21039a9f757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2140317016
 PrefabInstance:
   m_ObjectHideFlags: 0
