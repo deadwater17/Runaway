@@ -1293,6 +1293,10 @@ PrefabInstance:
       propertyPath: moonlight
       value: 
       objectReference: {fileID: 518080323}
+    - target: {fileID: 2587232866122674647, guid: 4986517b0387cfc44983bb4395648776, type: 3}
+      propertyPath: timeForGame
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 3030834953330014289, guid: 4986517b0387cfc44983bb4395648776, type: 3}
       propertyPath: m_text
       value: 'Time:
@@ -1307,6 +1311,10 @@ PrefabInstance:
       propertyPath: gun
       value: 
       objectReference: {fileID: 2266410819005835435}
+    - target: {fileID: 6318476187875427849, guid: 4986517b0387cfc44983bb4395648776, type: 3}
+      propertyPath: fullDayDuration
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 7113224219962147444, guid: 4986517b0387cfc44983bb4395648776, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -8011,8 +8019,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animalPrefabs:
   - {fileID: 660815316}
-  - {fileID: 133577378980343757, guid: 7ab0cb0b4dc3b0c4fb76653c13e5a8e3, type: 3}
-  - {fileID: 133577378980343757, guid: 99c33756518525a429cd918eaf1f461e, type: 3}
+  - {fileID: 1300337664}
   spawnRadius: 100
   MaxspawnCount: 10
   respawntime: 10
@@ -9179,6 +9186,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4926586117470890873, guid: a5403ccf4428fd142a7e98acd1429537, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 27ab8dd8d8d466c4683ac2a65b222d8a, type: 2}
     - target: {fileID: 5233136764506912792, guid: a5403ccf4428fd142a7e98acd1429537, type: 3}
       propertyPath: m_Name
       value: Deer_1
@@ -9827,6 +9838,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 347908987728688125, guid: 382e0cb8fba8ffe43a78598a0755f55c, type: 3}
+      propertyPath: moneyCount
+      value: 
+      objectReference: {fileID: 7529910571393733755}
+    - target: {fileID: 347908987728688125, guid: 382e0cb8fba8ffe43a78598a0755f55c, type: 3}
+      propertyPath: weaponSwitch
+      value: 
+      objectReference: {fileID: 6940139316105867783}
+    - target: {fileID: 2582743024753188571, guid: 382e0cb8fba8ffe43a78598a0755f55c, type: 3}
+      propertyPath: rabNum
+      value: 
+      objectReference: {fileID: 7353791144212801646}
+    - target: {fileID: 2582743024753188571, guid: 382e0cb8fba8ffe43a78598a0755f55c, type: 3}
+      propertyPath: bearNum
+      value: 
+      objectReference: {fileID: 5757757896812414571}
+    - target: {fileID: 2582743024753188571, guid: 382e0cb8fba8ffe43a78598a0755f55c, type: 3}
+      propertyPath: deerNum
+      value: 
+      objectReference: {fileID: 3919324207410583512}
+    - target: {fileID: 2582743024753188571, guid: 382e0cb8fba8ffe43a78598a0755f55c, type: 3}
+      propertyPath: moneyCount
+      value: 
+      objectReference: {fileID: 7529910571393733755}
     - target: {fileID: 2682949967250667188, guid: 382e0cb8fba8ffe43a78598a0755f55c, type: 3}
       propertyPath: m_Name
       value: Shop
@@ -9871,6 +9906,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5717525278328306435, guid: 382e0cb8fba8ffe43a78598a0755f55c, type: 3}
+      propertyPath: m_moneyCount
+      value: 
+      objectReference: {fileID: 7529910571393733755}
+    - target: {fileID: 6380303684607050803, guid: 382e0cb8fba8ffe43a78598a0755f55c, type: 3}
+      propertyPath: bow
+      value: 
+      objectReference: {fileID: 1252895610843119275}
+    - target: {fileID: 6380303684607050803, guid: 382e0cb8fba8ffe43a78598a0755f55c, type: 3}
+      propertyPath: moneyCount
+      value: 
+      objectReference: {fileID: 7529910571393733755}
+    - target: {fileID: 8044180218378321839, guid: 382e0cb8fba8ffe43a78598a0755f55c, type: 3}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 2266410819005835435}
+    - target: {fileID: 8044180218378321839, guid: 382e0cb8fba8ffe43a78598a0755f55c, type: 3}
+      propertyPath: moneyCount
+      value: 
+      objectReference: {fileID: 7529910571393733755}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17258,7 +17313,7 @@ Transform:
   m_GameObject: {fileID: 6615416373474152066}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -113.5, y: -6.41, z: 15.2}
   m_LocalScale: {x: 1, y: 1.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
