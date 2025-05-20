@@ -4832,6 +4832,63 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8966528104107651536, guid: acbd01b202c7fbe4d8253f58923a2a79, type: 3}
   m_PrefabInstance: {fileID: 2028783819}
   m_PrefabAsset: {fileID: 0}
+--- !u!195 &660815317 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 3845255789384180576, guid: acbd01b202c7fbe4d8253f58923a2a79, type: 3}
+  m_PrefabInstance: {fileID: 2028783819}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &660815319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660815316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36b7ea75d2f5c5f41963ffdc50d56621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 660815317}
+  range: 20
+  player: {fileID: 6615416373474152066}
+  centrePoint: {fileID: 660815322}
+  isHear: 0
+  isWonder: 0
+  maxHealth: 100
+  currentHealth: 0
+  walkSpeed: 2
+  runSpeed: 5
+--- !u!114 &660815320 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2203568822084822131, guid: acbd01b202c7fbe4d8253f58923a2a79, type: 3}
+  m_PrefabInstance: {fileID: 2028783819}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660815316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b5725fbe4c2f1247883f1ff8623cb41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &660815322 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8585076267992542058, guid: acbd01b202c7fbe4d8253f58923a2a79, type: 3}
+  m_PrefabInstance: {fileID: 2028783819}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &660815323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660815316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cc5f4bee0cda0c4ca3695ba960bc9f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nightScript: {fileID: 660815320}
+  dayScript: {fileID: 660815319}
 --- !u!1001 &677287395
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8162,7 +8219,7 @@ MonoBehaviour:
   - {fileID: 587040378}
   spawnRadius: 100
   MaxspawnCount: 10
-  respawntime: 10
+  respawntime: 3
   player: {fileID: 5629219562290241306}
 --- !u!4 &1120265584 stripped
 Transform:
@@ -15024,7 +15081,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8966528104107651536, guid: acbd01b202c7fbe4d8253f58923a2a79, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 660815319}
+    - targetCorrespondingSourceObject: {fileID: 8966528104107651536, guid: acbd01b202c7fbe4d8253f58923a2a79, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 660815323}
   m_SourcePrefab: {fileID: 100100000, guid: acbd01b202c7fbe4d8253f58923a2a79, type: 3}
 --- !u!4 &2036107344 stripped
 Transform:
