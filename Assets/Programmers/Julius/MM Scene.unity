@@ -1915,6 +1915,10 @@ PrefabInstance:
       propertyPath: scopeOverlay
       value: 
       objectReference: {fileID: 769382875}
+    - target: {fileID: 1588821882389172426, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
+      propertyPath: arrowNumber
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1688819386792654141, guid: df75dc7bb30e99f4282e157f8eb1aa54, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.07
