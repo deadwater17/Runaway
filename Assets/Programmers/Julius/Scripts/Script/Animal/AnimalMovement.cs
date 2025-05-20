@@ -106,6 +106,8 @@ public class AnimalMovement : MonoBehaviour
     {
         Debug.Log("enemy die");
         DeerAnimator.SetFloat("Speed", 0.0f);
-        this.enabled = false;
+        DeerAnimator.SetBool("Death", true); // trigger Deer_Death animation
+        agent.enabled = false; // Optional: stops movement cleanly
+        this.enabled = false;  // disable this script after triggering death
     }
 }
