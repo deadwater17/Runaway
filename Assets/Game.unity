@@ -16027,14 +16027,14 @@ RectTransform:
   m_GameObject: {fileID: 5533350281658468546}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2160459, y: 1.2160459, z: 1.2160459}
+  m_LocalScale: {x: 1.0360103, y: 1.0360103, z: 1.0360103}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8047692019474751420}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 821.9, y: -511.5}
+  m_AnchoredPosition: {x: 839.1, y: -515}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &837198663950383604
@@ -16324,7 +16324,7 @@ Transform:
   m_GameObject: {fileID: 2018204416360495775}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 248.6938, y: 21.54, z: 431.28778}
+  m_LocalPosition: {x: 478.3, y: 27.2, z: 467.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16630,7 +16630,7 @@ MonoBehaviour:
   sprintSpeed: 8
   crouchSpeed: 2
   crouchRunSpeed: 4
-  crouchYScale: 0.5
+  crouchYScale: 0.95
   jumpForce: 10
   fallMultiplier: 2.5
   ascendMultiplier: 2
@@ -17632,7 +17632,7 @@ Transform:
   m_GameObject: {fileID: 6615416373474152066}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -112.22, y: -6.41, z: 15.974}
+  m_LocalPosition: {x: -12.1, y: -6.41, z: 4.5}
   m_LocalScale: {x: 1, y: 1.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -18140,8 +18140,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunUpgraded: 0
   selectedWeapon: 0
-  ArrowIcon: {fileID: 0}
-  BulletIcon: {fileID: 0}
+  ArrowIcon: {fileID: 441763877}
+  BulletIcon: {fileID: 904464996}
   AmmoNumber: {fileID: 6101123582139857463}
 --- !u!4 &6940819641619915809
 Transform:
@@ -18217,6 +18217,10 @@ PrefabInstance:
     - target: {fileID: 1985140372425143031, guid: ff45f0abc5de264449107cee2ffb124d, type: 3}
       propertyPath: m_Name
       value: notebooknew
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985140372425143031, guid: ff45f0abc5de264449107cee2ffb124d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -8,7 +8,7 @@ public class BearMovement : MonoBehaviour
     public NavMeshAgent agent;
     public GameObject player;
     public Transform centrePoint;
-    
+
     public LayerMask obstacle;
     public bool isHear;
     public bool isWander;
@@ -26,7 +26,7 @@ public class BearMovement : MonoBehaviour
 
     //Animator animator;
     void Start()
-    { 
+    {
         agent = GetComponent<NavMeshAgent>();
         timeController = FindObjectOfType<TimeController>();
         bearAnimator = GetComponent<Animator>();
@@ -86,7 +86,7 @@ public class BearMovement : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, player.transform.position) > range) //decide whether to come back to wondering mode
         {
-           // Debug.Log("end run");
+            // Debug.Log("end run");
             isWander = true;
             isHear = false;
             seePlayer = false;
@@ -166,10 +166,12 @@ public class BearMovement : MonoBehaviour
         isWander = false;
         isHear = false;
         agent.speed = 0;
-        transform.Rotate(0, 90f, 0);
         bearAnimator.SetFloat("Speed", 0f);
+        bearAnimator.SetBool("Death", true); // ? Trigger death animation
         Debug.Log("enemy die");
-        this.enabled = false;
+
+        agent.enabled = false; // Optional: disable pathfinding
+        this.enabled = false;  // Disable this script
     }
 }
 
