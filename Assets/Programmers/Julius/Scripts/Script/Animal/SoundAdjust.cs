@@ -8,7 +8,7 @@ public class SoundAdjust : MonoBehaviour
     AudioClip clip;
     int min = 1;
     int foot = 40;
-    int bow = 70;
+    int bow = 50;
     int gun = 145;
 
     public void soundRangeAdjust(AudioSource audiosource)
@@ -19,13 +19,13 @@ public class SoundAdjust : MonoBehaviour
         {
             adjust(min, foot);
         }
-        else if (clip.name == "gun")
+        else if (clip.name == "Gunshot")
         {
             adjust(min, gun);
         }
-        else
+        else if (clip.name == "ArrowRelease")
         {
-
+            adjust(min, bow);
         }
         AnimalsInRange();
         //...

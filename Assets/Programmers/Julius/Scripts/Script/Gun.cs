@@ -16,7 +16,7 @@ public class Gun : MonoBehaviour
     float nextshoot = 0.0f;
     float shootrate = 1f;
 
-    //sound system
+    //sound system Gun
     public AudioClip shootSound;
     AudioSource m_audioSource;
 

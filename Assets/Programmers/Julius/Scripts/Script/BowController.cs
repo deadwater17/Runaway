@@ -17,9 +17,14 @@ public class BowController : MonoBehaviour
     public int arrowNumber;
     public static int currentArrow;
 
+    //sound system
+    public AudioClip arrowRelease;
+    public AudioClip bowDraw;
+    AudioSource m_audioSource;
     private void Start()
     {
         currentArrow = arrowNumber;
+        m_audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -36,10 +41,12 @@ public class BowController : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 isCharging = true;
+                PlayChargeSound();
             }
             if (isCharging)
             {
                 chargeTime += Time.deltaTime; // calculate the chargetime
+
             }
             if (Input.GetMouseButtonUp(0))
             {
@@ -68,6 +75,7 @@ public class BowController : MonoBehaviour
     void FireArrow()
     {
         currentArrow--;
+        PlayReleaseSound();
         RaycastHit hit;
         Vector3 targetPoint = new Vector3(0,0,0);
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit))
@@ -95,5 +103,18 @@ public class BowController : MonoBehaviour
         Debug.Log("arrow: "+ velocity);
         Rigidbody rb = arrow.GetComponent<Rigidbody>();
         rb.velocity = (targetPoint- Arrow_spawn.position).normalized * velocity;
+    }
+
+    void PlayReleaseSound()
+    {
+        m_audioSource.clip = arrowRelease;
+        FindObjectOfType<SoundAdjust>().soundRangeAdjust(m_audioSource);
+        m_audioSource.Play();
+    }
+
+    void PlayChargeSound()
+    {
+        m_audioSource.clip = bowDraw;
+        m_audioSource.Play();
     }
 }
