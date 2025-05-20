@@ -11,9 +11,9 @@ public class Movement : MonoBehaviour
     private Rigidbody rb;
     public float PlayerSpeed = 0f;  
     public float currentSpeed;
-    public float walkSpeed = 5f;
-    public float sprintSpeed = 8f;
-    public float crouchSpeed = 2f;
+    public float walkSpeed = 6f;
+    public float sprintSpeed = 10f;
+    public float crouchSpeed = 3f;
     public float crouchRunSpeed = 4f;
     private float moveHorizontal;
     private float moveForward;
@@ -38,6 +38,9 @@ public class Movement : MonoBehaviour
     public float maxSlopeAngle;
     private RaycastHit slopeHit;
 
+    // ✅ ADD: Reference to the sound state controller
+    private SoundStateController soundStateController;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -48,6 +51,9 @@ public class Movement : MonoBehaviour
         raycastDistance = (playerHeight / 2) + 0.2f;
 
         startYScale = transform.localScale.y;
+
+        // ✅ Initialize SoundStateController reference
+        soundStateController = FindObjectOfType<SoundStateController>();
     }
 
     void Update()
@@ -73,6 +79,19 @@ public class Movement : MonoBehaviour
         {
             groundCheckTimer -= Time.deltaTime;
         }
+
+        // ✅ Set sound icon color if no gun/bow state is active
+        if (soundStateController != null)
+        {
+            if (isCrouching || (moveHorizontal == 0 && moveForward == 0))
+            {
+                soundStateController.SetColor(soundStateController.crouchOrIdleColor);
+            }
+            else
+            {
+                soundStateController.SetColor(soundStateController.walkOrRunColor);
+            }
+        }
     }
 
     void FixedUpdate()
@@ -83,7 +102,6 @@ public class Movement : MonoBehaviour
 
     void MovePlayer()
     {
-        //Vector3 movement = (transform.right * moveHorizontal + transform.forward * moveForward).normalized;
         Vector3 moveDirection = (playerCamera.forward * moveForward + playerCamera.right * moveHorizontal).normalized;
         moveDirection.y = 0; 
         
@@ -96,7 +114,6 @@ public class Movement : MonoBehaviour
             velocity.z = targetVelocity.z;
             rb.velocity = velocity;
             
-            // Apply slope movement only if on a slope
             if (OnSlope())
             {
                 rb.AddForce(GetSlopeMovement(moveDirection) * PlayerSpeed, ForceMode.Force);
@@ -174,11 +191,11 @@ public class Movement : MonoBehaviour
             rb.velocity += Vector3.up * Physics.gravity.y * ascendMultiplier * Time.fixedDeltaTime;
         }
     }
-    
+
     private bool OnSlope()
     {
-        float currentHeight = GetComponent<CapsuleCollider>().height * transform.localScale.y; // Adjust for crouching
-        float rayDistance = (currentHeight / 2) + 0.3f; // Adjust raycast distance based on current height
+        float currentHeight = GetComponent<CapsuleCollider>().height * transform.localScale.y;
+        float rayDistance = (currentHeight / 2) + 0.3f;
 
         if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, rayDistance))
         {
@@ -187,6 +204,7 @@ public class Movement : MonoBehaviour
         }
         return false;
     }
+
     private Vector3 GetSlopeMovement(Vector3 movement)
     {
         return Vector3.ProjectOnPlane(movement, slopeHit.normal).normalized;

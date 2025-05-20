@@ -8,7 +8,6 @@ public class Gun : MonoBehaviour
     public Transform firePoint;
     public Camera fpsCam;
     public CameraShake cameraShake;
-    //public float damage = 10f;
     public float bulletSpeed = 100f;
     public float gravity = 9.81f;
     public static int currentAmmo;
@@ -20,20 +19,27 @@ public class Gun : MonoBehaviour
     public AudioClip shootSound;
     AudioSource m_audioSource;
 
+    // ✅ Add: Reference to SoundStateController
+    private SoundStateController soundStateController;
+
     private void Start()
     {
         cameraShake = fpsCam.GetComponent<CameraShake>();
         m_audioSource = GetComponent<AudioSource>();
         currentAmmo = bulletNumber;
+
+        // ✅ Find SoundStateController in the scene
+        soundStateController = FindObjectOfType<SoundStateController>();
     }
+
     void Update()
     {
         if (currentAmmo <= 0)
         {
             Debug.Log("ammo is empty");
             currentAmmo = 0;
-            //UI showing ammo is empty.
         }
+
         if (Time.time >= nextshoot)
         {
             if (Input.GetMouseButtonDown(0) && currentAmmo != 0)
@@ -41,9 +47,12 @@ public class Gun : MonoBehaviour
                 Shoot();
                 PlayShootSound();
                 nextshoot = Time.time + 1f / shootrate;
+
+                // ✅ Trigger red color for 1 second after gunshot
+                if (soundStateController != null)
+                    soundStateController.TriggerGunState();
             }
         }
-        
     }
 
     void Shoot()
@@ -52,17 +61,16 @@ public class Gun : MonoBehaviour
 
         RaycastHit hit;
         Vector3 targetPoint;
-        if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit))
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit))
         {
             targetPoint = hit.point;
             Debug.Log(hit.transform.name);
-           
         }
         else
         {
-            targetPoint = fpsCam.transform.position + fpsCam.transform.forward * 10000f; // Arbitrary large distance
-            
+            targetPoint = fpsCam.transform.position + fpsCam.transform.forward * 10000f;
         }
+
         SpawnBullet(firePoint.position, targetPoint);
         StartCoroutine(cameraShake.shake());
         StartCoroutine(recoil());
@@ -71,14 +79,14 @@ public class Gun : MonoBehaviour
     void SpawnBullet(Vector3 start, Vector3 target)
     {
         GameObject bullet = Instantiate(bulletPrefab, start, Quaternion.identity);
-        
 
-        Rigidbody rb = bullet.GetComponent<Rigidbody>(); // Get the Rigidbody component
+        Rigidbody rb = bullet.GetComponent<Rigidbody>();
         if (rb == null)
         {
-            rb = bullet.AddComponent<Rigidbody>(); // Add Rigidbody if not already attached
+            rb = bullet.AddComponent<Rigidbody>();
         }
-        Vector3 velocity = (target - start).normalized * bulletSpeed; // aim at camera
+
+        Vector3 velocity = (target - start).normalized * bulletSpeed;
         rb.velocity = velocity;
 
         Destroy(bullet, 10f);
@@ -86,16 +94,13 @@ public class Gun : MonoBehaviour
 
     IEnumerator recoil()
     {
-
-        
         Quaternion originalRotation = fpsCam.transform.rotation;
         Quaternion recoilRotation = originalRotation * Quaternion.Euler(-2f, 0f, 0f);
 
-        // Instantly apply the recoil
         fpsCam.transform.rotation = recoilRotation;
 
         float t = 0f;
-        float recoverySpeed = 5f; // Adjust this to control how fast the camera returns
+        float recoverySpeed = 5f;
 
         while (t <= 1f)
         {
@@ -103,8 +108,6 @@ public class Gun : MonoBehaviour
             fpsCam.transform.rotation = Quaternion.Slerp(recoilRotation, originalRotation, t);
             yield return null;
         }
-
-
     }
 
     void PlayShootSound()
@@ -112,8 +115,5 @@ public class Gun : MonoBehaviour
         m_audioSource.clip = shootSound;
         FindObjectOfType<SoundAdjust>().soundRangeAdjust(m_audioSource);
         m_audioSource.Play();
-
     }
-
-
 }

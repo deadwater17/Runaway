@@ -17,83 +17,89 @@ public class BowController : MonoBehaviour
     public int arrowNumber;
     public static int currentArrow;
 
+    // ✅ Add: Reference to SoundStateController
+    private SoundStateController soundStateController;
+
     private void Start()
     {
         currentArrow = arrowNumber;
+
+        // ✅ Find the SoundStateController in the scene
+        soundStateController = FindObjectOfType<SoundStateController>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (currentArrow <= 0)
         {
             Debug.Log("ammo is empty");
             currentArrow = 0;
-            //UI showing ammo is empty.
         }
+
         if (currentArrow != 0) 
         {
             if (Input.GetMouseButtonDown(0))
             {
                 isCharging = true;
             }
+
             if (isCharging)
             {
-                chargeTime += Time.deltaTime; // calculate the chargetime
+                chargeTime += Time.deltaTime;
             }
+
             if (Input.GetMouseButtonUp(0))
             {
-                if (chargeTime <= 0.5) // setting lowest velocity
+                if (chargeTime <= 0.5f)
                 {
                     velocity = minSpeed;
                 }
-                else if (chargeTime >= 2) // setting highest velocity
+                else if (chargeTime >= 2f)
                 {
                     velocity = maxSpeed;
                 }
                 else
                 {
-                    velocity = Mathf.Lerp(minSpeed, maxSpeed, chargeTime / 2); ; // calculate velocity based on charge time when it is between 0.5 - 2.0 seconds
+                    velocity = Mathf.Lerp(minSpeed, maxSpeed, chargeTime / 2f);
                 }
+
                 FireArrow();
                 Debug.Log("charge time: " + chargeTime);
                 chargeTime = 0;
                 isCharging = false;
+
+                // ✅ Trigger orange color for 1 second after releasing the arrow
+                if (soundStateController != null)
+                    soundStateController.TriggerBowState();
             }
         }
-        
-
     }
 
     void FireArrow()
     {
         currentArrow--;
         RaycastHit hit;
-        Vector3 targetPoint = new Vector3(0,0,0);
+        Vector3 targetPoint = Vector3.zero;
+
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit))
         {
             targetPoint = hit.point;
             Debug.Log(hit.transform.name);
-            //transform.LookAt(targetPoint);
         }
         else
         {
-            targetPoint = fpsCam.transform.position + fpsCam.transform.forward * 10000f; // Arbitrary large distance
+            targetPoint = fpsCam.transform.position + fpsCam.transform.forward * 10000f;
         }
-        //create prefab 
-        //GameObject arrow = Instantiate(Arrow_prefab, Arrow_spawn.position, Quaternion.identity);
+
         GameObject arrow = ObjectPool.SharedInstance.GetPooledObject();
-        if(arrow != null)
+        if (arrow != null)
         {
             arrow.transform.position = Arrow_spawn.position;
             arrow.transform.rotation = Arrow_spawn.rotation;
             arrow.SetActive(true);
         }
 
-
-        //control the velocity of arrow
-        Debug.Log("arrow: "+ velocity);
         Rigidbody rb = arrow.GetComponent<Rigidbody>();
-        rb.velocity = (targetPoint- Arrow_spawn.position).normalized * velocity;
+        rb.velocity = (targetPoint - Arrow_spawn.position).normalized * velocity;
     }
 }
