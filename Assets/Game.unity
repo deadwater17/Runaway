@@ -1293,6 +1293,10 @@ PrefabInstance:
       propertyPath: moonlight
       value: 
       objectReference: {fileID: 518080323}
+    - target: {fileID: 2587232866122674647, guid: 4986517b0387cfc44983bb4395648776, type: 3}
+      propertyPath: timeForGame
+      value: 960
+      objectReference: {fileID: 0}
     - target: {fileID: 3030834953330014289, guid: 4986517b0387cfc44983bb4395648776, type: 3}
       propertyPath: m_text
       value: 'Time:
@@ -1307,6 +1311,14 @@ PrefabInstance:
       propertyPath: gun
       value: 
       objectReference: {fileID: 2266410819005835435}
+    - target: {fileID: 6318476187875427849, guid: 4986517b0387cfc44983bb4395648776, type: 3}
+      propertyPath: fullDayDuration
+      value: 960
+      objectReference: {fileID: 0}
+    - target: {fileID: 6318476187875427849, guid: 4986517b0387cfc44983bb4395648776, type: 3}
+      propertyPath: transitionDuration
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 7113224219962147444, guid: 4986517b0387cfc44983bb4395648776, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -4903,6 +4915,63 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8966528104107651536, guid: acbd01b202c7fbe4d8253f58923a2a79, type: 3}
   m_PrefabInstance: {fileID: 2028783819}
   m_PrefabAsset: {fileID: 0}
+--- !u!195 &660815317 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 3845255789384180576, guid: acbd01b202c7fbe4d8253f58923a2a79, type: 3}
+  m_PrefabInstance: {fileID: 2028783819}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &660815319 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2203568822084822131, guid: acbd01b202c7fbe4d8253f58923a2a79, type: 3}
+  m_PrefabInstance: {fileID: 2028783819}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660815316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b5725fbe4c2f1247883f1ff8623cb41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &660815321 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8585076267992542058, guid: acbd01b202c7fbe4d8253f58923a2a79, type: 3}
+  m_PrefabInstance: {fileID: 2028783819}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &660815322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660815316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36b7ea75d2f5c5f41963ffdc50d56621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 660815317}
+  range: 30
+  player: {fileID: 6615416373474152066}
+  centrePoint: {fileID: 660815321}
+  isHear: 0
+  isWonder: 0
+  maxHealth: 100
+  currentHealth: 0
+  walkSpeed: 2.5
+  runSpeed: 6
+--- !u!114 &660815323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660815316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cc5f4bee0cda0c4ca3695ba960bc9f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nightScript: {fileID: 660815319}
+  dayScript: {fileID: 660815322}
 --- !u!1001 &677287395
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8163,7 +8232,7 @@ MonoBehaviour:
   - {fileID: 587040378}
   spawnRadius: 100
   MaxspawnCount: 10
-  respawntime: 10
+  respawntime: 3
   player: {fileID: 5629219562290241306}
 --- !u!4 &1120265584 stripped
 Transform:
@@ -15025,7 +15094,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8966528104107651536, guid: acbd01b202c7fbe4d8253f58923a2a79, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 660815323}
+    - targetCorrespondingSourceObject: {fileID: 8966528104107651536, guid: acbd01b202c7fbe4d8253f58923a2a79, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 660815322}
   m_SourcePrefab: {fileID: 100100000, guid: acbd01b202c7fbe4d8253f58923a2a79, type: 3}
 --- !u!4 &2036107344 stripped
 Transform:
@@ -16199,7 +16274,7 @@ MonoBehaviour:
   Arrow_spawn: {fileID: 5319029540195129793}
   Player: {fileID: 1688819386247387097}
   fpsCam: {fileID: 6833299405679007568}
-  arrowNumber: 10
+  arrowNumber: 20
 --- !u!1 &1660637968150076170 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7942312929159972473, guid: 91cc1b20457454d4da29f7738f21dcca, type: 3}
