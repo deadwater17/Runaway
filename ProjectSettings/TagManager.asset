@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Target
   - Deer
+  - Bear
+  - Ammo
   layers:
   - Default
   - TransparentFX
