@@ -55,7 +55,7 @@ public class BearMovement : MonoBehaviour
             isWander = false;
             bearAnimator.SetFloat("Speed", chaseSpeed);
             ChasePlayer();
-            Debug.Log("animal run : " + agent.speed);
+            //Debug.Log("animal run : " + agent.speed);
         }
 
         CheckReturnTowander();
@@ -153,6 +153,8 @@ public class BearMovement : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        Debug.Log("Bear hit");
+
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
@@ -166,6 +168,7 @@ public class BearMovement : MonoBehaviour
         isWander = false;
         isHear = false;
         agent.speed = 0;
+        transform.Rotate(0, 90f, 0);
         bearAnimator.SetFloat("Speed", 0f);
         Debug.Log("enemy die");
         this.enabled = false;

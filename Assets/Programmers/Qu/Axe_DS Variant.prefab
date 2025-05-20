@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Axe_DS Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1948186286613674, guid: f063809a91c6b0248956e054e09b9b56, type: 3}
+      propertyPath: m_TagString
+      value: Ammo
+      objectReference: {fileID: 0}
     - target: {fileID: 4847643549659240, guid: f063809a91c6b0248956e054e09b9b56, type: 3}
       propertyPath: m_LocalPosition.x
       value: 29.94661
@@ -110,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6aaf3b045e9b754d96d38b106218a05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 20
 --- !u!65 &7234835559732967515
 BoxCollider:
   m_ObjectHideFlags: 0
