@@ -1293,6 +1293,10 @@ PrefabInstance:
       propertyPath: moonlight
       value: 
       objectReference: {fileID: 518080323}
+    - target: {fileID: 2587232866122674647, guid: 4986517b0387cfc44983bb4395648776, type: 3}
+      propertyPath: timeForGame
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 3030834953330014289, guid: 4986517b0387cfc44983bb4395648776, type: 3}
       propertyPath: m_text
       value: 'Time:
@@ -1307,6 +1311,10 @@ PrefabInstance:
       propertyPath: gun
       value: 
       objectReference: {fileID: 2266410819005835435}
+    - target: {fileID: 6318476187875427849, guid: 4986517b0387cfc44983bb4395648776, type: 3}
+      propertyPath: fullDayDuration
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 7113224219962147444, guid: 4986517b0387cfc44983bb4395648776, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -8011,8 +8019,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animalPrefabs:
   - {fileID: 660815316}
-  - {fileID: 133577378980343757, guid: 7ab0cb0b4dc3b0c4fb76653c13e5a8e3, type: 3}
-  - {fileID: 133577378980343757, guid: 99c33756518525a429cd918eaf1f461e, type: 3}
+  - {fileID: 1300337664}
   spawnRadius: 100
   MaxspawnCount: 10
   respawntime: 10
@@ -9179,6 +9186,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4926586117470890873, guid: a5403ccf4428fd142a7e98acd1429537, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 27ab8dd8d8d466c4683ac2a65b222d8a, type: 2}
     - target: {fileID: 5233136764506912792, guid: a5403ccf4428fd142a7e98acd1429537, type: 3}
       propertyPath: m_Name
       value: Deer_1
