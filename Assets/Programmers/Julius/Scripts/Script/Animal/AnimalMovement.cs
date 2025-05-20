@@ -18,6 +18,7 @@ public class AnimalMovement : MonoBehaviour
     // health setting
     public float maxHealth = 100;
     public float currentHealth;
+
     public float walkSpeed;
     public float runSpeed;
     void Start()
@@ -106,6 +107,5 @@ public class AnimalMovement : MonoBehaviour
         Debug.Log("enemy die");
         DeerAnimator.SetFloat("Speed", 0.0f);
         this.enabled = false;
-       
     }
 }
