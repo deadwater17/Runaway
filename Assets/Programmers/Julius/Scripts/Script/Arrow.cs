@@ -5,7 +5,7 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     Rigidbody rb;
-    public float damage = 20;
+    public float damage;
     void Start()
     {
         rb = GetComponent<Rigidbody>();

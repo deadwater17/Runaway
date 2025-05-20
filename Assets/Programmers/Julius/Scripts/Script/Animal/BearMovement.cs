@@ -153,8 +153,6 @@ public class BearMovement : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        Debug.Log("Bear hit");
-
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
