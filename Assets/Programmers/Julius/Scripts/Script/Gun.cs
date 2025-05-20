@@ -12,7 +12,7 @@ public class Gun : MonoBehaviour
     public float bulletSpeed = 100f;
     public float gravity = 9.81f;
     public static int currentAmmo;
-    
+    public int bulletNumber = 40;
     float nextshoot = 0.0f;
     float shootrate = 1f;
 
@@ -24,7 +24,7 @@ public class Gun : MonoBehaviour
     {
         cameraShake = fpsCam.GetComponent<CameraShake>();
         m_audioSource = GetComponent<AudioSource>();
-        currentAmmo = AmmoNumber.bullet;
+        currentAmmo = bulletNumber;
     }
     void Update()
     {

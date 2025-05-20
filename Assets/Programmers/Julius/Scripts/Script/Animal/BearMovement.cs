@@ -137,7 +137,7 @@ public class BearMovement : MonoBehaviour
     {
         if (hasAttacked) return;
         float distance = Vector3.Distance(transform.position, player.transform.position);
-        if (distance <= 2f) // close enough to "attack"
+        if (distance <= 5f) // close enough to "attack"
         {
             hasAttacked = true;
             bearAnimator.SetTrigger("Attack");

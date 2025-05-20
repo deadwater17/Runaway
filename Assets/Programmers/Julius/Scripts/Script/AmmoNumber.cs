@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class AmmoNumber : MonoBehaviour
 {
-    public static int arrow = 10;
-    public static int bullet = 10; //later another script manage the ammo inventory
 
     public GameObject gun;
     public GameObject bow;
@@ -22,11 +20,11 @@ public class AmmoNumber : MonoBehaviour
     {
         if(gun.activeSelf)
         {
-            text.text = Gun.currentAmmo + "/" +bullet.ToString();
+            text.text = Gun.currentAmmo.ToString();
         }
         else if(bow.activeSelf)
         {
-            text.text =  BowController.currentArrow + "/"  +arrow.ToString();
+            text.text =  BowController.currentArrow.ToString();
         }
         
     }

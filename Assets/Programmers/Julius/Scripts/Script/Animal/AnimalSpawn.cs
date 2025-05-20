@@ -92,4 +92,18 @@ public class AnimalSpawn : MonoBehaviour
 
         Debug.LogWarning("Animal spawn failed: Couldn't find valid terrain after " + maxTry + " tries.");
     }
+
+    public void deleteBears()
+    {
+        for (int i = 0; i < spawnList.Count; i++)
+        {
+            bool isBear = spawnList[i].CompareTag("Bear");
+            if (isBear)
+            {
+                Debug.Log("bear delete");
+                Destroy(spawnList[i]);
+                spawnList.RemoveAt(i);
+            }
+        }
+    }
 }

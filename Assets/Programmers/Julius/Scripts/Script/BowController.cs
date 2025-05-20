@@ -14,11 +14,12 @@ public class BowController : MonoBehaviour
     float chargeTime = 0;
     float minSpeed = 20;
     float maxSpeed = 40;
+    public int arrowNumber;
     public static int currentArrow;
 
     private void Start()
     {
-        currentArrow = AmmoNumber.arrow;
+        currentArrow = arrowNumber;
     }
 
     // Update is called once per frame

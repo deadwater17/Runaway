@@ -31,11 +31,14 @@ public class TimeController: MonoBehaviour
 
     TimeSpan sunriseTime;
     TimeSpan sunsetTime;
+    AnimalSpawn animalSpawn;
+
     public DateTime currentTime;
     public Animator fadeAnimator;
     public bool isDayTime;
     void Start()
     {
+        animalSpawn = FindObjectOfType<AnimalSpawn>();
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(startHour);
         sunriseTime = TimeSpan.FromHours(sunriseHour);
         sunsetTime = TimeSpan.FromHours(sunsetHour);
@@ -64,6 +67,7 @@ public class TimeController: MonoBehaviour
         float moonLightRotation;
         if(currentTime.TimeOfDay>sunriseTime && currentTime.TimeOfDay < sunsetTime) //day mode
         {
+            animalSpawn.deleteBears();
             TimeSpan DayDuration = CalculateTimeDifference(sunriseTime, sunsetTime); //total time of the day
             TimeSpan timeSinceSunrise = CalculateTimeDifference(sunriseTime, currentTime.TimeOfDay);
 
