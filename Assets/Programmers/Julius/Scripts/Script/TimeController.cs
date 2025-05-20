@@ -67,7 +67,7 @@ public class TimeController: MonoBehaviour
         float moonLightRotation;
         if(currentTime.TimeOfDay>sunriseTime && currentTime.TimeOfDay < sunsetTime) //day mode
         {
-            animalSpawn.deleteBears();
+            //animalSpawn.deleteBears();
             TimeSpan DayDuration = CalculateTimeDifference(sunriseTime, sunsetTime); //total time of the day
             TimeSpan timeSinceSunrise = CalculateTimeDifference(sunriseTime, currentTime.TimeOfDay);
 
@@ -135,5 +135,17 @@ public class TimeController: MonoBehaviour
         currentTime = currentTime.AddHours(hoursToSkip);
 
         fadeAnimator.Play("fade in");
+    }
+
+    public bool isDay()
+    {
+        if (currentTime.TimeOfDay > sunriseTime && currentTime.TimeOfDay < sunsetTime) //day mode
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
