@@ -12,6 +12,8 @@ public class CameraController : MonoBehaviour
     [Header("Player Reference")]
     public Transform playerBody;
 
+    [HideInInspector] public bool canRotate = true;
+
     void Start()
     {
         cameraTransform = Camera.main.transform;
@@ -21,6 +23,8 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
+        if (!canRotate) return; //  Now it obeys this flag
+
         RotateCamera();
     }
 
