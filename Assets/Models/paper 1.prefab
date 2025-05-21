@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5394266392733407167
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 65c2ada60aa5b0c4496f877c15a9f57b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 120.01208
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65c2ada60aa5b0c4496f877c15a9f57b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 84.46202
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65c2ada60aa5b0c4496f877c15a9f57b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 84.46203
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65c2ada60aa5b0c4496f877c15a9f57b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 597.68
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65c2ada60aa5b0c4496f877c15a9f57b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 39.95
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65c2ada60aa5b0c4496f877c15a9f57b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 589.13
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65c2ada60aa5b0c4496f877c15a9f57b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6287613
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65c2ada60aa5b0c4496f877c15a9f57b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.3071769
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65c2ada60aa5b0c4496f877c15a9f57b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.29735816
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65c2ada60aa5b0c4496f877c15a9f57b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.6495227
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65c2ada60aa5b0c4496f877c15a9f57b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65c2ada60aa5b0c4496f877c15a9f57b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 50.621
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65c2ada60aa5b0c4496f877c15a9f57b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 91.861
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 65c2ada60aa5b0c4496f877c15a9f57b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b6f6c4363e3aff048b5331fa560692a1, type: 2}
+    - target: {fileID: 919132149155446097, guid: 65c2ada60aa5b0c4496f877c15a9f57b, type: 3}
+      propertyPath: m_Name
+      value: paper 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 65c2ada60aa5b0c4496f877c15a9f57b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 903089283701345886}
+  m_SourcePrefab: {fileID: 100100000, guid: 65c2ada60aa5b0c4496f877c15a9f57b, type: 3}
+--- !u!1 &5052231077452507886 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 65c2ada60aa5b0c4496f877c15a9f57b, type: 3}
+  m_PrefabInstance: {fileID: 5394266392733407167}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &903089283701345886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5052231077452507886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8d8ceca6fcf3f04b8d209b8925d7812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplitude: 0.1
+  frequency: 1
+  swayAmount: 5
+  swaySpeed: 1.5
+  tiltAmount: 2
+  tiltSpeed: 0.8
