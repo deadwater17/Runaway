@@ -14,7 +14,7 @@ public class BearMovement : MonoBehaviour
     public bool isWander;
     public bool hasAttacked;
     public bool seePlayer;
-    private bool isDead = false;
+    public bool isDead = false;
 
     public float range;
     public float viewAngle;

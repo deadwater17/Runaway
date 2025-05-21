@@ -29,36 +29,30 @@ public class Interaction : MonoBehaviour
     {
         Ray r = new Ray(player_camera.position, player_camera.forward);
 
-        // Raycast to check what the player is looking at
         if (Physics.Raycast(r, out RaycastHit hitinfo, interactionDistance))
         {
-            // If the object hit by the ray has an ObjectUI component
-            if (hitinfo.collider.gameObject.TryGetComponent(out ObjectUI objectUI))
+            GameObject hitObject = hitinfo.collider.gameObject;
+
+            // Handle ObjectUI
+            if (hitObject.TryGetComponent(out ObjectUI objectUI))
             {
-                // Notify the ObjectUI that it is being looked at
                 objectUI.SetLookedAt(true);
-
-                // If the object is also interactable, handle interaction
-                if (hitinfo.collider.gameObject.TryGetComponent(out IInteractable interactObj))
-                {
-                    LookedAt = true;
-
-                    // When player presses 'E', interact with the object
-                    if (Input.GetKeyDown(KeyCode.E))
-                    {
-                        interactObj.Interact();
-                    }
-                }
             }
-            else
-            {
-                // If the object does not have an ObjectUI, reset LookedAt
-                LookedAt = false;
 
-                // Disable the Interact_ObjectUI if the raycast hits a non-interactable object
-                if (hitinfo.collider.gameObject.TryGetComponent(out ObjectUI nonInteractableUI))
+            // Handle AnimalUI
+            if (hitObject.TryGetComponent(out AnimalUI animalUI))
+            {
+                animalUI.SetLookedAt(true);
+            }
+
+            // Handle interaction
+            if (hitObject.TryGetComponent(out IInteractable interactObj))
+            {
+                LookedAt = true;
+
+                if (Input.GetKeyDown(KeyCode.E))
                 {
-                    nonInteractableUI.SetLookedAt(false);
+                    interactObj.Interact();
                 }
             }
         }
@@ -67,11 +61,15 @@ public class Interaction : MonoBehaviour
             // If the ray doesn't hit anything, reset LookedAt and disable all ObjectUIs
             LookedAt = false;
 
-            // Find all ObjectUI components in the scene and disable them
-            ObjectUI[] allObjectUIs = FindObjectsOfType<ObjectUI>();
-            foreach (ObjectUI ui in allObjectUIs)
+            foreach (var ui in FindObjectsOfType<ObjectUI>())
             {
                 ui.SetLookedAt(false);
+            }
+
+            // Reset all AnimalUI
+            foreach (var animalUI in FindObjectsOfType<AnimalUI>())
+            {
+                animalUI.SetLookedAt(false);
             }
         }
     }

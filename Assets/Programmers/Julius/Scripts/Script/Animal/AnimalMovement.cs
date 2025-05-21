@@ -13,6 +13,7 @@ public class AnimalMovement : MonoBehaviour
     public Transform centrePoint;
     public bool isHear;
     public bool isWonder;
+    public bool isAlive;
     Animator DeerAnimator;
 
     // health setting
@@ -28,6 +29,7 @@ public class AnimalMovement : MonoBehaviour
         DeerAnimator = GetComponent<Animator>();
         isWonder = true;
         isHear = false;
+        isAlive = true;
     }
 
     // Update is called once per frame
@@ -97,6 +99,7 @@ public class AnimalMovement : MonoBehaviour
         currentHealth -= damage;
         if(currentHealth <= 0)
         {
+            isAlive = false;
             Die();
             //animation dying
         }
