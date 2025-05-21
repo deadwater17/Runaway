@@ -19,18 +19,25 @@ public class GunShopUI : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        Debug.Log("Trying to sell");
-        if (money >= cost)
-        {   
-            money = money - cost;
-            Debug.Log(money);
-            moneyCount.text = money.ToString();
-            weaponSwitch.gunUpgraded = true;        // allow usasge of upgraded gun
-            weaponSwitch.checkGunUpgraded();
+        if (!weaponSwitch.gunUpgraded)
+        {
+            Debug.Log("Trying to sell");
+            if (money >= cost)
+            {   
+                money = money - cost;
+                Debug.Log(money);
+                moneyCount.text = money.ToString();
+                weaponSwitch.gunUpgraded = true;        // allow usasge of upgraded gun
+                weaponSwitch.checkGunUpgraded();
+            }
+            else
+            {
+                Debug.Log("You dont have enough money");
+            }
         }
         else
         {
-            Debug.Log("You dont have enough money");
+            Debug.Log("Weapon is already upgraded");
         }
     }
 }

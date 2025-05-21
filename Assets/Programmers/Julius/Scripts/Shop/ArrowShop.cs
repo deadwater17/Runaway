@@ -28,7 +28,7 @@ public class ArrowShop : MonoBehaviour, IInteractable
         if (money >= cost)
         {
             money = money - cost;
-            currentArrows = arrowMax;
+            currentArrows = currentArrows + arrowMax;
             BowController.currentArrow = currentArrows;
             moneyCount.text = money.ToString();
         }

@@ -29,7 +29,7 @@ public class BulletShop : MonoBehaviour, IInteractable
         if (money >= cost)
         {
             money = money - cost;
-            currentBullet = bulletMax;
+            currentBullet = currentBullet + bulletMax;
             Gun.currentAmmo = currentBullet;
             moneyCount.text = money.ToString();
         }
@@ -42,7 +42,7 @@ public class BulletShop : MonoBehaviour, IInteractable
     private int getCost()
     {
         // see how many bullets are left and gets the total cost
-        bulletPay = (bulletMax - currentBullet) * bulletCost;
+        bulletPay = 10 * bulletCost;
         return bulletPay;   
     }
 
