@@ -21,17 +21,13 @@ public class BowController : MonoBehaviour
     public AudioClip arrowRelease;
     public AudioClip bowDraw;
     AudioSource m_audioSource;
+
+    // ✅ Add: Reference to SoundStateController
+    private SoundStateController soundStateController;
     private void Start()
     {
         currentArrow = arrowNumber;
         m_audioSource = GetComponent<AudioSource>();
-    // ✅ Add: Reference to SoundStateController
-    private SoundStateController soundStateController;
-
-    private void Start()
-    {
-        currentArrow = arrowNumber;
-
         // ✅ Find the SoundStateController in the scene
         soundStateController = FindObjectOfType<SoundStateController>();
     }
