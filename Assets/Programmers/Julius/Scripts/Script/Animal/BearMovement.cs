@@ -13,8 +13,9 @@ public class BearMovement : MonoBehaviour
     public bool isHear;
     public bool isWander;
     public bool hasAttacked;
-
     public bool seePlayer;
+    private bool isDead = false;
+
     public float range;
     public float viewAngle;
     public float chaseSpeed = 4f;
@@ -134,16 +135,13 @@ public class BearMovement : MonoBehaviour
     {
         if (hasAttacked) return;
         float distance = Vector3.Distance(transform.position, player.transform.position);
-        if (distance <= 5f)
+        if (distance <= 5f && !isDead)
         {
             hasAttacked = true;
             bearAnimator.SetTrigger("Attack");
 
             // ✅ Now uses DateController to perform fade + time skip
-            if (dateController != null)
-            {
-                dateController.AdvanceToMorning();
-            }
+            StartCoroutine(delaySleepAnim());
 
             Debug.Log("Bear attacked! Player sleeps.");
         }
@@ -154,6 +152,7 @@ public class BearMovement : MonoBehaviour
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
+            isDead = true;
             Die();
         }
     }
@@ -169,5 +168,16 @@ public class BearMovement : MonoBehaviour
 
         agent.enabled = false;
         this.enabled = false;
+    }
+
+    IEnumerator delaySleepAnim()
+    {
+        yield return new WaitForSeconds(1.2f);
+        if (dateController != null)
+        {
+            dateController.AdvanceToMorning();
+        }
+        bearAnimator.SetFloat("Speed", 2.5f);
+        bearAnimator.SetBool("Attack", false);
     }
 }
