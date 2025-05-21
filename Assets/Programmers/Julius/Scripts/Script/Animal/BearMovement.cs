@@ -24,38 +24,36 @@ public class BearMovement : MonoBehaviour
     TimeController timeController;
     Animator bearAnimator;
 
-    //Animator animator;
+    // ✅ Added reference to DateController
+    DateController dateController;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         timeController = FindObjectOfType<TimeController>();
+        dateController = FindObjectOfType<DateController>(); // ✅ Find DateController
         bearAnimator = GetComponent<Animator>();
-        //animator = GetComponent<Animator>();
         currentHealth = maxHealth;
         isWander = true;
         isHear = false;
         seePlayer = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-
         SearchPlayer();
-        //wandering mode;
+
         if (isWander)
         {
             bearAnimator.SetFloat("Speed", walkSpeed);
             Wander();
         }
 
-        //chasing mode;
         if (isHear)
         {
             isWander = false;
             bearAnimator.SetFloat("Speed", chaseSpeed);
             ChasePlayer();
-            //Debug.Log("animal run : " + agent.speed);
         }
 
         CheckReturnTowander();
@@ -84,14 +82,14 @@ public class BearMovement : MonoBehaviour
 
     void CheckReturnTowander()
     {
-        if (Vector3.Distance(transform.position, player.transform.position) > range) //decide whether to come back to wondering mode
+        if (Vector3.Distance(transform.position, player.transform.position) > range)
         {
-            // Debug.Log("end run");
             isWander = true;
             isHear = false;
             seePlayer = false;
         }
     }
+
     bool RandomPoint(Vector3 center, float range, out Vector3 result)
     {
         Vector3 randomPoint = center + Random.insideUnitSphere * range;
@@ -106,17 +104,16 @@ public class BearMovement : MonoBehaviour
         return false;
     }
 
-
     void SearchPlayer()
     {
         Collider[] playerRange = Physics.OverlapSphere(transform.position, range);
         foreach (Collider target in playerRange)
         {
-            if (target.gameObject == player) // Ensure it is the actual player
+            if (target.gameObject == player)
             {
                 Vector3 dirToplayer = (player.transform.position - transform.position).normalized;
 
-                if (Vector3.Angle(dirToplayer, transform.forward) < viewAngle / 2) // if the player is within the view of bear
+                if (Vector3.Angle(dirToplayer, transform.forward) < viewAngle / 2)
                 {
                     float desToPlayer = Vector3.Distance(transform.position, player.transform.position);
                     if (!Physics.Raycast(transform.position, dirToplayer, desToPlayer, obstacle))
@@ -137,14 +134,15 @@ public class BearMovement : MonoBehaviour
     {
         if (hasAttacked) return;
         float distance = Vector3.Distance(transform.position, player.transform.position);
-        if (distance <= 5f) // close enough to "attack"
+        if (distance <= 5f)
         {
             hasAttacked = true;
             bearAnimator.SetTrigger("Attack");
-            // Skip time to 7:00
-            if (timeController != null)
+
+            // ✅ Now uses DateController to perform fade + time skip
+            if (dateController != null)
             {
-                timeController.sleepUntil(7f);
+                dateController.AdvanceToMorning();
             }
 
             Debug.Log("Bear attacked! Player sleeps.");
@@ -157,7 +155,6 @@ public class BearMovement : MonoBehaviour
         if (currentHealth <= 0)
         {
             Die();
-            //animation dying
         }
     }
 
@@ -167,11 +164,10 @@ public class BearMovement : MonoBehaviour
         isHear = false;
         agent.speed = 0;
         bearAnimator.SetFloat("Speed", 0f);
-        bearAnimator.SetBool("Death", true); // ? Trigger death animation
+        bearAnimator.SetBool("Death", true);
         Debug.Log("enemy die");
 
-        agent.enabled = false; // Optional: disable pathfinding
-        this.enabled = false;  // Disable this script
+        agent.enabled = false;
+        this.enabled = false;
     }
 }
-

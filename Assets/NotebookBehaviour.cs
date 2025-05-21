@@ -10,6 +10,10 @@ public class NotebookBehaviour : MonoBehaviour
     public MonoBehaviour playerController; // Assign your player movement script
     public MonoBehaviour cameraLookScript; // Assign your mouse/camera look script
 
+    [SerializeField] GameObject bow1;
+    //[SerializeField] GameObject bow2 = null;
+    [SerializeField] GameObject gun1;
+    [SerializeField] GameObject gun2;
     void Start()
     {
         Cursor.visible = false;
@@ -30,6 +34,10 @@ public class NotebookBehaviour : MonoBehaviour
                 notebookAnimator.SetTrigger("notebookOpen");
                 isNotebookOpen = true;
 
+                bow1.SetActive(false);
+                gun1.SetActive(false);
+                gun2.SetActive(false);
+
                 // Show cursor
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
@@ -45,6 +53,10 @@ public class NotebookBehaviour : MonoBehaviour
             {
                 notebookAnimator.SetTrigger("notebookClose");
                 isNotebookOpen = false;
+                
+                bow1.SetActive(true);
+                gun1.SetActive(true);
+                gun2.SetActive(true);
 
                 // Hide cursor
                 Cursor.visible = false;
