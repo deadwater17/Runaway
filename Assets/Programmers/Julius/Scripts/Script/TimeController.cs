@@ -33,11 +33,13 @@ public class TimeController: MonoBehaviour
     TimeSpan sunsetTime;
     AnimalSpawn animalSpawn;
 
+    
     public DateTime currentTime;
     public Animator fadeAnimator;
     public bool isDayTime;
     void Start()
     {
+       
         animalSpawn = FindObjectOfType<AnimalSpawn>();
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(startHour);
         sunriseTime = TimeSpan.FromHours(sunriseHour);
@@ -109,7 +111,7 @@ public class TimeController: MonoBehaviour
     public void sleepUntil(float wakeUpHour)
     {
         StartCoroutine(SleepWithFade(wakeUpHour));
-               Debug.Log(currentTime);
+        Debug.Log(currentTime);
 
     }
 
@@ -117,6 +119,7 @@ public class TimeController: MonoBehaviour
     {
         fadeAnimator.Play("fade out");
         yield return new WaitForSeconds(4f);
+       
         // Get current time in hours
         float currentHour = (float)currentTime.TimeOfDay.TotalHours;
 

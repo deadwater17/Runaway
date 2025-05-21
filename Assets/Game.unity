@@ -4252,6 +4252,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1591377791}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &518775111
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 518775112}
+  m_Layer: 0
+  m_Name: respawn point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &518775112
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518775111}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.58317786, z: -0, w: -0.81234455}
+  m_LocalPosition: {x: 218.58655, y: 23.739998, z: 381.9993}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &530920394
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7380,7 +7411,7 @@ MonoBehaviour:
   fadeImage: {fileID: 0}
   fadeDuration: 4
   playerObj: {fileID: 5629219562290241306}
-  playerResetPosition: {x: -42.09, y: -8.88, z: -12.12}
+  playerResetPosition: {x: 218.58655, y: 23.739998, z: 381.9993}
   playerResetRotation: {x: 0, y: 102.03, z: 0}
   currentDay: 1
 --- !u!1001 &862542758
@@ -10143,7 +10174,7 @@ MonoBehaviour:
   - {fileID: 587040378}
   spawnRadius: 100
   MaxspawnCount: 10
-  respawntime: 3
+  respawntime: 1
   player: {fileID: 5629219562290241306}
 --- !u!4 &1120265584 stripped
 Transform:
@@ -19238,7 +19269,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8158185462620809163}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 370.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21110,7 +21141,7 @@ Transform:
   m_GameObject: {fileID: 6615416373474152066}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7773143, z: -0, w: -0.6291124}
-  m_LocalPosition: {x: -42.09, y: -8.88, z: -12.12}
+  m_LocalPosition: {x: -42.089993, y: -8.880001, z: -12.120001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23619,6 +23650,7 @@ SceneRoots:
   - {fileID: 1118022821}
   - {fileID: 1591377791}
   - {fileID: 863811783}
+  - {fileID: 518775112}
   - {fileID: 1688819386247387097}
   - {fileID: 8047692019474751420}
   - {fileID: 1114032204}
