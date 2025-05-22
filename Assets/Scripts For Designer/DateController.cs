@@ -22,29 +22,9 @@ public class DateController : MonoBehaviour
 
     public void AdvanceToMorning()
     {
-        StartCoroutine(FadeAndReset());
-    }
-
-    private IEnumerator FadeAndReset()
-    {
-        // 1. Fade to black
-        if (fadeImage != null)
-        {
-            fadeImage.gameObject.SetActive(true);
-            float t = 0f;
-            Color c = fadeImage.color;
-            while (t < fadeDuration)
-            {
-                t += Time.deltaTime;
-                c.a = Mathf.Lerp(0f, 1f, t / fadeDuration);
-                fadeImage.color = c;
-                yield return null;
-            }
-        }
-        // 2. Tell TimeController to sleep until 6 AM
         if (timeController != null)
         {
-            timeController.sleepUntil(6f); // 6 AM
+            timeController.sleepUntil(7f); // 7 AM
         }
 
         // 3. Reset player position and rotation
@@ -57,6 +37,5 @@ public class DateController : MonoBehaviour
         // 4. Advance the day
         currentDay++;
 
-        // [Optional future hook for UI transition here]
     }
 }

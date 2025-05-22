@@ -133,11 +133,11 @@ public class BearMovement : MonoBehaviour
 
     void TryAttackPlayer()
     {
-        if (hasAttacked) return;
+       // if (hasAttacked) return;
         float distance = Vector3.Distance(transform.position, player.transform.position);
         if (distance <= 5f && !isDead)
         {
-            hasAttacked = true;
+            //hasAttacked = true;
             bearAnimator.SetTrigger("Attack");
 
             // ✅ Now uses DateController to perform fade + time skip
