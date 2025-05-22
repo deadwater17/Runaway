@@ -38,11 +38,18 @@ public class Movement : MonoBehaviour
     public float maxSlopeAngle;
     private RaycastHit slopeHit;
 
+
+    private AudioSource AudioSource;
+
+
     // ✅ ADD: Reference to the sound state controller
     private SoundStateController soundStateController;
 
     void Start()
     {
+        AudioSource = GetComponent<AudioSource>();
+
+
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
@@ -92,6 +99,14 @@ public class Movement : MonoBehaviour
                 soundStateController.SetColor(soundStateController.walkOrRunColor);
             }
         }
+
+        float volrandomNumber = Random.Range(0.2f, 0.6f);
+        AudioSource.volume = volrandomNumber;
+
+        float pitchrandomNumber = Random.Range(0.8f, 1.3f);
+        AudioSource.pitch = pitchrandomNumber;
+
+        HandleFootstepAudio();
     }
 
     void FixedUpdate()
@@ -190,6 +205,28 @@ public class Movement : MonoBehaviour
         {
             rb.velocity += Vector3.up * Physics.gravity.y * ascendMultiplier * Time.fixedDeltaTime;
         }
+    }
+
+
+    void HandleFootstepAudio()
+    {
+        bool isMoving = (moveHorizontal != 0 || moveForward != 0) && isGrounded;
+
+        if (isMoving && !AudioSource.isPlaying)
+        {
+            PlayFootstepSound(); // Start playing with randomized pitch/volume
+        }
+        else if (!isMoving && AudioSource.isPlaying)
+        {
+            AudioSource.Stop();
+        }
+    }
+
+    void PlayFootstepSound()
+    {
+        AudioSource.Play();
+
+       
     }
 
     private bool OnSlope()
