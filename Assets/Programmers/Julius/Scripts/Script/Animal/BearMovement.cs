@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class BearMovement : MonoBehaviour
 {
+    public static bool isAnyBearAttacking = false;
     public NavMeshAgent agent;
     public GameObject player;
     public Transform centrePoint;
@@ -133,11 +134,11 @@ public class BearMovement : MonoBehaviour
 
     void TryAttackPlayer()
     {
-       // if (hasAttacked) return;
+        if (isAnyBearAttacking) return;
         float distance = Vector3.Distance(transform.position, player.transform.position);
         if (distance <= 5f && !isDead)
         {
-            //hasAttacked = true;
+            isAnyBearAttacking = true;
             bearAnimator.SetTrigger("Attack");
 
             // ✅ Now uses DateController to perform fade + time skip
@@ -179,5 +180,6 @@ public class BearMovement : MonoBehaviour
         }
         bearAnimator.SetFloat("Speed", 2.5f);
         bearAnimator.SetBool("Attack", false);
+        isAnyBearAttacking = false;
     }
 }
