@@ -613,7 +613,7 @@ GameObject:
   - component: {fileID: 8284960864061339533}
   - component: {fileID: 1495323340262635777}
   m_Layer: 0
-  m_Name: notebook
+  m_Name: notebookPREFAB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
