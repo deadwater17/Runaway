@@ -72,11 +72,11 @@ public class AnimalSpawn : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, 200f))
             {
-                Debug.Log("Trying to spawn at position: " + spawnPos);
+                //Debug.Log("Trying to spawn at position: " + spawnPos);
                 
                 if (hit.collider.GetComponent<TerrainCollider>() != null)
                 {
-                    Debug.Log("Trying to spawn at position: " + spawnPos);
+                    //Debug.Log("Trying to spawn at position: " + spawnPos);
                     GameObject animal = animalPrefabs[Random.Range(0, animalPrefabs.Length)];
                     bool isBear = animal.CompareTag("Bear");
                     if ((isBear && isNight) || (!isBear && !isNight))  // only spawn bear in night,spawn other animal on day

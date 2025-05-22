@@ -67,12 +67,12 @@ public class AnimalMovement : MonoBehaviour
             agent.SetDestination(destination);
             isWonder = false;
             isHear = false;
-            Debug.Log("animal run");
+            //Debug.Log("animal run");
         }
 
         if(agent.remainingDistance <= agent.stoppingDistance && !isHear &&!isWonder) //decide whether to come back to wondering mode
         {
-            Debug.Log("end run");
+            //Debug.Log("end run");
             isWonder = true;
         }
 
