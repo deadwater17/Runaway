@@ -9,7 +9,7 @@ public class weaponADS : MonoBehaviour
     public Transform aimPosition;
     public Transform defaultPos;
     public Camera fpsCam;
-    public float aimSpeed = 10f;
+    public float aimSpeed = 6f;
     public float zoomFOV = 40f;
     float scopeEffectFov = 10f;
     float defaultFOV;
