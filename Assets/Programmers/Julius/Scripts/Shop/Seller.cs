@@ -17,6 +17,8 @@ public class Seller : MonoBehaviour, IInteractable
     [SerializeField] TMP_Text moneyCount;
     public int money;
 
+    public AudioSource sellAudioSource;
+
     InventorySystem invSys;
 
     void Start()
@@ -72,5 +74,6 @@ public class Seller : MonoBehaviour, IInteractable
         invSys.bearCount = 0;
         invSys.inventoryCapacity = 3; // Reset inventory capacity to max
         moneyCount.text = money.ToString();
+        sellAudioSource.Play();
     }
 }

@@ -10,6 +10,10 @@ public class GunShopUI : MonoBehaviour, IInteractable
     [SerializeField]WeaponSwitch weaponSwitch;
     [SerializeField] private int cost = 100;
     private int money;
+    public AudioSource gunUpgradeAudioSource;
+    public AudioClip gunUpgradeAudioClip;
+    public AudioClip purchaseClip;
+    public GameObject gunSubs;
 
     void Update()
     {
@@ -24,11 +28,15 @@ public class GunShopUI : MonoBehaviour, IInteractable
             Debug.Log("Trying to sell");
             if (money >= cost)
             {   
+                gunUpgradeAudioSource.PlayOneShot(purchaseClip);
                 money = money - cost;
                 Debug.Log(money);
                 moneyCount.text = money.ToString();
                 weaponSwitch.gunUpgraded = true;        // allow usasge of upgraded gun
                 weaponSwitch.checkGunUpgraded();
+                gunUpgradeAudioSource.PlayOneShot(gunUpgradeAudioClip);
+                gunSubs.SetActive(true);
+                Invoke("SetFalse", 4.0f);
             }
             else
             {
@@ -39,5 +47,10 @@ public class GunShopUI : MonoBehaviour, IInteractable
         {
             Debug.Log("Weapon is already upgraded");
         }
+    }
+
+    void SetFalse()
+    {
+        gunSubs.SetActive(false);
     }
 }
