@@ -20096,6 +20096,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bear_attack Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6892730974042383040, guid: 08fee644a81344f4688a2ee843a2474a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25329,7 +25333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f2403d65a7f4fa44a24a21039a9f757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeForGame: 30
+  timeForGame: 960
   startHour: 7
   timeText: {fileID: 3030834953187593274}
   sunlight: {fileID: 547628579}
@@ -27087,8 +27091,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: baef7505b9e48404cb74585601f49ff9, type: 2}
   - {fileID: 2100000, guid: ed1387202b1349540a5d6464f0f27488, type: 2}
   - {fileID: 2100000, guid: ed1387202b1349540a5d6464f0f27488, type: 2}
-  fullDayDuration: 30
-  transitionDuration: 1.5
+  fullDayDuration: 960
+  transitionDuration: 30
 --- !u!33 &6484840016766428490
 MeshFilter:
   m_ObjectHideFlags: 0
