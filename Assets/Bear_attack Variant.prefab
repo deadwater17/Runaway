@@ -788,7 +788,7 @@ MonoBehaviour:
   viewAngle: 50
   chaseSpeed: 4
   walkSpeed: 2.5
-  maxHealth: 100
+  maxHealth: 200
   currentHealth: 0
 --- !u!114 &2910186163458706528
 MonoBehaviour:
@@ -809,7 +809,7 @@ MonoBehaviour:
   isHear: 0
   isWonder: 0
   isAlive: 0
-  maxHealth: 100
+  maxHealth: 200
   currentHealth: 0
   walkSpeed: 2
   runSpeed: 5

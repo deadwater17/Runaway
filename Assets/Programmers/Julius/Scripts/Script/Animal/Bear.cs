@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Bear : MonoBehaviour
 {
-    [SerializeField]int m_health = 100;
+    [SerializeField]int m_health = 200;
     [SerializeField]int bullet_dmg = 100;
 
     [SerializeField] GameObject col;
