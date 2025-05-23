@@ -11,6 +11,13 @@ public class GunShopUI : MonoBehaviour, IInteractable
     [SerializeField] private int cost = 100;
     private int money;
 
+
+    private AudioSource AudioSource;
+    public AudioClip voiceline;
+    public AudioClip purchase;
+
+    public GameObject subtitles;
+
     void Update()
     {
         money = int.Parse(moneyCount.text);
@@ -23,12 +30,16 @@ public class GunShopUI : MonoBehaviour, IInteractable
         {
             Debug.Log("Trying to sell");
             if (money >= cost)
-            {   
+            {
+                AudioSource.PlayOneShot(purchase);
                 money = money - cost;
                 Debug.Log(money);
                 moneyCount.text = money.ToString();
                 weaponSwitch.gunUpgraded = true;        // allow usasge of upgraded gun
                 weaponSwitch.checkGunUpgraded();
+                AudioSource.PlayOneShot(voiceline);
+                subtitles.gameObject.SetActive(true);
+                Invoke("Subtitles", 4.0f);
             }
             else
             {
@@ -40,4 +51,11 @@ public class GunShopUI : MonoBehaviour, IInteractable
             Debug.Log("Weapon is already upgraded");
         }
     }
+
+    void Subtitles()
+    {
+        subtitles.gameObject.SetActive(false);
+    }
+
+
 }
