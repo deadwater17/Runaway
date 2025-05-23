@@ -23,11 +23,6 @@ public class WeaponSwitch : MonoBehaviour
     {
         int previousSelectedWeapon = selectedWeapon;
 
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
-        {
-            selectedWeapon = (selectedWeapon + 1) % transform.childCount;
-        }
-
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             selectedWeapon = 0;
