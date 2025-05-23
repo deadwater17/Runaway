@@ -34,7 +34,7 @@ public class DaveVoices : MonoBehaviour
         }
         else 
         {
-            animator.SetTrigger("New Trigger")
+            animator.SetTrigger("New Trigger");
             Debug.Log("Voiceline plays");
         AudioClip selectedClip = clips[Random.Range(0, clips.Length)];
         audioSource.clip = selectedClip;
