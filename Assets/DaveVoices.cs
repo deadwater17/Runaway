@@ -7,6 +7,8 @@ public class DaveVoices : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip[] voicelines;
 
+    public Animator animator;
+
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +24,7 @@ public class DaveVoices : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+      
         AudioClip[] clips = voicelines;
 
         if (clips.Length == 0)
@@ -31,6 +34,7 @@ public class DaveVoices : MonoBehaviour
         }
         else 
         {
+            animator.SetTrigger("New Trigger")
             Debug.Log("Voiceline plays");
         AudioClip selectedClip = clips[Random.Range(0, clips.Length)];
         audioSource.clip = selectedClip;
