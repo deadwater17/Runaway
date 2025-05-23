@@ -9,7 +9,7 @@ public class AnimalSpawn : MonoBehaviour
     public int MaxspawnCount = 10;
     public float respawntime = 3f;
     TimeController timeController;
-    private List<GameObject> spawnList = new List<GameObject>();
+    public List<GameObject> spawnList = new List<GameObject>();
     public Transform player;
     void Start()
     {
@@ -32,7 +32,7 @@ public class AnimalSpawn : MonoBehaviour
         int currentAnimal = 0;
         foreach (var animal in spawnList)
         {
-            if (Vector3.Distance(animal.transform.position, player.position) < spawnRadius)
+            if (animal != null&&Vector3.Distance(animal.transform.position, player.position) < spawnRadius)
             {
                 currentAnimal++;
             }
@@ -45,12 +45,13 @@ public class AnimalSpawn : MonoBehaviour
 
         for(int i = 0;i<spawnList.Count;i++)
         {
-            if (Vector3.Distance(spawnList[i].transform.position, player.position) > spawnRadius)
+            if (spawnList[i] != null&&Vector3.Distance(spawnList[i].transform.position, player.position) > spawnRadius)
             {
                 Destroy(spawnList[i]);
                 spawnList.RemoveAt(i);
             }
         }
+
     }
 
     void spawnAnimal()
@@ -82,6 +83,20 @@ public class AnimalSpawn : MonoBehaviour
                     if ((isBear && isNight) || (!isBear && !isNight))  // only spawn bear in night,spawn other animal on day
                     {
                         GameObject newAnimal = Instantiate(animal, spawnPos, Quaternion.identity);
+                        bool placed = false;
+                        for(int i=0;i<spawnList.Count;i++)
+                        {
+                            if (spawnList[i] == null)
+                            {
+                                spawnList[i] = newAnimal;
+                                placed = true;
+                                break;
+                            }
+                        }
+                        if (!placed)
+                        {
+                            spawnList.Add(newAnimal);
+                        }
                         spawnList.Add(newAnimal);
                         return;
                     }
