@@ -23,6 +23,9 @@ public class InventorySystem : MonoBehaviour
     public Animator inventoryAnimator; // Reference to the animator
     private bool isInventoryUp = false; // Tracks current animation state
 
+    // ✅ New reference for the popup UI controller
+    public AnimalPopupController popupController;
+
     public void AddWeight(float weight)
     {
         inventoryWeight += weight; // Add the weight to the inventory
@@ -93,6 +96,9 @@ public class InventorySystem : MonoBehaviour
                     bearNum.text = bearCount.ToString();
                     break;
             }
+
+            // ✅ Trigger the popup UI safely
+            popupController?.Show(animalType);
         }
         else
         {
