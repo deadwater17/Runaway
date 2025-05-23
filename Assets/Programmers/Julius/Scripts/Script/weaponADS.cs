@@ -13,7 +13,7 @@ public class weaponADS : MonoBehaviour
     public float zoomFOV = 40f;
     float scopeEffectFov = 10f;
     float defaultFOV;
-    bool isAiming = false;
+    public bool isAiming = false;
     public bool isScope = false;
     public GameObject scopeOverlay;
     public GameObject weaponCamera;
@@ -70,7 +70,7 @@ public class weaponADS : MonoBehaviour
 
     IEnumerator DelayedScope()
     {
-        yield return new WaitForSeconds(0.3f); // Wait for  seconds
+        yield return new WaitForSeconds(0.2f); // Wait for  seconds
         scopeOverlay.SetActive(true);
         weaponCamera.SetActive(false);
         fpsCam.fieldOfView = scopeEffectFov;
