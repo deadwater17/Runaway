@@ -12,7 +12,7 @@ public class GunShopUI : MonoBehaviour, IInteractable
     private int money;
 
 
-    private AudioSource AudioSource;
+    public AudioSource AudioSource;
     public AudioClip voiceline;
     public AudioClip purchase;
 

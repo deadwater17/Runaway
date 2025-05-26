@@ -19,6 +19,8 @@ public class Seller : MonoBehaviour, IInteractable
 
     InventorySystem invSys;
 
+    public AudioSource AudioSource;
+
     void Start()
     {
         invSys = FindAnyObjectByType<InventorySystem>();
@@ -38,7 +40,8 @@ public class Seller : MonoBehaviour, IInteractable
                     if (rabbitCount > 0)
                     {
                         money += rabbitCount * rabPrice; 
-                        Debug.Log("Sold " + rabbitCount + " rabbits"); 
+                        Debug.Log("Sold " + rabbitCount + " rabbits");
+                        AudioSource.PlayOneShot(AudioSource.clip);
                         rabbitCount = 0; // Reset count
                         rabNum.text = rabbitCount.ToString();
                     }
@@ -48,7 +51,8 @@ public class Seller : MonoBehaviour, IInteractable
                     if (deerCount > 0)
                     {
                         money += deerCount * deerPrice;
-                        Debug.Log("Sold " + deerCount + " deers"); 
+                        Debug.Log("Sold " + deerCount + " deers");
+                        AudioSource.PlayOneShot(AudioSource.clip);
                         deerCount = 0; // Reset count
                         deerNum.text = deerCount.ToString();
                     }
@@ -58,12 +62,14 @@ public class Seller : MonoBehaviour, IInteractable
                     if (bearCount > 0)
                     {
                         money += bearCount * bearPrice; 
-                        Debug.Log("Sold " + bearCount + " bears"); 
+                        Debug.Log("Sold " + bearCount + " bears");
+                        AudioSource.PlayOneShot(AudioSource.clip);
                         bearCount = 0; // Reset count
                         bearNum.text = bearCount.ToString();
                     }
                     break;
             }
+            
         }
 
         // Reset inventory capacity and update money UI
@@ -72,5 +78,6 @@ public class Seller : MonoBehaviour, IInteractable
         invSys.bearCount = 0;
         invSys.inventoryCapacity = 3; // Reset inventory capacity to max
         moneyCount.text = money.ToString();
+        
     }
 }
