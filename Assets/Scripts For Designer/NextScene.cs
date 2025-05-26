@@ -8,7 +8,7 @@ public class NextScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene("Game");
     }
 
     // Update is called once per frame
