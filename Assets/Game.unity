@@ -25473,6 +25473,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bow
       objectReference: {fileID: 0}
+    - target: {fileID: 3180524229684414705, guid: 6378dbaaba0537f478213c745b33fe4c, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4591402164341976869, guid: 6378dbaaba0537f478213c745b33fe4c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.4524746
@@ -27865,11 +27869,6 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 0
---- !u!1 &7523569806299389849 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8587057855223380686, guid: 6378dbaaba0537f478213c745b33fe4c, type: 3}
-  m_PrefabInstance: {fileID: 2406223967645111759}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7529910571393733755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28594,7 +28593,7 @@ MonoBehaviour:
   notebookAnimator: {fileID: 1233859909}
   playerController: {fileID: 2827257976974366285}
   cameraLookScript: {fileID: 1267011048027622710}
-  bow1: {fileID: 7523569806299389849}
+  bow1: {fileID: 1252895610843119275}
   gun1: {fileID: 6515006424289119340}
   gun2: {fileID: 7396350010636491684}
 --- !u!114 &9072424416457690077
