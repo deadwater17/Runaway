@@ -22,6 +22,10 @@ public class AnimalMovement : MonoBehaviour
 
     public float walkSpeed;
     public float runSpeed;
+
+    public AudioSource audioSource;
+
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -97,6 +101,7 @@ public class AnimalMovement : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
+        audioSource.PlayOneShot(audioSource.clip);
         if(currentHealth <= 0)
         {
             isAlive = false;

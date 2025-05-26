@@ -1277,87 +1277,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1001 &96582586
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4566249922728654972, guid: 5303ae3262c15bb4b8c5e001987e2337, type: 3}
-      propertyPath: m_Name
-      value: final_bear
-      objectReference: {fileID: 0}
-    - target: {fileID: 6823666469900010915, guid: 5303ae3262c15bb4b8c5e001987e2337, type: 3}
-      propertyPath: m_Pitch
-      value: 0.90886414
-      objectReference: {fileID: 0}
-    - target: {fileID: 6823666469900010915, guid: 5303ae3262c15bb4b8c5e001987e2337, type: 3}
-      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].time
-      value: 0.0954777
-      objectReference: {fileID: 0}
-    - target: {fileID: 6823666469900010915, guid: 5303ae3262c15bb4b8c5e001987e2337, type: 3}
-      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].value
-      value: 0.68171877
-      objectReference: {fileID: 0}
-    - target: {fileID: 6823666469900010915, guid: 5303ae3262c15bb4b8c5e001987e2337, type: 3}
-      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].inSlope
-      value: -2.4025953
-      objectReference: {fileID: 0}
-    - target: {fileID: 6823666469900010915, guid: 5303ae3262c15bb4b8c5e001987e2337, type: 3}
-      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].outSlope
-      value: -2.4025953
-      objectReference: {fileID: 0}
-    - target: {fileID: 6823666469900010915, guid: 5303ae3262c15bb4b8c5e001987e2337, type: 3}
-      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].outWeight
-      value: 0.09750957
-      objectReference: {fileID: 0}
-    - target: {fileID: 8870060071264373964, guid: 5303ae3262c15bb4b8c5e001987e2337, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 233.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 8870060071264373964, guid: 5303ae3262c15bb4b8c5e001987e2337, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 20.77327
-      objectReference: {fileID: 0}
-    - target: {fileID: 8870060071264373964, guid: 5303ae3262c15bb4b8c5e001987e2337, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 407.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 8870060071264373964, guid: 5303ae3262c15bb4b8c5e001987e2337, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8870060071264373964, guid: 5303ae3262c15bb4b8c5e001987e2337, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8870060071264373964, guid: 5303ae3262c15bb4b8c5e001987e2337, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8870060071264373964, guid: 5303ae3262c15bb4b8c5e001987e2337, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8870060071264373964, guid: 5303ae3262c15bb4b8c5e001987e2337, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8870060071264373964, guid: 5303ae3262c15bb4b8c5e001987e2337, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8870060071264373964, guid: 5303ae3262c15bb4b8c5e001987e2337, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5303ae3262c15bb4b8c5e001987e2337, type: 3}
 --- !u!1001 &107695702
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13338,7 +13257,7 @@ MonoBehaviour:
   animalPrefabs:
   - {fileID: 4566249922728654972, guid: 5303ae3262c15bb4b8c5e001987e2337, type: 3}
   - {fileID: 1252416376474414825, guid: 961fbd8488d6e484f933d09af9037f9a, type: 3}
-  spawnRadius: 100
+  spawnRadius: 250
   MaxspawnCount: 5
   respawntime: 1
   player: {fileID: 5629219562290241306}
@@ -25097,6 +25016,7 @@ MonoBehaviour:
   walkSpeed: 2.5
   maxHealth: 200
   currentHealth: 0
+  audioSource: {fileID: 0}
 --- !u!114 &2115195869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25120,6 +25040,7 @@ MonoBehaviour:
   currentHealth: 0
   walkSpeed: 2
   runSpeed: 5
+  audioSource: {fileID: 0}
 --- !u!195 &2115195870
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -29451,4 +29372,3 @@ SceneRoots:
   - {fileID: 8047692019474751420}
   - {fileID: 1114032204}
   - {fileID: 97646685404682423}
-  - {fileID: 96582586}

@@ -28,6 +28,11 @@ public class BearMovement : MonoBehaviour
     // ✅ Added reference to DateController
     DateController dateController;
 
+
+    public AudioSource audioSource;
+
+
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -150,6 +155,7 @@ public class BearMovement : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
+        audioSource.PlayOneShot(audioSource.clip);
         if (currentHealth <= 0)
         {
             isDead = true;
