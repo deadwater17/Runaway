@@ -14,19 +14,20 @@ public class Dave : MonoBehaviour, IInteractable
 
     [SerializeField] private TMP_Text moneyCount;
 
+    public GameObject questLocUI;
+    public GameObject questObjectiveUI; // <-- UI that shows the Quest
+    public GameObject tickUI;           // <-- UI that shows the Tick
+
     private int money;
 
     public Button btnAccept;
     public Button btnSell;
 
     public MonoBehaviour playerController;
-    //[SerializeField] GameObject questUI;
-
     public Seller seller;
 
     public bool isTalked;
     public bool questCollected;
-
 
     void Update()
     {
@@ -38,22 +39,32 @@ public class Dave : MonoBehaviour, IInteractable
         isTalked = false;
         questUI.SetActive(false);
         questCollected = false;
-        //questUI.SetActive(false);
+
+        if (questObjectiveUI != null)
+            questObjectiveUI.SetActive(false);
+
+        if (tickUI != null)
+            tickUI.SetActive(false);
     }
 
     public void Interact()
     {
-        talkingtoDave();    
+        talkingtoDave();
     }
 
     public void acceptQuest()
     {
-        if (isTalked && !questCollected) 
+        if (isTalked && !questCollected)
         {
-            //questUI.SetActive(true);
             questItem.SetActive(true);
             Debug.Log("Accept quest");
-            
+
+            if (questLocUI != null)
+                questLocUI.SetActive(true);
+
+            if (questObjectiveUI != null)
+                questObjectiveUI.SetActive(true); // Turn on Quest UI
+
             notTalking();
         }
         else if (isTalked && questCollected)
@@ -61,13 +72,21 @@ public class Dave : MonoBehaviour, IInteractable
             money += 100;
             moneyCount.text = money.ToString();
             Debug.Log("Quest is complete, 100 reward");
+
+            // ✅ Hide both Quest and Tick UI now
+            if (questObjectiveUI != null)
+                questObjectiveUI.SetActive(false);
+
+            if (tickUI != null)
+                tickUI.SetActive(false);
+
             notTalking();
         }
     }
 
     public void sellAnimals()
     {
-        if (isTalked) 
+        if (isTalked)
         {
             seller.Sell();
             talkingtoDave();
