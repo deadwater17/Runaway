@@ -10,9 +10,6 @@ public class Dave : MonoBehaviour, IInteractable
 
     [SerializeField] private GameObject questUI;
 
-
-
-
     public Button btnAccept;
     public Button btnSell;
 
