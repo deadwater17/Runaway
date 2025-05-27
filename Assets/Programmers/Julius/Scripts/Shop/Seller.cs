@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Seller : MonoBehaviour, IInteractable
+public class Seller : MonoBehaviour
 {
     [SerializeField] TMP_Text rabNum;
     [SerializeField] int rabPrice = 25;
@@ -25,7 +25,7 @@ public class Seller : MonoBehaviour, IInteractable
     {
         invSys = FindAnyObjectByType<InventorySystem>();
     }
-    public void Interact()
+    public void Sell()
     {
         int rabbitCount = invSys.rabbitCount;
         int deerCount = invSys.deerCount;

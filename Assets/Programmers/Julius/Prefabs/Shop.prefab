@@ -624,6 +624,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_moneyCount: {fileID: 0}
   m_cost: 75
+  AudioSource: {fileID: 0}
+  voiceline: {fileID: 0}
+  purchase: {fileID: 0}
+  subtitles: {fileID: 0}
 --- !u!114 &8893203939059530558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -935,7 +939,6 @@ GameObject:
   - component: {fileID: 6315796613807241419}
   - component: {fileID: 4996250499736519096}
   - component: {fileID: 6004858254047313477}
-  - component: {fileID: 2582743024753188571}
   - component: {fileID: 2843087085414482905}
   m_Layer: 0
   m_Name: Seller
@@ -1031,26 +1034,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2582743024753188571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3235557556968500170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 681c2f6c6933c2f468f62f40ee5b618e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rabNum: {fileID: 0}
-  rabPrice: 25
-  deerNum: {fileID: 0}
-  deerPrice: 50
-  bearNum: {fileID: 0}
-  bearPrice: 100
-  moneyCount: {fileID: 0}
-  money: 0
 --- !u!114 &2843087085414482905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1506,6 +1489,10 @@ MonoBehaviour:
   moneyCount: {fileID: 0}
   weaponSwitch: {fileID: 0}
   cost: 100
+  AudioSource: {fileID: 0}
+  voiceline: {fileID: 0}
+  purchase: {fileID: 0}
+  subtitles: {fileID: 0}
 --- !u!33 &1347719950596354893
 MeshFilter:
   m_ObjectHideFlags: 0

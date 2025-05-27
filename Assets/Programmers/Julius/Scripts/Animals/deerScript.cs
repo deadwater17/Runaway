@@ -16,6 +16,7 @@ public class deerScript : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        Debug.Log("Interacted Deer");
         if (m_inventoryS.inventoryCapacity > 0)
         {
             Debug.Log("Weight added to inventory " + d_weight + ".");
