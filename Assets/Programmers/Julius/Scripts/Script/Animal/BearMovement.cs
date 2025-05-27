@@ -35,6 +35,7 @@ public class BearMovement : MonoBehaviour
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         agent = GetComponent<NavMeshAgent>();
         timeController = FindObjectOfType<TimeController>();
         dateController = FindObjectOfType<DateController>(); // ✅ Find DateController
