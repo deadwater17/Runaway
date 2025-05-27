@@ -15321,6 +15321,7 @@ MonoBehaviour:
   isScope: 0
   scopeOverlay: {fileID: 2840499805147022130}
   weaponCamera: {fileID: 1718309717501084158}
+  dave: {fileID: 0}
 --- !u!114 &1308793743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15340,6 +15341,7 @@ MonoBehaviour:
   bulletSpeed: 300
   gravity: 9.81
   bulletNumber: 40
+  dave: {fileID: 0}
   shootSound: {fileID: 8300000, guid: 4e88291978032124eb5618c2c2645690, type: 3}
 --- !u!82 &1308793744
 AudioSource:
@@ -21580,6 +21582,7 @@ MonoBehaviour:
   isScope: 1
   scopeOverlay: {fileID: 2840499805147022130}
   weaponCamera: {fileID: 1718309717501084158}
+  dave: {fileID: 0}
 --- !u!114 &1792400800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21599,6 +21602,7 @@ MonoBehaviour:
   bulletSpeed: 150
   gravity: 9.81
   bulletNumber: 40
+  dave: {fileID: 0}
   shootSound: {fileID: 8300000, guid: 608d2a6a96b1e214195bebc2ef80766e, type: 3}
 --- !u!114 &1792400801
 MonoBehaviour:
