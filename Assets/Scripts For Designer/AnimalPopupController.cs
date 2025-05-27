@@ -1,61 +1,49 @@
 using UnityEngine;
-using System.Collections;
 
 public class AnimalPopupController : MonoBehaviour
 {
-    public GameObject bearIcon;
-    public GameObject deerIcon;
+    public GameObject bearParent;
+    public GameObject deerParent;
 
-    private Animator bearAnim;
-    private Animator deerAnim;
-    private CanvasGroup pickupGroup;
+    public Animator bearAnim;
+    public Animator deerAnim;
 
-    void Awake()
+    public void Start()
     {
-        bearAnim = bearIcon.GetComponent<Animator>();
-        deerAnim = deerIcon.GetComponent<Animator>();
-        pickupGroup = GetComponent<CanvasGroup>();
+        // Make sure parents are hidden initially
+        bearParent.SetActive(false);
+        deerParent.SetActive(false);
 
-        // Force icons to be ready
-        bearIcon.SetActive(false);
-        deerIcon.SetActive(false);
-    }
-
-    void Start()
-    {
-        StartCoroutine(HidePickupGroupNextFrame());
-    }
-
-    private IEnumerator HidePickupGroupNextFrame()
-    {
-        yield return null;
-        pickupGroup.alpha = 0f;
-        Debug.Log("Pickup UI group hidden after frame 1.");
+        // Cache animator components from parents
+        bearAnim = bearParent.GetComponent<Animator>();
+        deerAnim = deerParent.GetComponent<Animator>();
     }
 
     public void Show(string animalType)
     {
-        pickupGroup.alpha = 1f;
-
-        // Hide both to start clean
-        bearIcon.SetActive(false);
-        deerIcon.SetActive(false);
+        // Ensure this parent container is active
+        gameObject.SetActive(true);
 
         if (animalType == "Bear")
         {
-            bearIcon.SetActive(true);
+            bearParent.SetActive(true);
+
             bearAnim.Play("Idle", 0, 0);
             bearAnim.ResetTrigger("PickUp");
             bearAnim.SetTrigger("PickUp");
+
             CancelInvoke(nameof(HideBear));
             Invoke(nameof(HideBear), 2f);
         }
         else if (animalType == "Deer")
         {
-            deerIcon.SetActive(true);
+            deerParent.SetActive(true);
+            Debug.Log("working activate");
+
             deerAnim.Play("Idle", 0, 0);
             deerAnim.ResetTrigger("PickUp");
             deerAnim.SetTrigger("PickUp");
+
             CancelInvoke(nameof(HideDeer));
             Invoke(nameof(HideDeer), 2f);
         }
@@ -63,13 +51,11 @@ public class AnimalPopupController : MonoBehaviour
 
     void HideBear()
     {
-        bearIcon.SetActive(false);
-        pickupGroup.alpha = 0f;
+        bearParent.SetActive(false);
     }
 
     void HideDeer()
     {
-        deerIcon.SetActive(false);
-        pickupGroup.alpha = 0f;
+        deerParent.SetActive(false);
     }
 }

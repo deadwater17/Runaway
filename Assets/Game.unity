@@ -2505,6 +2505,77 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 531370901}
   m_SourcePrefab: {fileID: 100100000, guid: a1e73004b0494cd490a59d71a3b9bfa9, type: 3}
+--- !u!1 &241806813
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 241806814}
+  - component: {fileID: 241806815}
+  - component: {fileID: 241806816}
+  m_Layer: 5
+  m_Name: DeerInc
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &241806814
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241806813}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1136241945}
+  m_Father: {fileID: 1219845704}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &241806815
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241806813}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fab3fdcde98d8be40951f9f677e19899, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!225 &241806816
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241806813}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &247363772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4014,15 +4085,13 @@ GameObject:
   - component: {fileID: 325942500}
   - component: {fileID: 325942502}
   - component: {fileID: 325942501}
-  - component: {fileID: 325942504}
-  - component: {fileID: 325942503}
   m_Layer: 5
   m_Name: bearInc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &325942500
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4030,12 +4099,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 325942499}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5038, y: 1.5038, z: 1.5038}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1219845704}
+  m_Father: {fileID: 1313220798}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4080,39 +4149,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 325942499}
   m_CullTransparentMesh: 1
---- !u!95 &325942503
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 325942499}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b9ddeda5791b7da4e99fd85b226e67c7, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!225 &325942504
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 325942499}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &331165023 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4994414217311654959, guid: 81617808802b46f7a276c396c721b38f, type: 3}
@@ -13256,9 +13292,10 @@ MonoBehaviour:
   animalPrefabs:
   - {fileID: 2115195863}
   - {fileID: 1377102668}
-  spawnRadius: 250
+  spawnRadius: 50
   MaxspawnCount: 5
   respawntime: 1
+  spawnList: []
   player: {fileID: 5629219562290241306}
 --- !u!4 &1120265584 stripped
 Transform:
@@ -13276,15 +13313,13 @@ GameObject:
   - component: {fileID: 1136241945}
   - component: {fileID: 1136241947}
   - component: {fileID: 1136241946}
-  - component: {fileID: 1136241949}
-  - component: {fileID: 1136241948}
   m_Layer: 5
   m_Name: deerInc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1136241945
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13292,12 +13327,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1136241944}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5570346, y: 1.5570346, z: 1.5570346}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1219845704}
+  m_Father: {fileID: 241806814}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -13342,39 +13377,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1136241944}
   m_CullTransparentMesh: 1
---- !u!95 &1136241948
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1136241944}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fab3fdcde98d8be40951f9f677e19899, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!225 &1136241949
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1136241944}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1001 &1136585732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14350,8 +14352,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 325942500}
-  - {fileID: 1136241945}
+  - {fileID: 241806814}
+  - {fileID: 1313220798}
   m_Father: {fileID: 8047692019474751420}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -14392,8 +14394,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 579277deceb80e7499e03b474566cf7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bearIcon: {fileID: 325942499}
-  deerIcon: {fileID: 1136241944}
+  bearParent: {fileID: 1313220797}
+  deerParent: {fileID: 241806813}
+  bearAnim: {fileID: 1313220799}
+  deerAnim: {fileID: 241806815}
 --- !u!225 &1219845708
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -14403,8 +14407,8 @@ CanvasGroup:
   m_GameObject: {fileID: 1219845703}
   m_Enabled: 1
   m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!95 &1233859909
 Animator:
@@ -14569,15 +14573,15 @@ PrefabInstance:
       objectReference: {fileID: 2115195876}
     - target: {fileID: 6422380147099357858, guid: 3e76c4120e8ea874ab53431cba2425fe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 284
+      value: 486.1
       objectReference: {fileID: 0}
     - target: {fileID: 6422380147099357858, guid: 3e76c4120e8ea874ab53431cba2425fe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 17.04
+      value: 36.68
       objectReference: {fileID: 0}
     - target: {fileID: 6422380147099357858, guid: 3e76c4120e8ea874ab53431cba2425fe, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 447
+      value: 952.9
       objectReference: {fileID: 0}
     - target: {fileID: 6422380147099357858, guid: 3e76c4120e8ea874ab53431cba2425fe, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15523,6 +15527,77 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1855781560094965361, guid: beb460fa20079554db8f2e36cf0d058b, type: 3}
   m_PrefabInstance: {fileID: 1579142219}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1313220797
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1313220798}
+  - component: {fileID: 1313220799}
+  - component: {fileID: 1313220800}
+  m_Layer: 5
+  m_Name: BearInc
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1313220798
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313220797}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 325942500}
+  m_Father: {fileID: 1219845704}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1313220799
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313220797}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b9ddeda5791b7da4e99fd85b226e67c7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!225 &1313220800
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313220797}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!4 &1316849607 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1855781560094965361, guid: beb460fa20079554db8f2e36cf0d058b, type: 3}
@@ -28813,8 +28888,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 579277deceb80e7499e03b474566cf7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bearIcon: {fileID: 325942499}
-  deerIcon: {fileID: 1136241944}
+  bearParent: {fileID: 0}
+  deerParent: {fileID: 0}
+  bearAnim: {fileID: 0}
+  deerAnim: {fileID: 0}
 --- !u!225 &9072424416457690078
 CanvasGroup:
   m_ObjectHideFlags: 0
