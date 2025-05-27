@@ -20,41 +20,46 @@ public class Notes : MonoBehaviour
 
     private IEnumerator FadeInAndOut(GameObject canvas)
     {
-        CanvasGroup canvasGroup = canvas.GetComponent<CanvasGroup>();
-        if (canvasGroup == null)
         {
-            canvasGroup = canvas.AddComponent<CanvasGroup>();
+            CanvasGroup canvasGroup = canvas.GetComponent<CanvasGroup>();
+            if (canvasGroup == null)
+            {
+                canvasGroup = canvas.AddComponent<CanvasGroup>();
+            }
+
+            canvasGroup.alpha = 0f;
+            canvas.SetActive(true);
+
+            // Fade In (1 second)
+            float fadeTime = 1f;
+            float elapsedTime = 0f;
+            while (elapsedTime < fadeTime)
+            {
+                canvasGroup.alpha = Mathf.Lerp(0f, 1f, elapsedTime / fadeTime);
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+            canvasGroup.alpha = 1f;
+
+            // Wait for player to press Esc key to fade out
+            while (!Input.GetKeyDown(KeyCode.Escape))
+            {
+                yield return null;
+            }
+
+            // Fade Out (1 second)
+            elapsedTime = 0f;
+            while (elapsedTime < fadeTime)
+            {
+                canvasGroup.alpha = Mathf.Lerp(1f, 0f, elapsedTime / fadeTime);
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+            canvasGroup.alpha = 0f;
+
+            // Deactivate the canvas
+            canvas.SetActive(false);
         }
-
-        canvasGroup.alpha = 0f;
-        canvas.SetActive(true);
-
-        // Fade In (1 second)
-        float fadeTime = 1f;
-        float elapsedTime = 0f;
-        while (elapsedTime < fadeTime)
-        {
-            canvasGroup.alpha = Mathf.Lerp(0f, 1f, elapsedTime / fadeTime);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-        canvasGroup.alpha = 1f;
-
-        // Waits for 4 seconds
-        yield return new WaitForSeconds(3f);
-
-        // Fade Out (1 second)
-        elapsedTime = 0f;
-        while (elapsedTime < fadeTime)
-        {
-            canvasGroup.alpha = Mathf.Lerp(1f, 0f, elapsedTime / fadeTime);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-        canvasGroup.alpha = 0f;
-
-        // Deactivate the canvas
-        canvas.SetActive(false);
     }
 
     public void NoteCanvasDisplay()

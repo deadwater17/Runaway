@@ -5,11 +5,12 @@ using UnityEngine;
 public class NotePages : MonoBehaviour, IInteractable
 {
     [SerializeField] Notes notes;
-
+    [SerializeField] private GameObject m_notes;
 
     public void Interact()
     {
         notes.NoteCanvasDisplay();
         Debug.Log("Interacted with Notes");
+        Destroy(m_notes);
     }
 }
