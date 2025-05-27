@@ -60,13 +60,24 @@ public class AnimalMovement : MonoBehaviour
         if (isHear)
         {
             DeerAnimator.SetFloat("Speed", 7.5f);
-            //Run away from player
-            Vector3 direction = (transform.position - player.transform.position).normalized;
-            Vector3 fleetdirec = direction + new Vector3(Random.Range(-1, 1), 0,Random.Range(-1,1));
-            fleetdirec.Normalize();
-            //add randomness to the animal's run away path
-            Vector3 destination = transform.position + 25 * fleetdirec;
-
+            int maxTries = 10;
+            Vector3 destination = transform.position;
+            for (int i = 0; i < maxTries; i++)
+            {
+                //Run away from player
+                Vector3 direction = (transform.position - player.transform.position).normalized;
+                Vector3 fleetdirec = direction + new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f));
+                fleetdirec.Normalize();
+                //add randomness to the animal's run away path
+                destination = transform.position + 25 * fleetdirec;
+                NavMeshHit hit;
+                if (NavMesh.SamplePosition(destination, out hit, 5.0f, NavMesh.AllAreas))
+                {
+                    destination = hit.position;
+                    Debug.Log("try:  "+ i);
+                    break;
+                }
+            }
             agent.speed = runSpeed;
             agent.SetDestination(destination);
             isWonder = false;
