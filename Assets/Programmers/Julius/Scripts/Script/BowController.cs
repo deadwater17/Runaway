@@ -17,6 +17,8 @@ public class BowController : MonoBehaviour
     public int arrowNumber;
     public static int currentArrow;
 
+    public Dave dave;
+
     //sound system
     public AudioClip arrowRelease;
     public AudioClip bowDraw;
@@ -40,7 +42,7 @@ public class BowController : MonoBehaviour
             currentArrow = 0;
         }
 
-        if (currentArrow != 0) 
+        if (currentArrow != 0 && !dave.isTalked) 
         {
             if (Input.GetMouseButtonDown(0))
             {

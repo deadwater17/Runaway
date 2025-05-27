@@ -8,19 +8,26 @@ public class Dave : MonoBehaviour, IInteractable
 {
     [SerializeField] private CameraController m_camController;
 
+    [SerializeField] private GameObject questUI;
+
+
+
+
     public Button btnAccept;
     public Button btnSell;
 
-    [SerializeField] GameObject questUI;
+    public MonoBehaviour playerController;
+    //[SerializeField] GameObject questUI;
 
     public Seller seller;
 
-    private bool m_isTalked;
+    public bool isTalked;
 
     private void Start()
     {
-        m_isTalked = false;
+        isTalked = false;
         questUI.SetActive(false);
+        //questUI.SetActive(false);
     }
 
     public void Interact()
@@ -28,26 +35,34 @@ public class Dave : MonoBehaviour, IInteractable
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         m_camController.enabled = false;
-        m_isTalked = true;
+        isTalked = true;
+        playerController.enabled = false;
+        questUI.SetActive(true);
     }
 
     public void acceptQuest()
     {
-        if (m_isTalked) 
+        if (isTalked) 
         {
-            questUI.SetActive(true);
+            //questUI.SetActive(true);
             m_camController.enabled = true;
-            m_isTalked = false;
+            isTalked = false;
+            playerController.enabled = true;
+            Debug.Log("Accept quest");
+            questUI.SetActive(false);
         }
     }
 
     public void sellAnimals()
     {
-        if (m_isTalked) 
+        if (isTalked) 
         {
             seller.Sell();
             m_camController.enabled = true;
-            m_isTalked = false;
+            isTalked = false;
+            playerController.enabled = true;
+            Debug.Log("Sold");
+            questUI.SetActive(false);
         }
     }
 }
