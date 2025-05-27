@@ -15,6 +15,8 @@ public class Gun : MonoBehaviour
     float nextshoot = 0.0f;
     float shootrate = 1f;
 
+    public Dave dave;
+
     //sound system Gun
     public AudioClip shootSound;
     AudioSource m_audioSource;
@@ -42,7 +44,7 @@ public class Gun : MonoBehaviour
 
         if (Time.time >= nextshoot)
         {
-            if (Input.GetMouseButtonDown(0) && currentAmmo != 0)
+            if (Input.GetMouseButtonDown(0) && currentAmmo != 0 && !dave.isTalked)
             {
                 Shoot();
                 PlayShootSound();
