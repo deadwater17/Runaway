@@ -8,9 +8,14 @@ public class Dave : MonoBehaviour, IInteractable
 {
     [SerializeField] private CameraController m_camController;
 
-    [SerializeField] private GameObject questUI;
-
-    public GameObject QuestTracker;
+    public GameObject daveMenuUI;
+    public GameObject questTracker;
+    public GameObject questTick;
+    public GameObject questItem;
+    public bool isQuestActive;
+    public bool hasQuestItem;
+    public bool isQuestCompleted;
+   
 
     public Button btnAccept;
     public Button btnSell;
@@ -25,8 +30,14 @@ public class Dave : MonoBehaviour, IInteractable
     private void Start()
     {
         isTalked = false;
-        questUI.SetActive(false);
-        //questUI.SetActive(false);
+        daveMenuUI.SetActive(false);
+
+        isQuestActive = false;
+        hasQuestItem = false;
+        isQuestCompleted = false;
+        questTracker.SetActive(false);
+        questItem.SetActive(false);
+        questTick.SetActive(false);
     }
 
     public void Interact()
@@ -36,21 +47,36 @@ public class Dave : MonoBehaviour, IInteractable
         m_camController.enabled = false;
         isTalked = true;
         playerController.enabled = false;
-        questUI.SetActive(true);
+        daveMenuUI.SetActive(true);
+        questTracker.SetActive(true);
     }
 
     public void acceptQuest()
     {
-        if (isTalked) 
+        if (isTalked == true) 
         {
-            //questUI.SetActive(true);
-            m_camController.enabled = true;
-            isTalked = false;
+            m_camController.enabled = true;       
             playerController.enabled = true;
             Debug.Log("Accept quest");
-            questUI.SetActive(false);
+            daveMenuUI.SetActive(false);
+            isQuestActive = true;
+            questItem.SetActive(true);
+            isTalked = false;
+
+          
         }
     }
+
+
+    void QuestActive()
+    {
+        if (hasQuestItem == true)
+        {
+            questTick.SetActive(true);
+        }
+    }
+
+ 
 
     public void sellAnimals()
     {
@@ -58,10 +84,10 @@ public class Dave : MonoBehaviour, IInteractable
         {
             seller.Sell();
             m_camController.enabled = true;
-            isTalked = false;
             playerController.enabled = true;
             Debug.Log("Sold");
-            questUI.SetActive(false);
+            daveMenuUI.SetActive(false);
+            isTalked = false;
         }
     }
 }
