@@ -6,14 +6,14 @@ public class NotebookBehaviour : MonoBehaviour
 {
     public Animator notebookAnimator;
     private bool isNotebookOpen = false;
-
+    public GameObject weaponHolder;
     public MonoBehaviour playerController;
     public MonoBehaviour cameraLookScript;
 
-    [SerializeField] GameObject bow1;
-   // [SerializeField] GameObject bow2;
-    [SerializeField] GameObject gun1;
-    [SerializeField] GameObject gun2;
+   // [SerializeField] GameObject bow1;
+   //// [SerializeField] GameObject bow2;
+   // [SerializeField] GameObject gun1;
+   // [SerializeField] GameObject gun2;
 
     public WeaponSwitch weaponSwitch;
 
@@ -36,6 +36,7 @@ public class NotebookBehaviour : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab) && notebookAnimator != null)
         {
+            weaponHolder.SetActive(false);
             if (!isNotebookOpen)
             {
                 notebookAnimator.SetTrigger("NotebookOpen");
@@ -47,6 +48,7 @@ public class NotebookBehaviour : MonoBehaviour
             }
             else
             {
+               
                 notebookAnimator.SetTrigger("NotebookClose");
 
                 if (camController != null)
@@ -66,9 +68,9 @@ public class NotebookBehaviour : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.1f);
         
        
-        bow1.SetActive(false);
-        gun1.SetActive(false);
-        gun2.SetActive(false);
+        //bow1.SetActive(false);
+        //gun1.SetActive(false);
+        //gun2.SetActive(false);
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
@@ -86,10 +88,10 @@ public class NotebookBehaviour : MonoBehaviour
 
 
         yield return new WaitForSeconds(0.1f); // Normal wait now that timescale is restored
-
-        bow1.SetActive(true);
-        gun1.SetActive(true);
-        gun2.SetActive(true);
+        weaponHolder.SetActive(true);
+        //bow1.SetActive(true);
+        //gun1.SetActive(true);
+        //gun2.SetActive(true);
 
 
         Cursor.visible = false;
