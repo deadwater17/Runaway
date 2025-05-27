@@ -17,6 +17,9 @@ public class weaponADS : MonoBehaviour
     public bool isScope = false;
     public GameObject scopeOverlay;
     public GameObject weaponCamera;
+
+    public Dave dave;
+
     void Start()
     {
         defaultFOV = fpsCam.fieldOfView;
@@ -25,7 +28,7 @@ public class weaponADS : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(1)) 
+        if (Input.GetMouseButton(1) && !dave.isTalked) 
         {
             isAiming = true;
             if(isScope == true) // gun scope 

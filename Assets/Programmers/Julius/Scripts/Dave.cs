@@ -12,7 +12,7 @@ public class Dave : MonoBehaviour, IInteractable
     public Button btnSell;
 
     public MonoBehaviour playerController;
-    [SerializeField] GameObject questUI;
+    //[SerializeField] GameObject questUI;
 
     public Seller seller;
 
@@ -21,7 +21,7 @@ public class Dave : MonoBehaviour, IInteractable
     private void Start()
     {
         isTalked = false;
-        questUI.SetActive(false);
+        //questUI.SetActive(false);
     }
 
     public void Interact()
@@ -37,10 +37,11 @@ public class Dave : MonoBehaviour, IInteractable
     {
         if (isTalked) 
         {
-            questUI.SetActive(true);
+            //questUI.SetActive(true);
             m_camController.enabled = true;
             isTalked = false;
             playerController.enabled = true;
+            Debug.Log("Accept quest");
         }
     }
 
@@ -52,6 +53,7 @@ public class Dave : MonoBehaviour, IInteractable
             m_camController.enabled = true;
             isTalked = false;
             playerController.enabled = true;
+            Debug.Log("Sold");
         }
     }
 }
