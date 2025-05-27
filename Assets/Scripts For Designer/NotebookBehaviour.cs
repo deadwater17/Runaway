@@ -7,6 +7,7 @@ public class NotebookBehaviour : MonoBehaviour
     public Animator notebookAnimator;
     private bool isNotebookOpen = false;
     public GameObject weaponHolder;
+    public Camera mainCamera;
     public MonoBehaviour playerController;
     public MonoBehaviour cameraLookScript;
 
@@ -36,9 +37,10 @@ public class NotebookBehaviour : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab) && notebookAnimator != null)
         {
-            weaponHolder.SetActive(false);
+            
             if (!isNotebookOpen)
             {
+                
                 notebookAnimator.SetTrigger("NotebookOpen");
 
                 if (camController != null)
@@ -66,8 +68,9 @@ public class NotebookBehaviour : MonoBehaviour
     {
         // Give the animation a moment to start (realtime so it works even with timescale = 0)
         yield return new WaitForSecondsRealtime(0.1f);
+        mainCamera.fieldOfView = 50;
+        weaponHolder.SetActive(false);
         
-       
         //bow1.SetActive(false);
         //gun1.SetActive(false);
         //gun2.SetActive(false);
@@ -88,6 +91,7 @@ public class NotebookBehaviour : MonoBehaviour
 
 
         yield return new WaitForSeconds(0.1f); // Normal wait now that timescale is restored
+        mainCamera.fieldOfView = 50;
         weaponHolder.SetActive(true);
         //bow1.SetActive(true);
         //gun1.SetActive(true);

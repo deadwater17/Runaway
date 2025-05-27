@@ -29689,6 +29689,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notebookAnimator: {fileID: 1233859909}
   weaponHolder: {fileID: 7244235669843896789}
+  mainCamera: {fileID: 6833299405679007568}
   playerController: {fileID: 2827257976974366285}
   cameraLookScript: {fileID: 1267011048027622710}
   weaponSwitch: {fileID: 6940139316105867783}
