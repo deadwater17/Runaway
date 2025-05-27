@@ -15,6 +15,8 @@ public class NotebookBehaviour : MonoBehaviour
     [SerializeField] GameObject gun1;
     [SerializeField] GameObject gun2;
 
+    public WeaponSwitch weaponSwitch;
+
     private CameraController camController;
 
     void Start()
@@ -62,13 +64,9 @@ public class NotebookBehaviour : MonoBehaviour
     {
         // Give the animation a moment to start (realtime so it works even with timescale = 0)
         yield return new WaitForSecondsRealtime(0.1f);
-
-        // Freeze game time
-
-
-        // Disable weapons and player controls
+        
+       
         bow1.SetActive(false);
-      //  bow2.SetActive(false);
         gun1.SetActive(false);
         gun2.SetActive(false);
 
@@ -90,9 +88,9 @@ public class NotebookBehaviour : MonoBehaviour
         yield return new WaitForSeconds(0.1f); // Normal wait now that timescale is restored
 
         bow1.SetActive(true);
-      //  bow2.SetActive(true);
         gun1.SetActive(true);
         gun2.SetActive(true);
+
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
