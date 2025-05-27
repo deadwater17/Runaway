@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: beardownanim
+  m_Name: bearanim
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -80,25 +80,25 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.16666667
-        value: -8.702545
-        inSlope: -52.21527
-        outSlope: -52.21527
+        value: -13.180557
+        inSlope: -79.08334
+        outSlope: -79.08334
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.6666667
-        value: -76.296295
-        inSlope: -113.15695
-        outSlope: -113.15695
+        value: -75
+        inSlope: -104.183334
+        outSlope: -104.183334
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: -103
+        value: -100
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -281,25 +281,25 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.16666667
-        value: -8.702545
-        inSlope: -52.21527
-        outSlope: -52.21527
+        value: -13.180557
+        inSlope: -79.08334
+        outSlope: -79.08334
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.6666667
-        value: -76.296295
-        inSlope: -113.15695
-        outSlope: -113.15695
+        value: -75
+        inSlope: -104.183334
+        outSlope: -104.183334
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: -103
+        value: -100
         inSlope: 0
         outSlope: 0
         tangentMode: 136
