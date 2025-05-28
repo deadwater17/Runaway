@@ -23,13 +23,15 @@ public class Seller : MonoBehaviour
 
     private void Update()
     {
-        count = int.Parse(moneyCount.text);
+        money = int.Parse(moneyCount.text);
     }
 
     void Start()
     {
+        count = 0;
         invSys = FindAnyObjectByType<InventorySystem>();
     }
+
     public void Sell()
     {
         int rabbitCount = invSys.rabbitCount;
@@ -44,7 +46,7 @@ public class Seller : MonoBehaviour
                 case 0: // Rabbits
                     if (rabbitCount > 0)
                     {
-                        money += rabbitCount * rabPrice; 
+                        count += rabbitCount * rabPrice; 
                         Debug.Log("Sold " + rabbitCount + " rabbits");
                         //AudioSource.PlayOneShot(AudioSource.clip);
                         rabbitCount = 0; // Reset count
@@ -55,7 +57,7 @@ public class Seller : MonoBehaviour
                 case 1: // Deer
                     if (deerCount > 0)
                     {
-                        money += deerCount * deerPrice;
+                        count += deerCount * deerPrice;
                         Debug.Log("Sold " + deerCount + " deers");
                         //AudioSource.PlayOneShot(AudioSource.clip);
                         deerCount = 0; // Reset count
@@ -66,7 +68,7 @@ public class Seller : MonoBehaviour
                 case 2: // Bears
                     if (bearCount > 0)
                     {
-                        money += bearCount * bearPrice; 
+                        count += bearCount * bearPrice; 
                         Debug.Log("Sold " + bearCount + " bears");
                         //AudioSource.PlayOneShot(AudioSource.clip);
                         bearCount = 0; // Reset count
@@ -83,7 +85,9 @@ public class Seller : MonoBehaviour
         invSys.bearCount = 0;
         invSys.inventoryCapacity = 3; // Reset inventory capacity to max
 
-        money = money + count;
-        moneyCount.text = money.ToString();      
+        money += count;
+        moneyCount.text = money.ToString();
+
+        count = 0;
     }
 }
