@@ -64,6 +64,8 @@ public class NotebookBehaviour : MonoBehaviour
 
     IEnumerator HandleNotebookOpen()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         // Give the animation a moment to start (realtime so it works even with timescale = 0)
         yield return new WaitForSecondsRealtime(0.1f);
         weaponHolder.SetActive(false);
@@ -72,9 +74,6 @@ public class NotebookBehaviour : MonoBehaviour
         //bow1.SetActive(false);
         //gun1.SetActive(false);
         //gun2.SetActive(false);
-
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
 
         if (playerController != null)
             playerController.enabled = false;
@@ -86,7 +85,8 @@ public class NotebookBehaviour : MonoBehaviour
     IEnumerator HandleNotebookClose()
     {
         // Restore time
-
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
 
         yield return new WaitForSeconds(0.1f); // Normal wait now that timescale is restored
         weaponHolder.SetActive(true);
@@ -95,9 +95,6 @@ public class NotebookBehaviour : MonoBehaviour
         //gun1.SetActive(true);
         //gun2.SetActive(true);
 
-
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
 
         if (playerController != null)
             playerController.enabled = true;
