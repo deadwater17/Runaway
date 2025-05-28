@@ -4,7 +4,6 @@ using System.Collections;
 
 public class DateController : MonoBehaviour
 {
-    public Image fadeImage; // Assign your full-screen UI Image
     public float fadeDuration = 4f;
 
     public Transform playerObj; // Assign PlayerObj
@@ -24,7 +23,7 @@ public class DateController : MonoBehaviour
     {
         if (timeController != null)
         {
-            timeController.sleepUntil(7f); // 7 AM
+            timeController.sleepUntil(7.01f); // 7 AM
         }
 
         // 3. Reset player position and rotation
