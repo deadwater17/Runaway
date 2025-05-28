@@ -28,6 +28,7 @@ public class Dave : MonoBehaviour, IInteractable
 
     public bool isTalked;
     public bool questCollected;
+    [SerializeField]private bool questCompleted;
 
     void Update()
     {
@@ -39,6 +40,7 @@ public class Dave : MonoBehaviour, IInteractable
         isTalked = false;
         questUI.SetActive(false);
         questCollected = false;
+        questCompleted = false;
 
         if (questObjectiveUI != null)
             questObjectiveUI.SetActive(false);
@@ -67,7 +69,7 @@ public class Dave : MonoBehaviour, IInteractable
 
             notTalking();
         }
-        else if (isTalked && questCollected)
+        else if (isTalked && questCollected && !questCompleted)
         {
             money += 100;
             moneyCount.text = money.ToString();
@@ -79,6 +81,8 @@ public class Dave : MonoBehaviour, IInteractable
 
             if (tickUI != null)
                 tickUI.SetActive(false);
+
+            questCompleted = true;
 
             notTalking();
         }

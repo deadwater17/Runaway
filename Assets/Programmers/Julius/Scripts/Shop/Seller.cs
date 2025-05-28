@@ -12,7 +12,7 @@ public class Seller : MonoBehaviour
     [SerializeField] TMP_Text bearNum;
     [SerializeField] int bearPrice  = 100;
 
-    int count;
+    private int count;
 
     [SerializeField] TMP_Text moneyCount;
     public int money;
@@ -20,6 +20,11 @@ public class Seller : MonoBehaviour
     InventorySystem invSys;
 
     public AudioSource AudioSource;
+
+    private void Update()
+    {
+        count = int.Parse(moneyCount.text);
+    }
 
     void Start()
     {
@@ -77,7 +82,8 @@ public class Seller : MonoBehaviour
         invSys.deerCount = 0;
         invSys.bearCount = 0;
         invSys.inventoryCapacity = 3; // Reset inventory capacity to max
-        moneyCount.text = money.ToString();
-        
+
+        money = money + count;
+        moneyCount.text = money.ToString();      
     }
 }
