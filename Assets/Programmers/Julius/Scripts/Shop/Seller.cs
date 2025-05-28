@@ -21,6 +21,7 @@ public class Seller : MonoBehaviour
 
 
     public AudioSource AudioSource;
+    public AudioClip sell;
 
     private void Update()
     {
@@ -49,7 +50,7 @@ public class Seller : MonoBehaviour
                     {
                         count += rabbitCount * rabPrice; 
                         Debug.Log("Sold " + rabbitCount + " rabbits");
-                        AudioSource.PlayOneShot(AudioSource.clip);
+                        AudioSource.PlayOneShot(sell);
                         rabbitCount = 0; // Reset count
                         rabNum.text = rabbitCount.ToString();
                     }
@@ -60,7 +61,7 @@ public class Seller : MonoBehaviour
                     {
                         count += deerCount * deerPrice;
                         Debug.Log("Sold " + deerCount + " deers");
-                        AudioSource.PlayOneShot(AudioSource.clip);
+                        AudioSource.PlayOneShot(sell);
                         deerCount = 0; // Reset count
                         deerNum.text = deerCount.ToString();
                     }
@@ -71,7 +72,7 @@ public class Seller : MonoBehaviour
                     {
                         count += bearCount * bearPrice; 
                         Debug.Log("Sold " + bearCount + " bears");
-                        AudioSource.PlayOneShot(AudioSource.clip);
+                        AudioSource.PlayOneShot(sell);
                         bearCount = 0; // Reset count
                         bearNum.text = bearCount.ToString();
                     }

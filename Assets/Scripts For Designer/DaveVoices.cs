@@ -4,45 +4,38 @@ using UnityEngine;
 
 public class DaveVoices : MonoBehaviour
 {
-    public AudioSource audioSource;
-    public AudioClip[] voicelines;
+    public AudioClip firstTimeVoiceLine;      // Special voice line for the first time
+    public AudioClip[] otherVoiceLines;       // Random voice lines for subsequent entries
 
-    public Animator animator;
+    private AudioSource audioSource;
+    private bool hasPlayedFirstLine = false;
 
-
-    // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-      
-        AudioClip[] clips = voicelines;
-
-        if (clips.Length == 0)
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
         {
-            Debug.LogWarning("No audio clips set.");
-            return;
+            Debug.LogWarning("AudioSource component missing. Adding one automatically.");
+            audioSource = gameObject.AddComponent<AudioSource>();
         }
-        else 
-        {
-            animator.SetTrigger("New Trigger");
-            Debug.Log("Voiceline plays");
-        AudioClip selectedClip = clips[Random.Range(0, clips.Length)];
-        audioSource.clip = selectedClip;
-        audioSource.volume = 1f;
-        audioSource.PlayOneShot(audioSource.clip);
-        }
-        
-        
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            if (!hasPlayedFirstLine && firstTimeVoiceLine != null)
+            {
+                audioSource.clip = firstTimeVoiceLine;
+                audioSource.Play();
+                hasPlayedFirstLine = true;
+            }
+            else if (otherVoiceLines.Length > 0)
+            {
+                int randomIndex = Random.Range(0, otherVoiceLines.Length);
+                audioSource.clip = otherVoiceLines[randomIndex];
+                audioSource.Play();
+            }
+        }
+    }
 }

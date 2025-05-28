@@ -6639,7 +6639,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiCanvasGroup: {fileID: 1753137622}
   fadeDuration: 1
-  sceneToLoad: Game
+  sceneToLoad: IntroCutscene
 --- !u!1 &1196387511
 GameObject:
   m_ObjectHideFlags: 0
