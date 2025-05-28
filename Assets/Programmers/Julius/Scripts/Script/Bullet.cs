@@ -6,11 +6,12 @@ public class Bullet : MonoBehaviour
 {
     public float lifetime = 2f;
     public float attackDamage = 25;
-
+    private TimeController timeController;
     Rigidbody rb;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        timeController = FindObjectOfType<TimeController>();
     }
 
     // Update is called once per frame
@@ -29,7 +30,14 @@ public class Bullet : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Bear"))
         {
-            collision.collider.GetComponent<BearMovement>().TakeDamage(attackDamage);
+            if(timeController.isDay())
+            {
+                collision.collider.GetComponent<AnimalMovement>().TakeDamage(attackDamage);
+            }
+            else
+            {
+                collision.collider.GetComponent<BearMovement>().TakeDamage(attackDamage);
+            }
             transform.SetParent(collision.transform);
         }
         rb.velocity = Vector3.zero;
