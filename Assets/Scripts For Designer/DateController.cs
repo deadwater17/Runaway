@@ -4,7 +4,6 @@ using System.Collections;
 
 public class DateController : MonoBehaviour
 {
-    public Image fadeImage; // Assign your full-screen UI Image
     public float fadeDuration = 4f;
 
     public Transform playerObj; // Assign PlayerObj

@@ -97,7 +97,6 @@ public class AnimalSpawn : MonoBehaviour
                         {
                             spawnList.Add(newAnimal);
                         }
-                        spawnList.Add(newAnimal);
                         return;
                     }
                 }
