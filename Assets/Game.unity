@@ -11492,6 +11492,7 @@ MonoBehaviour:
   moneyCount: {fileID: 7529910571393733755}
   money: 0
   AudioSource: {fileID: 1740268174}
+  sell: {fileID: 8300000, guid: 25460bdd0ff30704a964f7dce611b714, type: 3}
 --- !u!114 &891863106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23877,7 +23878,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 9205618819895463894, guid: fe9a602a3a33e164d8b0cb270d8a1c90, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 25460bdd0ff30704a964f7dce611b714, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -23989,6 +23990,14 @@ MonoBehaviour:
   isTalked: 0
   questCollected: 0
   questCompleted: 0
+  audioSource: {fileID: 1740268174}
+  sellVoices:
+  - {fileID: 8300000, guid: 4a00afc38df171947ace3138bbfad67c, type: 3}
+  - {fileID: 8300000, guid: 7580df57032d22a4f812a4adc9d9a955, type: 3}
+  - {fileID: 8300000, guid: f348872322bd5ea4999709da7a9712ff, type: 3}
+  - {fileID: 8300000, guid: aafba5f6208aba641bc3e32e46b19163, type: 3}
+  help: {fileID: 8300000, guid: 989a153d4f0c28241bdd0909c72fc87d, type: 3}
+  quest: {fileID: 8300000, guid: a55cfd1cf916d644eb5be6eab9ef7964, type: 3}
 --- !u!114 &1740268184
 MonoBehaviour:
   m_ObjectHideFlags: 0
