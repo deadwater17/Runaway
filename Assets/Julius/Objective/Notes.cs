@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Notes : MonoBehaviour
 {
-
+    private bool m_gotPageOne;
     [SerializeField] Objective obj;
 
     [SerializeField] GameObject[] notesCanvas;
@@ -12,6 +13,7 @@ public class Notes : MonoBehaviour
 
     void Start()
     {
+        m_gotPageOne = false;
         for (int i = 0; i < notesCanvas.Length; i++)
         {
             notesCanvas[i].SetActive(false);
@@ -67,30 +69,68 @@ public class Notes : MonoBehaviour
         switch (obj.notesHave)
         {
             case 0:
-                notesCanvas[0].SetActive(true);
-                StartCoroutine(FadeInAndOut(notesCanvas[0])); // Fade duration is 6 seconds
+                NotePageOne();
                 obj.notesHave += 1;
-                Debug.Log("Note" + obj.notesHave);
+
                 break;
             case 1:
-                notesCanvas[1].SetActive(true);
-                StartCoroutine(FadeInAndOut(notesCanvas[1]));
+                NotePageTwo();
                 obj.notesHave += 1;
-                Debug.Log("Note" + obj.notesHave);
                 break;
             case 2:
-                notesCanvas[2].SetActive(true);
-                StartCoroutine(FadeInAndOut(notesCanvas[2]));
+                NotePageThree();
                 obj.notesHave += 1;
-                Debug.Log("Note" + obj.notesHave);
                 break;
             case 3:
-                notesCanvas[3].SetActive(true);
-                StartCoroutine(FadeInAndOut(notesCanvas[3]));
+                NotePageFour();
                 obj.notesHave += 1;
-                Debug.Log("Note" + obj.notesHave);
                 break;
+
         }
     }
 
+    void NotePageOne()
+    {
+        notesCanvas[0].SetActive(true);
+        StartCoroutine(FadeInAndOut(notesCanvas[0]));
+        Debug.Log("Note " + obj.notesHave);
+    }
+
+    void NotePageTwo()
+    {
+        notesCanvas[1].SetActive(true);
+        StartCoroutine(FadeInAndOut(notesCanvas[1]));
+        Debug.Log("Note " + obj.notesHave);
+    }
+    void NotePageThree()
+    {
+        notesCanvas[2].SetActive(true);
+        StartCoroutine(FadeInAndOut(notesCanvas[2]));
+        Debug.Log("Note " + obj.notesHave);
+    }
+    void NotePageFour()
+    {
+       notesCanvas[3].SetActive(true);
+       StartCoroutine(FadeInAndOut(notesCanvas[3]));
+       Debug.Log("Note " + obj.notesHave);
+    }
+
+    public void display1()
+    {
+        if (obj.notesHave <= 1) { NotePageOne(); }
+    }
+    public void display2()
+    {
+        if (obj.notesHave <= 2) { NotePageTwo(); }
+    }
+    public void display3()
+    {
+        if (obj.notesHave <= 3) { NotePageThree(); }
+    }
+    public void display4()
+    {
+        if (obj.notesHave <= 4) { NotePageFour(); }
+    }
+
 }
+

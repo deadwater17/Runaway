@@ -14,10 +14,9 @@ public class test : MonoBehaviour
         bearIcon.SetActive(true);
         deerIcon.SetActive(true);
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    public void Click()
     {
-        
+        Debug.Log("IsClicked");
     }
 }
