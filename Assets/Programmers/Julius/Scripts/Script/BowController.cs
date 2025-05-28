@@ -12,8 +12,8 @@ public class BowController : MonoBehaviour
     bool isCharging = false;
     float velocity = 0;
     float chargeTime = 0;
-    float minSpeed = 20;
-    float maxSpeed = 40;
+    float minSpeed = 35;
+    float maxSpeed = 50;
     public int arrowNumber;
     public static int currentArrow;
 

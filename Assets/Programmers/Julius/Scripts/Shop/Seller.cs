@@ -19,7 +19,8 @@ public class Seller : MonoBehaviour
 
     InventorySystem invSys;
 
-    //public AudioSource AudioSource;
+
+    public AudioSource AudioSource;
 
     private void Update()
     {
@@ -48,7 +49,7 @@ public class Seller : MonoBehaviour
                     {
                         count += rabbitCount * rabPrice; 
                         Debug.Log("Sold " + rabbitCount + " rabbits");
-                        //AudioSource.PlayOneShot(AudioSource.clip);
+                        AudioSource.PlayOneShot(AudioSource.clip);
                         rabbitCount = 0; // Reset count
                         rabNum.text = rabbitCount.ToString();
                     }
@@ -59,7 +60,7 @@ public class Seller : MonoBehaviour
                     {
                         count += deerCount * deerPrice;
                         Debug.Log("Sold " + deerCount + " deers");
-                        //AudioSource.PlayOneShot(AudioSource.clip);
+                        AudioSource.PlayOneShot(AudioSource.clip);
                         deerCount = 0; // Reset count
                         deerNum.text = deerCount.ToString();
                     }
@@ -70,7 +71,7 @@ public class Seller : MonoBehaviour
                     {
                         count += bearCount * bearPrice; 
                         Debug.Log("Sold " + bearCount + " bears");
-                        //AudioSource.PlayOneShot(AudioSource.clip);
+                        AudioSource.PlayOneShot(AudioSource.clip);
                         bearCount = 0; // Reset count
                         bearNum.text = bearCount.ToString();
                     }
