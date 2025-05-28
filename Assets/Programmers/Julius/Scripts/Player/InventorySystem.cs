@@ -26,6 +26,10 @@ public class InventorySystem : MonoBehaviour
     // ✅ New reference for the popup UI controller
     public AnimalPopupController popupController;
 
+
+    public AudioSource audioSource;
+    public AudioClip pickUp;
+
     public void AddWeight(float weight)
     {
         inventoryWeight += weight; // Add the weight to the inventory
@@ -86,14 +90,17 @@ public class InventorySystem : MonoBehaviour
                 case "Rabbit":
                     rabbitCount++;
                     rabbitNum.text = rabbitCount.ToString();
+                    audioSource.PlayOneShot(pickUp);
                     break;
                 case "Deer":
                     deerCount++;
                     deerNum.text = deerCount.ToString();
+                    audioSource.PlayOneShot(pickUp);
                     break;
                 case "Bear":
                     bearCount++;
                     bearNum.text = bearCount.ToString();
+                    audioSource.PlayOneShot(pickUp);
                     break;
             }
 
