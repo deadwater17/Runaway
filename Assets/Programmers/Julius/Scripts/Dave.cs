@@ -125,11 +125,9 @@ public class Dave : MonoBehaviour, IInteractable
 
     private void goodbyeDave()
     {
-        while (!Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            yield return null;
+            notTalking();
         }
-
-        notTalking();
     }
 }

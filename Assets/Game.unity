@@ -29345,7 +29345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeForGame: 420
-  startHour: 20
+  startHour: 9
   timeText: {fileID: 3030834953187593274}
   sunlight: {fileID: 547628579}
   moonlight: {fileID: 518080323}
@@ -32112,7 +32112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notebookAnimator: {fileID: 1233859909}
   weaponHolder: {fileID: 7244235669843896789}
-  mainCamera: {fileID: 6833299405679007568}
+  mainCamera: {fileID: 0}
   playerController: {fileID: 2827257976974366285}
   cameraLookScript: {fileID: 1267011048027622710}
   weaponSwitch: {fileID: 6940139316105867783}
