@@ -34,7 +34,7 @@ public class Dave : MonoBehaviour, IInteractable
     {
         money = int.Parse(moneyCount.text);
 
-        goodbyeDave();
+        goodbyeDave();  // will stop talking to dave if press esc
     }
 
     private void Start()
