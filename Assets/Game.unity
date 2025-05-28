@@ -28785,7 +28785,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: ed1387202b1349540a5d6464f0f27488, type: 2}
   - {fileID: 2100000, guid: ed1387202b1349540a5d6464f0f27488, type: 2}
   fullDayDuration: 420
-  transitionDuration: 70
+  transitionDuration: 30
 --- !u!33 &6484840016766428490
 MeshFilter:
   m_ObjectHideFlags: 0
