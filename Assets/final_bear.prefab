@@ -1403,6 +1403,7 @@ MonoBehaviour:
   currentHealth: 0
   walkSpeed: 2
   runSpeed: 5
+  audioSource: {fileID: 0}
 --- !u!114 &3502978541698120345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2026,7 +2027,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 554161031682864918, guid: fe9a602a3a33e164d8b0cb270d8a1c90, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.766
   m_Pitch: 0.90886414
   Loop: 0
   Mute: 0

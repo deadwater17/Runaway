@@ -24,6 +24,7 @@ public class AnimalMovement : MonoBehaviour
     public float runSpeed;
 
     public AudioSource audioSource;
+    public AudioClip hit;
 
 
     void Start()
@@ -112,7 +113,7 @@ public class AnimalMovement : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
-        audioSource.PlayOneShot(audioSource.clip);
+        audioSource.PlayOneShot(hit);
         if(currentHealth <= 0)
         {
             isAlive = false;

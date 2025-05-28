@@ -6,8 +6,8 @@ public class AnimalSounds : MonoBehaviour
 {
     [Header("Bear Sound Settings")]
     public AudioClip[] animalSounds; // Assign sounds in Inspector
-    public float minTimeBetweenSounds = 5f;
-    public float maxTimeBetweenSounds = 15f;
+    public float minTimeBetweenSounds = 15f;
+    public float maxTimeBetweenSounds = 30f;
 
     [Header("Pitch Settings")]
     public float minPitch = 0.9f; // Lower pitch limit
