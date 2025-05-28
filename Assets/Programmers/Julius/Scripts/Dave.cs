@@ -90,6 +90,7 @@ public class Dave : MonoBehaviour, IInteractable
 
     public void sellAnimals()
     {
+        Debug.Log("trying to sell");
         if (isTalked)
         {
             seller.Sell();

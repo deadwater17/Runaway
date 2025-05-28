@@ -117,19 +117,19 @@ public class Notes : MonoBehaviour
 
     public void display1()
     {
-        if (obj.notesHave <= 1) { NotePageOne(); }
+        if (obj.notesHave >= 1) { NotePageOne(); }
     }
     public void display2()
     {
-        if (obj.notesHave <= 2) { NotePageTwo(); }
+        if (obj.notesHave >= 2) { NotePageTwo(); }
     }
     public void display3()
     {
-        if (obj.notesHave <= 3) { NotePageThree(); }
+        if (obj.notesHave >= 3) { NotePageThree(); }
     }
     public void display4()
     {
-        if (obj.notesHave <= 4) { NotePageFour(); }
+        if (obj.notesHave >= 4) { NotePageFour(); }
     }
 
 }
