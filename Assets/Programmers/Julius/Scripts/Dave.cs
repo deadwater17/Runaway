@@ -33,6 +33,8 @@ public class Dave : MonoBehaviour, IInteractable
     void Update()
     {
         money = int.Parse(moneyCount.text);
+
+        goodbyeDave();
     }
 
     private void Start()
@@ -75,7 +77,7 @@ public class Dave : MonoBehaviour, IInteractable
             moneyCount.text = money.ToString();
             Debug.Log("Quest is complete, 100 reward");
 
-            // ✅ Hide both Quest and Tick UI now
+            // Hide both Quest and Tick UI now
             if (questObjectiveUI != null)
                 questObjectiveUI.SetActive(false);
 
@@ -119,5 +121,15 @@ public class Dave : MonoBehaviour, IInteractable
         isTalked = false;
         m_camController.enabled = true;
         questUI.SetActive(false);
+    }
+
+    private void goodbyeDave()
+    {
+        while (!Input.GetKeyDown(KeyCode.Escape))
+        {
+            yield return null;
+        }
+
+        notTalking();
     }
 }
