@@ -80,25 +80,23 @@ public class AnimalSpawn : MonoBehaviour
                     //Debug.Log("Trying to spawn at position: " + spawnPos);
                     GameObject animal = animalPrefabs[Random.Range(0, animalPrefabs.Length)];
                     bool isBear = animal.CompareTag("Bear");
-                    if ((isBear && isNight) || (!isBear && !isNight))  // only spawn bear in night,spawn other animal on day
+                    GameObject newAnimal = Instantiate(animal, spawnPos, Quaternion.identity);
+                    bool placed = false;
+                    for (int i = 0; i < spawnList.Count; i++)
                     {
-                        GameObject newAnimal = Instantiate(animal, spawnPos, Quaternion.identity);
-                        bool placed = false;
-                        for(int i=0;i<spawnList.Count;i++)
+                        if (spawnList[i] == null)
                         {
-                            if (spawnList[i] == null)
-                            {
-                                spawnList[i] = newAnimal;
-                                placed = true;
-                                break;
-                            }
+                            spawnList[i] = newAnimal;
+                            placed = true;
+                            break;
                         }
-                        if (!placed)
-                        {
-                            spawnList.Add(newAnimal);
-                        }
-                        return;
                     }
+                    if (!placed)
+                    {
+                        spawnList.Add(newAnimal);
+                    }
+                    return;
+
                 }
             }
             tryCount++;

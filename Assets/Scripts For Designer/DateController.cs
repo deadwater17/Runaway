@@ -23,7 +23,7 @@ public class DateController : MonoBehaviour
     {
         if (timeController != null)
         {
-            timeController.sleepUntil(7f); // 7 AM
+            timeController.sleepUntil(7.01f); // 7 AM
         }
 
         // 3. Reset player position and rotation

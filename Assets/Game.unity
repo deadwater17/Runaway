@@ -14204,7 +14204,7 @@ MonoBehaviour:
   animalPrefabs:
   - {fileID: 2115195863}
   - {fileID: 1377102668}
-  spawnRadius: 200
+  spawnRadius: 250
   MaxspawnCount: 5
   respawntime: 1
   spawnList: []
@@ -27303,8 +27303,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f2403d65a7f4fa44a24a21039a9f757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeForGame: 960
-  startHour: 7
+  timeForGame: 420
+  startHour: 20
   timeText: {fileID: 3030834953187593274}
   sunlight: {fileID: 547628579}
   moonlight: {fileID: 518080323}
@@ -28774,7 +28774,6 @@ MonoBehaviour:
   skyMaterials:
   - {fileID: 2100000, guid: ed1387202b1349540a5d6464f0f27488, type: 2}
   - {fileID: 2100000, guid: ed1387202b1349540a5d6464f0f27488, type: 2}
-  - {fileID: 2100000, guid: 135a7036ca1a07b4e9e162d80e6b6e77, type: 2}
   - {fileID: 2100000, guid: 8fc56946a1b593c4d8e3e0e94483338e, type: 2}
   - {fileID: 2100000, guid: 56113b3b655ab7349bab4d7d405c258a, type: 2}
   - {fileID: 2100000, guid: 56113b3b655ab7349bab4d7d405c258a, type: 2}
@@ -28785,7 +28784,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: baef7505b9e48404cb74585601f49ff9, type: 2}
   - {fileID: 2100000, guid: ed1387202b1349540a5d6464f0f27488, type: 2}
   - {fileID: 2100000, guid: ed1387202b1349540a5d6464f0f27488, type: 2}
-  fullDayDuration: 960
+  fullDayDuration: 420
   transitionDuration: 70
 --- !u!33 &6484840016766428490
 MeshFilter:
