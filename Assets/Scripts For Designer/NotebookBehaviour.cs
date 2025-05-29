@@ -5,7 +5,7 @@ using UnityEngine;
 public class NotebookBehaviour : MonoBehaviour
 {
     public Animator notebookAnimator;
-    private bool isNotebookOpen = false;
+    private bool isNotebookOpen;
     public GameObject weaponHolder;
     public Camera mainCamera;
     public MonoBehaviour playerController;
@@ -15,8 +15,6 @@ public class NotebookBehaviour : MonoBehaviour
    //// [SerializeField] GameObject bow2;
    // [SerializeField] GameObject gun1;
    // [SerializeField] GameObject gun2;
-
-    public WeaponSwitch weaponSwitch;
 
     private CameraController camController;
     public AudioSource audioSource;
@@ -28,6 +26,8 @@ public class NotebookBehaviour : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         camController = cameraLookScript as CameraController;
+
+        isNotebookOpen = false;
     }
 
     void Update()
@@ -49,7 +49,7 @@ public class NotebookBehaviour : MonoBehaviour
 
                 StartCoroutine(HandleNotebookOpen());
 
-                isNotebookOpen = true;
+                
             }
             else if (isNotebookOpen)
             {
@@ -59,8 +59,6 @@ public class NotebookBehaviour : MonoBehaviour
                     camController.canRotate = true;
 
                 StartCoroutine(HandleNotebookClose());
-
-                isNotebookOpen = false;
             }
 
             isNotebookOpen = !isNotebookOpen;
@@ -76,13 +74,15 @@ public class NotebookBehaviour : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.1f);
         weaponHolder.SetActive(false);
         mainCamera.fieldOfView = 50f;
-       
+
 
         if (playerController != null)
             playerController.enabled = false;
 
         if (cameraLookScript != null)
             cameraLookScript.enabled = false;
+            
+        isNotebookOpen = true;
     }
 
     IEnumerator HandleNotebookClose()
@@ -98,11 +98,12 @@ public class NotebookBehaviour : MonoBehaviour
         //gun1.SetActive(true);
         //gun2.SetActive(true);
 
-
         if (playerController != null)
             playerController.enabled = true;
 
         if (cameraLookScript != null)
             cameraLookScript.enabled = true;
+
+        isNotebookOpen = false;
     }
 }
