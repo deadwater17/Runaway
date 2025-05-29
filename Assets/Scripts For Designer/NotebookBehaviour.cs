@@ -11,14 +11,11 @@ public class NotebookBehaviour : MonoBehaviour
     public MonoBehaviour playerController;
     public MonoBehaviour cameraLookScript;
 
-   // [SerializeField] GameObject bow1;
-   //// [SerializeField] GameObject bow2;
-   // [SerializeField] GameObject gun1;
-   // [SerializeField] GameObject gun2;
-
     private CameraController camController;
     public AudioSource audioSource;
     public AudioClip audioClip;
+
+    [SerializeField] GameObject notebook;
 
     void Start()
     {
@@ -41,7 +38,9 @@ public class NotebookBehaviour : MonoBehaviour
         {
             if (!isNotebookOpen)
             {
-                notebookAnimator.SetTrigger("NotebookOpen");
+                //notebookAnimator.SetTrigger("NotebookOpen");
+                notebook.SetActive(true);
+                
                 audioSource.PlayOneShot(audioClip);
 
                 if (camController != null)
@@ -53,7 +52,8 @@ public class NotebookBehaviour : MonoBehaviour
             }
             else if (isNotebookOpen)
             {
-                notebookAnimator.SetTrigger("NotebookClose");
+                //notebookAnimator.SetTrigger("NotebookClose");
+                notebook.SetActive(false);
 
                 if (camController != null)
                     camController.canRotate = true;
