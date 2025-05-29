@@ -60,8 +60,6 @@ public class NotebookBehaviour : MonoBehaviour
 
                 StartCoroutine(HandleNotebookClose());
             }
-
-            isNotebookOpen = !isNotebookOpen;
             Debug.Log("Toggled Notebook animation");
         }
     }
