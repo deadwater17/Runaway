@@ -12,7 +12,7 @@ public class BearMovement : MonoBehaviour
     public LayerMask obstacle;
     public bool isHear;
     public bool isWander;
-    public bool hasAttacked;
+    public bool hasAttacked = false;
     public bool seePlayer;
     public bool isDead = false;
 
@@ -139,11 +139,11 @@ public class BearMovement : MonoBehaviour
 
     void TryAttackPlayer()
     {
-       // if (hasAttacked) return;
+        if (hasAttacked) return;
         float distance = Vector3.Distance(transform.position, player.transform.position);
         if (distance <= 5f && !isDead)
         {
-            //hasAttacked = true;
+            hasAttacked = true;
             bearAnimator.SetTrigger("Attack");
 
             // ✅ Now uses DateController to perform fade + time skip
@@ -184,7 +184,9 @@ public class BearMovement : MonoBehaviour
         {
             dateController.AdvanceToMorning();
         }
+        Destroy(this);
         bearAnimator.SetFloat("Speed", 2.5f);
         bearAnimator.SetBool("Attack", false);
+        hasAttacked = false;
     }
 }
