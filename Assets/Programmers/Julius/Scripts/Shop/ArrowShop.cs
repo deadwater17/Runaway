@@ -29,7 +29,7 @@ public class ArrowShop : MonoBehaviour, IInteractable
         {
             money = money - cost;
             currentArrows = currentArrows + arrowMax;
-            BowController.currentArrow = currentArrows;
+            AmmoNumber.arrowNum = currentArrows;
             moneyCount.text = money.ToString();
         }
         else
@@ -46,7 +46,7 @@ public class ArrowShop : MonoBehaviour, IInteractable
 
     private int getCurrentAmmo()
     {
-        currentArrows = BowController.currentArrow;
+        currentArrows = AmmoNumber.arrowNum;
         return currentArrows;
     }
 

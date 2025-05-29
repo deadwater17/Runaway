@@ -30,7 +30,7 @@ public class BulletShop : MonoBehaviour, IInteractable
         {
             money = money - cost;
             currentBullet = currentBullet + bulletMax;
-            Gun.currentAmmo = currentBullet;
+            AmmoNumber.bulletNum = currentBullet;
             moneyCount.text = money.ToString();
         }
         else
@@ -48,7 +48,7 @@ public class BulletShop : MonoBehaviour, IInteractable
 
     private int getCurrentAmmo()
     {
-        currentBullet = Gun.currentAmmo;    
+        currentBullet = AmmoNumber.bulletNum;    
         return currentBullet;
     }
 

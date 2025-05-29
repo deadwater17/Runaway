@@ -29,7 +29,7 @@ public class Arrow : MonoBehaviour
         if(collision.gameObject.CompareTag("Deer"))
         {
             collision.collider.GetComponent<AnimalMovement>().TakeDamage(damage);
-            transform.SetParent(collision.transform);
+            //transform.SetParent(collision.transform);
         }
         if (collision.gameObject.CompareTag("Bear"))
         {
@@ -41,22 +41,14 @@ public class Arrow : MonoBehaviour
             {
                 collision.collider.GetComponent<BearMovement>().TakeDamage(damage);
             }
-            transform.SetParent(collision.transform);
+            //transform.SetParent(collision.transform);
         }
+        if (collision.gameObject.CompareTag("Player")) return;
         rb.velocity = Vector3.zero;
         rb.rotation = Quaternion.Euler(0, 0, 0);
         rb.isKinematic = true;
-        GetComponent<Collider>().enabled = false;
         transform.position += transform.forward * 0.1f;
-        StartCoroutine(deleteObject());
-    }
-
-
-    IEnumerator deleteObject()
-    {
-        yield return new WaitForSeconds(2f);
         this.gameObject.SetActive(false);
-        GetComponent<Collider>().enabled = true;
-        rb.isKinematic = false;
     }
+
 }
