@@ -8,7 +8,7 @@ public class SplashManager : MonoBehaviour
     [Header("Splash Screen Settings")]
     public GameObject splashPanel;               // Panel that holds the splash video
     public Animator splashAnimator;              // Optional: Animator to show fade in/out
-    public float idleTime = 30f;                 // Time before showing splash
+    public float idleTime = 15f;                 // Time before showing splash
     private float timer = 0f;
 
     private VideoPlayer videoPlayer;
