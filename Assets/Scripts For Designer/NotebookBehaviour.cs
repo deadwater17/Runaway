@@ -47,11 +47,9 @@ public class NotebookBehaviour : MonoBehaviour
                 if (camController != null)
                     camController.canRotate = false;
 
-                StartCoroutine(HandleNotebookOpen());
-
-                
+                StartCoroutine(HandleNotebookOpen());                
             }
-            else if (isNotebookOpen)
+            else if (isNotebookOpen || Input.GetKey(KeyCode.Escape))
             {
                 notebookAnimator.SetTrigger("NotebookClose");
 
