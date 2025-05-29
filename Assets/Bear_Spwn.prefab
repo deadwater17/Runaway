@@ -434,10 +434,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36b7ea75d2f5c5f41963ffdc50d56621, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 0}
+  agent: {fileID: 1878208774158072167}
   range: 20
   player: {fileID: 0}
-  centrePoint: {fileID: 0}
+  centrePoint: {fileID: 3547003361495388095}
   isHear: 0
   isWonder: 0
   isAlive: 0
@@ -465,7 +465,7 @@ MonoBehaviour:
   obstacle:
     serializedVersion: 2
     m_Bits: 0
-  isHear: 0
+  isHear: 1
   isWander: 0
   hasAttacked: 0
   seePlayer: 0

@@ -35,6 +35,7 @@ public class BowShop : MonoBehaviour, IInteractable
             Debug.Log(m_money);
             m_moneyCount.text = m_money.ToString();
             // add upgrading function
+            AudioSource.PlayOneShot(voiceline);
             subtitles.gameObject.SetActive(true);
             Invoke("Subtitles", 4.0f);
         }

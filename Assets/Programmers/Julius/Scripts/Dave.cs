@@ -30,6 +30,11 @@ public class Dave : MonoBehaviour, IInteractable
     public bool questCollected;
     [SerializeField]private bool questCompleted;
 
+    public AudioSource AudioSource;
+    public AudioClip[] soldvoice;
+    public AudioClip hey;
+    public AudioClip questvl;
+
     void Update()
     {
         money = int.Parse(moneyCount.text);
@@ -60,6 +65,8 @@ public class Dave : MonoBehaviour, IInteractable
     {
         if (isTalked && !questCollected)
         {
+            AudioSource.PlayOneShot(questvl);
+
             questItem.SetActive(true);
             Debug.Log("Accept quest");
 
@@ -97,6 +104,9 @@ public class Dave : MonoBehaviour, IInteractable
         {
             seller.Sell();
             talkingtoDave();
+            int randomIndex = Random.Range(0, soldvoice.Length);
+            AudioSource.clip = soldvoice[randomIndex];
+            AudioSource.PlayOneShot(AudioSource.clip);
             Debug.Log("Sold");
             questUI.SetActive(false);
             notTalking();
@@ -105,6 +115,11 @@ public class Dave : MonoBehaviour, IInteractable
 
     private void talkingtoDave()
     {
+        if (questCompleted == false)
+        {
+            AudioSource.PlayOneShot(hey);
+        }
+
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         playerController.enabled = false;
