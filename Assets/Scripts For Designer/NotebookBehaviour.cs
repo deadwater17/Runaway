@@ -25,6 +25,7 @@ public class NotebookBehaviour : MonoBehaviour
         camController = cameraLookScript as CameraController;
 
         isNotebookOpen = false;
+        notebook.SetActive(false);
     }
 
     void Update()
