@@ -9,9 +9,9 @@ public class BulletShop : MonoBehaviour, IInteractable
 
     [SerializeField] private TMP_Text moneyCount;
     private int money;
-    [SerializeField] int bulletCost = 10;
+    [SerializeField] int bulletCost = 20;
     private int bulletPay;
-    private int bulletMax = 10;
+    private int bulletMax = 1;
     [SerializeField] int currentBullet;
 
     private int cost;
@@ -42,7 +42,7 @@ public class BulletShop : MonoBehaviour, IInteractable
     private int getCost()
     {
         // see how many bullets are left and gets the total cost
-        bulletPay = 10 * bulletCost;
+        bulletPay = 1 * bulletCost;
         return bulletPay;   
     }
 

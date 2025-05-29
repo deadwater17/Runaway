@@ -8,7 +8,7 @@ public class GunShopUI : MonoBehaviour, IInteractable
 {
     [SerializeField]private TMP_Text moneyCount;
     [SerializeField]WeaponSwitch weaponSwitch;
-    [SerializeField] private int cost = 100;
+    [SerializeField] private int cost = 400;
     private int money;
 
 

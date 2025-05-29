@@ -7,7 +7,7 @@ public class BowShop : MonoBehaviour, IInteractable
 {
     [SerializeField] private TMP_Text m_moneyCount;
 
-    [SerializeField] private int m_cost = 75;
+    [SerializeField] private int m_cost = 300;
     private int m_money;
 
 

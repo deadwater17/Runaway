@@ -14,7 +14,8 @@ public class BowController : MonoBehaviour
     float chargeTime = 0;
     float minSpeed = 35;
     float maxSpeed = 50;
-    public int arrowNumber;
+    float nextshoot = 0.0f;
+    float shootrate = 1f;
 
     public Dave dave;
 
@@ -39,44 +40,49 @@ public class BowController : MonoBehaviour
             Debug.Log("ammo is empty");
             AmmoNumber.arrowNum = 0;
         }
-
-        if (AmmoNumber.arrowNum != 0 && !dave.isTalked) 
+        if (Time.time >= nextshoot)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (AmmoNumber.arrowNum != 0 && !dave.isTalked)
             {
-                isCharging = true;
-                PlayChargeSound();
-            }
-
-            if (isCharging)
-            {
-                chargeTime += Time.deltaTime;
-            }
-
-            if (Input.GetMouseButtonUp(0))
-            {
-                if (chargeTime <= 0.5f)
+                if (Input.GetMouseButtonDown(0))
                 {
-                    velocity = minSpeed;
-                }
-                else if (chargeTime >= 2f)
-                {
-                    velocity = maxSpeed;
-                }
-                else
-                {
-                    velocity = Mathf.Lerp(minSpeed, maxSpeed, chargeTime / 2f);
+                    isCharging = true;
+                    PlayChargeSound();
                 }
 
-                FireArrow();
-                Debug.Log("charge time: " + chargeTime);
-                chargeTime = 0;
-                isCharging = false;
+                if (isCharging)
+                {
+                    chargeTime += Time.deltaTime;
+                }
 
-                // ✅ Trigger orange color for 1 second after releasing the arrow
-                if (soundStateController != null)
-                    soundStateController.TriggerBowState();
+                if (Input.GetMouseButtonUp(0))
+                {
+                    if (chargeTime <= 0.5f)
+                    {
+                        velocity = minSpeed;
+                    }
+                    else if (chargeTime >= 2f)
+                    {
+                        velocity = maxSpeed;
+                    }
+                    else
+                    {
+                        velocity = Mathf.Lerp(minSpeed, maxSpeed, chargeTime / 2f);
+                    }
+
+                    FireArrow();
+                    Debug.Log("charge time: " + chargeTime);
+                    chargeTime = 0;
+                    isCharging = false;
+
+                    nextshoot = Time.time + 1f / shootrate;
+                    // ✅ Trigger orange color for 1 second after releasing the arrow
+                    if (soundStateController != null)
+                        soundStateController.TriggerBowState();
+                }
+                
             }
+            
         }
     }
 

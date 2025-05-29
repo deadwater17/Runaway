@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class AmmoNumber : MonoBehaviour
 {
-    public static int bulletNum = 40;
+    public static int bulletNum = 20;
     public static int arrowNum = 100;
 
     public GameObject gun;
