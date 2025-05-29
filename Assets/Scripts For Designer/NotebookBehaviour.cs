@@ -37,7 +37,7 @@ public class NotebookBehaviour : MonoBehaviour
 
     void OpenNotebook()
     {
-        if (Input.GetKeyDown(KeyCode.Tab) && notebookAnimator != null || Input.GetKey(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Tab) && notebookAnimator != null)
         {
             if (!isNotebookOpen)
             {
