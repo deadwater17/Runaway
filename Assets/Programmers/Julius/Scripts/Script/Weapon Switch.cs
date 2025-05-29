@@ -6,6 +6,7 @@ using TMPro;
 public class WeaponSwitch : MonoBehaviour
 {
     public bool gunUpgraded;
+    public bool bowUpgraded;
     public int selectedWeapon = 0;
 
     // === NEW UI References ===
@@ -17,6 +18,7 @@ public class WeaponSwitch : MonoBehaviour
     {
         SelectWeapon();
         gunUpgraded = false;
+        bowUpgraded = false;
     }
 
     void Update()
@@ -25,7 +27,7 @@ public class WeaponSwitch : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            selectedWeapon = 0;
+            checkBowUpgraded();
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -53,8 +55,8 @@ public class WeaponSwitch : MonoBehaviour
         // === NEW: Switch UI Icons ===
         if (ArrowIcon != null && BulletIcon != null)
         {
-            ArrowIcon.SetActive(selectedWeapon == 0);
-            BulletIcon.SetActive(selectedWeapon == 1 || selectedWeapon == 2);
+            ArrowIcon.SetActive(selectedWeapon == 0 || selectedWeapon == 1);
+            BulletIcon.SetActive(selectedWeapon == 2 || selectedWeapon == 3);
         }
 
         if (AmmoNumber != null)
@@ -67,11 +69,23 @@ public class WeaponSwitch : MonoBehaviour
     {
         if (!gunUpgraded)
         {
-            selectedWeapon = 1;
+            selectedWeapon = 2;
         }
         else if (gunUpgraded)
         {
-            selectedWeapon = 2;
+            selectedWeapon = 3;
+        }
+    }
+
+    public void checkBowUpgraded()
+    {
+        if (!bowUpgraded)
+        {
+            selectedWeapon = 0;
+        }
+        else if (bowUpgraded)
+        {
+            selectedWeapon = 1;
         }
     }
 }

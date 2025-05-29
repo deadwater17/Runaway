@@ -6,7 +6,7 @@ using TMPro;
 public class BowShop : MonoBehaviour, IInteractable
 {
     [SerializeField] private TMP_Text m_moneyCount;
-
+    [SerializeField] WeaponSwitch weaponSwitch;
     [SerializeField] private int m_cost = 75;
     private int m_money;
 
@@ -35,6 +35,9 @@ public class BowShop : MonoBehaviour, IInteractable
             Debug.Log(m_money);
             m_moneyCount.text = m_money.ToString();
             // add upgrading function
+            weaponSwitch.bowUpgraded = true;        // allow usasge of upgraded bow
+            Arrow.damage *= 1.5f;
+            weaponSwitch.checkBowUpgraded();
             subtitles.gameObject.SetActive(true);
             Invoke("Subtitles", 4.0f);
         }

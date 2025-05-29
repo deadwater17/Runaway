@@ -5,7 +5,7 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     Rigidbody rb;
-    public float damage;
+    public static float damage = 20;
     private TimeController timeController;
     void Start()
     {

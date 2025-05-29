@@ -26,7 +26,8 @@ public class AmmoNumber : MonoBehaviour
         }
         else if(bow.activeSelf)
         {
-            text.text = "?";
+            text.text = arrowNum.ToString();
+                //"?";
         }
         
         if (arrowNum<100)
