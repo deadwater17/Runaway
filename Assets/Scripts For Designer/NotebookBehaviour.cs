@@ -35,9 +35,9 @@ public class NotebookBehaviour : MonoBehaviour
 
     void OpenNotebook()
     {
-        if (Input.GetKeyDown(KeyCode.M) && notebookAnimator != null)
+        if (Input.GetKeyDown(KeyCode.Q) && notebookAnimator != null)
         {
-            Debug.Log("Tab is being perssed");
+            Debug.Log("Q is being perssed");
             if (!isNotebookOpen)
             {
                 //notebookAnimator.SetTrigger("NotebookOpen");
