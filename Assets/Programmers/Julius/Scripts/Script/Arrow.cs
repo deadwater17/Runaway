@@ -6,9 +6,11 @@ public class Arrow : MonoBehaviour
 {
     Rigidbody rb;
     public float damage;
+    private TimeController timeController;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        timeController = FindObjectOfType<TimeController>();
     }
 
     void FixedUpdate()
@@ -31,7 +33,14 @@ public class Arrow : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Bear"))
         {
-            collision.collider.GetComponent<BearMovement>().TakeDamage(damage);
+            if(timeController.isDay())
+            {
+                collision.collider.GetComponent<AnimalMovement>().TakeDamage(damage);
+            }
+            else
+            {
+                collision.collider.GetComponent<BearMovement>().TakeDamage(damage);
+            }
             transform.SetParent(collision.transform);
         }
         rb.velocity = Vector3.zero;
