@@ -15,7 +15,6 @@ public class BowController : MonoBehaviour
     float minSpeed = 35;
     float maxSpeed = 50;
     public int arrowNumber;
-    public static int currentArrow;
 
     public Dave dave;
 
@@ -28,7 +27,7 @@ public class BowController : MonoBehaviour
     private SoundStateController soundStateController;
     private void Start()
     {
-        currentArrow = arrowNumber;
+        
         m_audioSource = GetComponent<AudioSource>();
         // ✅ Find the SoundStateController in the scene
         soundStateController = FindObjectOfType<SoundStateController>();
@@ -36,13 +35,13 @@ public class BowController : MonoBehaviour
 
     void Update()
     {
-        if (currentArrow <= 0)
+        if (AmmoNumber.arrowNum <= 0)
         {
             Debug.Log("ammo is empty");
-            currentArrow = 0;
+            AmmoNumber.arrowNum = 0;
         }
 
-        if (currentArrow != 0 && !dave.isTalked) 
+        if (AmmoNumber.arrowNum != 0 && !dave.isTalked) 
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -84,7 +83,7 @@ public class BowController : MonoBehaviour
 
     void FireArrow()
     {
-        currentArrow--;
+        AmmoNumber.arrowNum--;
         PlayReleaseSound();
         RaycastHit hit;
         Vector3 targetPoint = Vector3.zero;

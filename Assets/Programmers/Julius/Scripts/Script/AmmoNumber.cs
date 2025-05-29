@@ -6,8 +6,10 @@ using UnityEngine;
 
 public class AmmoNumber : MonoBehaviour
 {
-
+    public static int bulletNum = 40;
+    public static int arrowNum = 100;
     public GameObject gun;
+    public GameObject gun2;
     public GameObject bow;
     public TextMeshProUGUI text;
     void Start()
@@ -18,14 +20,18 @@ public class AmmoNumber : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(gun.activeSelf)
+        if(gun.activeSelf || gun2.activeSelf)
         {
-            text.text = Gun.currentAmmo.ToString();
+            text.text = bulletNum.ToString();
         }
         else if(bow.activeSelf)
         {
-            text.text =  BowController.currentArrow.ToString();
+            text.text = "?";
         }
         
+        if (arrowNum<100)
+        {
+            arrowNum = 100;
+        }
     }
 }

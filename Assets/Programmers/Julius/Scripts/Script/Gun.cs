@@ -10,8 +10,7 @@ public class Gun : MonoBehaviour
     public CameraShake cameraShake;
     public float bulletSpeed = 100f;
     public float gravity = 9.81f;
-    public static int currentAmmo;
-    public int bulletNumber = 40;
+    public int bulletNumber;
     float nextshoot = 0.0f;
     float shootrate = 1f;
 
@@ -28,7 +27,7 @@ public class Gun : MonoBehaviour
     {
         cameraShake = fpsCam.GetComponent<CameraShake>();
         m_audioSource = GetComponent<AudioSource>();
-        currentAmmo = bulletNumber;
+        
 
         // ✅ Find SoundStateController in the scene
         soundStateController = FindObjectOfType<SoundStateController>();
@@ -36,15 +35,15 @@ public class Gun : MonoBehaviour
 
     void Update()
     {
-        if (currentAmmo <= 0)
+        if (AmmoNumber.bulletNum <= 0)
         {
             Debug.Log("ammo is empty");
-            currentAmmo = 0;
+            AmmoNumber.bulletNum = 0;
         }
 
         if (Time.time >= nextshoot)
         {
-            if (Input.GetMouseButtonDown(0) && currentAmmo != 0 && !dave.isTalked)
+            if (Input.GetMouseButtonDown(0) && AmmoNumber.bulletNum != 0 && !dave.isTalked)
             {
                 Shoot();
                 PlayShootSound();
@@ -59,7 +58,7 @@ public class Gun : MonoBehaviour
 
     void Shoot()
     {
-        currentAmmo--;
+        AmmoNumber.bulletNum--;
 
         RaycastHit hit;
         Vector3 targetPoint;

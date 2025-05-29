@@ -5,7 +5,7 @@ using TMPro;
 
 public class BulletShop : MonoBehaviour, IInteractable
 {
-    public GameObject gun;
+    //public GameObject gun;
 
     [SerializeField] private TMP_Text moneyCount;
     private int money;
@@ -30,7 +30,7 @@ public class BulletShop : MonoBehaviour, IInteractable
         {
             money = money - cost;
             currentBullet = currentBullet + bulletMax;
-            Gun.currentAmmo = currentBullet;
+            AmmoNumber.bulletNum = currentBullet;
             moneyCount.text = money.ToString();
         }
         else
@@ -48,7 +48,7 @@ public class BulletShop : MonoBehaviour, IInteractable
 
     private int getCurrentAmmo()
     {
-        currentBullet = Gun.currentAmmo;    
+        currentBullet = AmmoNumber.bulletNum;
         return currentBullet;
     }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ArrowShop : MonoBehaviour, IInteractable
 {
-    public GameObject bow;
+    //public GameObject bow;
 
     [SerializeField] private TMP_Text moneyCount;
     private int money;
@@ -29,7 +29,7 @@ public class ArrowShop : MonoBehaviour, IInteractable
         {
             money = money - cost;
             currentArrows = currentArrows + arrowMax;
-            BowController.currentArrow = currentArrows;
+            AmmoNumber.arrowNum = currentArrows;
             moneyCount.text = money.ToString();
         }
         else
@@ -46,7 +46,7 @@ public class ArrowShop : MonoBehaviour, IInteractable
 
     private int getCurrentAmmo()
     {
-        currentArrows = BowController.currentArrow;
+        currentArrows = AmmoNumber.arrowNum;
         return currentArrows;
     }
 
