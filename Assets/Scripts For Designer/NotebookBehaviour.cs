@@ -37,7 +37,7 @@ public class NotebookBehaviour : MonoBehaviour
 
     void OpenNotebook()
     {
-        if (Input.GetKeyDown(KeyCode.Tab) && notebookAnimator != null)
+        if (Input.GetKeyDown(KeyCode.Tab) && notebookAnimator != null || Input.GetKey(KeyCode.Escape))
         {
             if (!isNotebookOpen)
             {
@@ -47,9 +47,11 @@ public class NotebookBehaviour : MonoBehaviour
                 if (camController != null)
                     camController.canRotate = false;
 
-                StartCoroutine(HandleNotebookOpen());                
+                StartCoroutine(HandleNotebookOpen());
+                isNotebookOpen = true;
+                Debug.Log("Open Notebook animation");
             }
-            else if (isNotebookOpen || Input.GetKey(KeyCode.Escape))
+            else if (isNotebookOpen)
             {
                 notebookAnimator.SetTrigger("NotebookClose");
 
@@ -57,8 +59,10 @@ public class NotebookBehaviour : MonoBehaviour
                     camController.canRotate = true;
 
                 StartCoroutine(HandleNotebookClose());
+                isNotebookOpen = false;
+                Debug.Log("Close Notebook animation");
             }
-            Debug.Log("Toggled Notebook animation");
+            
         }
     }
 
@@ -77,8 +81,6 @@ public class NotebookBehaviour : MonoBehaviour
 
         if (cameraLookScript != null)
             cameraLookScript.enabled = false;
-            
-        isNotebookOpen = true;
     }
 
     IEnumerator HandleNotebookClose()
@@ -100,6 +102,6 @@ public class NotebookBehaviour : MonoBehaviour
         if (cameraLookScript != null)
             cameraLookScript.enabled = true;
 
-        isNotebookOpen = false;
+        
     }
 }
