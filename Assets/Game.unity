@@ -3577,7 +3577,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 7490473353300005104, guid: fe9a602a3a33e164d8b0cb270d8a1c90, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -3694,7 +3694,6 @@ MonoBehaviour:
   Arrow_spawn: {fileID: 884816815}
   Player: {fileID: 1688819386247387097}
   fpsCam: {fileID: 6833299405679007568}
-  arrowNumber: 20
   dave: {fileID: 1740268179}
   arrowRelease: {fileID: 8300000, guid: 4f3b3220e9f902c41a14eb47ab15c127, type: 3}
   bowDraw: {fileID: 8300000, guid: f57b9b20f12595843a67885eb57dbd5f, type: 3}
