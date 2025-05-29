@@ -37,11 +37,12 @@ public class NotebookBehaviour : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab) && notebookAnimator != null)
         {
+            Debug.Log("Tab is being perssed");
             if (!isNotebookOpen)
             {
                 //notebookAnimator.SetTrigger("NotebookOpen");
                 notebook.SetActive(true);
-                
+
                 audioSource.PlayOneShot(audioClip);
 
                 if (camController != null)
