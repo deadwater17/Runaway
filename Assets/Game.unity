@@ -28374,6 +28374,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6362690328805848779, guid: 77c58761d9934b043b5cf728bfdb71f5, type: 3}
+      propertyPath: hit
+      value: 
+      objectReference: {fileID: 8300000, guid: 7d862cabc9c0bbe4db18a7b1547d12f7, type: 3}
+    - target: {fileID: 6362690328805848779, guid: 77c58761d9934b043b5cf728bfdb71f5, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 6615416373474152066}
@@ -35826,6 +35830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gun: {fileID: 2266410819005835435}
+  gun2: {fileID: 2247779586336242816}
   bow: {fileID: 1252895610843119275}
   text: {fileID: 6101123582139857463}
 --- !u!114 &6101123582139857463
@@ -35995,10 +36000,9 @@ MonoBehaviour:
   skyMaterials:
   - {fileID: 2100000, guid: ed1387202b1349540a5d6464f0f27488, type: 2}
   - {fileID: 2100000, guid: ed1387202b1349540a5d6464f0f27488, type: 2}
-  - {fileID: 2100000, guid: 135a7036ca1a07b4e9e162d80e6b6e77, type: 2}
   - {fileID: 2100000, guid: 8fc56946a1b593c4d8e3e0e94483338e, type: 2}
-  - {fileID: 2100000, guid: 56113b3b655ab7349bab4d7d405c258a, type: 2}
-  - {fileID: 2100000, guid: 56113b3b655ab7349bab4d7d405c258a, type: 2}
+  - {fileID: 2100000, guid: 9aa8ed67591432941bb76f12eb23ff91, type: 2}
+  - {fileID: 2100000, guid: 5c57bb9da366e944a8f4ae9be4f413ec, type: 2}
   - {fileID: 2100000, guid: 56113b3b655ab7349bab4d7d405c258a, type: 2}
   - {fileID: 2100000, guid: 56113b3b655ab7349bab4d7d405c258a, type: 2}
   - {fileID: 2100000, guid: 56113b3b655ab7349bab4d7d405c258a, type: 2}

@@ -30,7 +30,7 @@ public class BearMovement : MonoBehaviour
 
 
     public AudioSource audioSource;
-
+    public AudioClip hit;
 
 
     void Start()
@@ -156,7 +156,7 @@ public class BearMovement : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
-        audioSource.PlayOneShot(audioSource.clip);
+        audioSource.PlayOneShot(hit);
         if (currentHealth <= 0)
         {
             isDead = true;
