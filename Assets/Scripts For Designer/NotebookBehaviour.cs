@@ -19,6 +19,8 @@ public class NotebookBehaviour : MonoBehaviour
     public WeaponSwitch weaponSwitch;
 
     private CameraController camController;
+    public AudioSource audioSource;
+    public AudioClip audioClip;
 
     void Start()
     {
@@ -40,7 +42,8 @@ public class NotebookBehaviour : MonoBehaviour
             if (!isNotebookOpen)
             {
                 notebookAnimator.SetTrigger("NotebookOpen");
-                
+                audioSource.PlayOneShot(audioClip);
+
                 if (camController != null)
                     camController.canRotate = false;
 
