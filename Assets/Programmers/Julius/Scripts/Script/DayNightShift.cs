@@ -45,7 +45,7 @@ public class DayNightShift : MonoBehaviour
             DynamicGI.UpdateEnvironment();
             yield return null;
         }
-        //RenderSettings.skybox = endMat;
+        RenderSettings.skybox = endMat;
     }
 
 

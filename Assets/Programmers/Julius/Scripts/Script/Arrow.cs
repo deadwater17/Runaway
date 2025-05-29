@@ -44,9 +44,6 @@ public class Arrow : MonoBehaviour
             //transform.SetParent(collision.transform);
         }
         if (collision.gameObject.CompareTag("Player")) return;
-        rb.velocity = Vector3.zero;
-        rb.rotation = Quaternion.Euler(0, 0, 0);
-        rb.isKinematic = true;
         transform.position += transform.forward * 0.1f;
         this.gameObject.SetActive(false);
     }
