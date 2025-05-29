@@ -48,16 +48,19 @@ public class NotebookBehaviour : MonoBehaviour
                     camController.canRotate = false;
 
                 StartCoroutine(HandleNotebookOpen());
+
+                isNotebookOpen = true;
             }
-            else
+            else if (isNotebookOpen)
             {
-               
                 notebookAnimator.SetTrigger("NotebookClose");
 
                 if (camController != null)
                     camController.canRotate = true;
 
                 StartCoroutine(HandleNotebookClose());
+
+                isNotebookOpen = false;
             }
 
             isNotebookOpen = !isNotebookOpen;
@@ -74,9 +77,6 @@ public class NotebookBehaviour : MonoBehaviour
         weaponHolder.SetActive(false);
         mainCamera.fieldOfView = 50f;
        
-        //bow1.SetActive(false);
-        //gun1.SetActive(false);
-        //gun2.SetActive(false);
 
         if (playerController != null)
             playerController.enabled = false;
