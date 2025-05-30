@@ -11,8 +11,6 @@ public class NotebookBehaviour : MonoBehaviour
     public MonoBehaviour cameraLookScript;
 
     private CameraController camController;
-    public AudioSource audioSource;
-    public AudioClip audioClip;
     public GameObject notebook;
 
     void Start()
@@ -38,7 +36,6 @@ public class NotebookBehaviour : MonoBehaviour
             isNotebookOpen = !isNotebookOpen;
 
             notebook.SetActive(isNotebookOpen);
-            audioSource.PlayOneShot(audioClip);
 
             weaponHolder.SetActive(!isNotebookOpen);
             mainCamera.fieldOfView = 50f;

@@ -36149,7 +36149,6 @@ GameObject:
   - component: {fileID: 9072424416457690076}
   - component: {fileID: 9072424416457690077}
   - component: {fileID: 9072424416457690078}
-  - component: {fileID: 9072424416457690079}
   m_Layer: 0
   m_Name: PlayerObj
   m_TagString: Player
@@ -36966,7 +36965,7 @@ MonoBehaviour:
   bearCount: 0
   inventoryAnimator: {fileID: 475632773}
   popupController: {fileID: 1219845707}
-  audioSource: {fileID: 9072424416457690079}
+  audioSource: {fileID: 0}
   pickUp: {fileID: 8300000, guid: a974fcfd0fae94844a4a2806fd079477, type: 3}
 --- !u!1 &8536400945946973644
 GameObject:
@@ -37280,8 +37279,6 @@ MonoBehaviour:
   mainCamera: {fileID: 6833299405679007568}
   playerController: {fileID: 2827257976974366285}
   cameraLookScript: {fileID: 1267011048027622710}
-  audioSource: {fileID: 0}
-  audioClip: {fileID: 0}
   notebook: {fileID: 919132149374805642}
 --- !u!114 &9072424416457690077
 MonoBehaviour:
@@ -37297,8 +37294,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bearParent: {fileID: 0}
   deerParent: {fileID: 0}
-  bearAnim: {fileID: 0}
-  deerAnim: {fileID: 0}
+  bearAnim: {fileID: 1313220799}
+  deerAnim: {fileID: 241806815}
 --- !u!225 &9072424416457690078
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -37311,102 +37308,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!82 &9072424416457690079
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6615416373474152066}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -1265398691832782251, guid: fe9a602a3a33e164d8b0cb270d8a1c90, type: 2}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!23 &9131171074572167749
 MeshRenderer:
   m_ObjectHideFlags: 0
