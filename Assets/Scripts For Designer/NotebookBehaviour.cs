@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class NotebookBehaviour : MonoBehaviour
 {
-    public Animator notebookAnimator;
     private bool isNotebookOpen = false;
     public GameObject weaponHolder;
     public Camera mainCamera;
@@ -14,6 +13,7 @@ public class NotebookBehaviour : MonoBehaviour
     private CameraController camController;
     public AudioSource audioSource;
     public AudioClip audioClip;
+    public GameObject notebook;
 
     void Start()
     {
@@ -21,6 +21,9 @@ public class NotebookBehaviour : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         camController = cameraLookScript as CameraController;
+
+        if (notebook != null)
+            notebook.SetActive(false);
     }
 
     void Update()
@@ -30,73 +33,30 @@ public class NotebookBehaviour : MonoBehaviour
 
     void OpenNotebook()
     {
-        if (Input.GetKeyDown(KeyCode.Tab) && notebookAnimator != null)
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
-            if (!isNotebookOpen)
-            {
-                //notebookAnimator.SetTrigger("NotebookOpen");
-                notebookAnimator.SetBool("notebookStatus", false);
-                audioSource.PlayOneShot(audioClip);
+            isNotebookOpen = !isNotebookOpen;
 
-                if (camController != null)
-                    camController.canRotate = false;
+            notebook.SetActive(isNotebookOpen);
+            audioSource.PlayOneShot(audioClip);
 
-                StartCoroutine(HandleNotebookOpen());
-                Debug.Log("Open Notebook animation");
-            }
-            else if (isNotebookOpen)
-            {
-                //notebookAnimator.SetTrigger("NotebookClose");
-                notebookAnimator.SetBool("notebookStatus", true);
+            weaponHolder.SetActive(!isNotebookOpen);
+            mainCamera.fieldOfView = 50f;
+            Cursor.visible = isNotebookOpen;
+            Cursor.lockState = isNotebookOpen ? CursorLockMode.None : CursorLockMode.Locked;
 
-                if (camController != null)
-                    camController.canRotate = true;
+           
 
-                StartCoroutine(HandleNotebookClose());
-                Debug.Log("Close Notebook animation");
+            if (playerController != null)
+                playerController.enabled = !isNotebookOpen;
 
+            if (cameraLookScript != null)
+                cameraLookScript.enabled = !isNotebookOpen;
 
-            }
+            if (camController != null)
+                camController.canRotate = !isNotebookOpen;
+
+            Debug.Log(isNotebookOpen ? "Notebook opened" : "Notebook closed");
         }
-        Debug.Log("Notebook is " + isNotebookOpen);
-    }
-
-    IEnumerator HandleNotebookOpen()
-    {
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-        // Give the animation a moment to start (realtime so it works even with timescale = 0)
-        yield return new WaitForSecondsRealtime(0.1f);
-        weaponHolder.SetActive(false);
-        mainCamera.fieldOfView = 50f;
-
-
-        if (playerController != null)
-            playerController.enabled = false;
-
-        if (cameraLookScript != null)
-            cameraLookScript.enabled = false;
-            
-        isNotebookOpen = true;
-    }
-
-    IEnumerator HandleNotebookClose()
-    {
-        // Restore time
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-
-        yield return new WaitForSeconds(0.1f); // Normal wait now that timescale is restored
-        weaponHolder.SetActive(true);
-        mainCamera.fieldOfView = 50f;
-
-
-        if (playerController != null)
-            playerController.enabled = true;
-
-        if (cameraLookScript != null)
-            cameraLookScript.enabled = true;
-
-        isNotebookOpen = false;
     }
 }

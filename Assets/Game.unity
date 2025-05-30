@@ -18834,27 +18834,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230544258}
   m_CullTransparentMesh: 1
---- !u!95 &1233859909
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132149374805642}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: aca3387e73245504ba122a0bd73b699c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 2
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1239628617 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 943885641658819480, guid: a1dfc9a9d7e2c6241bbd6d06919152eb, type: 3}
@@ -33800,7 +33779,7 @@ Transform:
   m_GameObject: {fileID: 919132149374805642}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0.000000059604645, z: -0.000000059604645, w: 0.7071068}
-  m_LocalPosition: {x: 0.44, y: -1.2516997, z: 1.31}
+  m_LocalPosition: {x: 0.34699413, y: -0.0020280094, z: 1}
   m_LocalScale: {x: 7.0400777, y: 7.0400777, z: 7.0400777}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -33968,14 +33947,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 543450653378231344}
-  - component: {fileID: 1233859909}
   m_Layer: 0
   m_Name: notebooknew
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &950701469419332502
 GameObject:
   m_ObjectHideFlags: 0
@@ -37298,14 +37276,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3735da24392e09e4daca000260cf186c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notebookAnimator: {fileID: 1233859909}
   weaponHolder: {fileID: 7244235669843896789}
-  mainCamera: {fileID: 0}
+  mainCamera: {fileID: 6833299405679007568}
   playerController: {fileID: 2827257976974366285}
   cameraLookScript: {fileID: 1267011048027622710}
-  weaponSwitch: {fileID: 6940139316105867783}
   audioSource: {fileID: 0}
   audioClip: {fileID: 0}
+  notebook: {fileID: 919132149374805642}
 --- !u!114 &9072424416457690077
 MonoBehaviour:
   m_ObjectHideFlags: 0
