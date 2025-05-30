@@ -11,13 +11,6 @@ public class NotebookBehaviour : MonoBehaviour
     public MonoBehaviour playerController;
     public MonoBehaviour cameraLookScript;
 
-   // [SerializeField] GameObject bow1;
-   //// [SerializeField] GameObject bow2;
-   // [SerializeField] GameObject gun1;
-   // [SerializeField] GameObject gun2;
-
-    public WeaponSwitch weaponSwitch;
-
     private CameraController camController;
     public AudioSource audioSource;
     public AudioClip audioClip;
@@ -41,7 +34,8 @@ public class NotebookBehaviour : MonoBehaviour
         {
             if (!isNotebookOpen)
             {
-                notebookAnimator.SetTrigger("NotebookOpen");
+                //notebookAnimator.SetTrigger("NotebookOpen");
+                notebookAnimator.SetBool("notebookStatus", false);
                 audioSource.PlayOneShot(audioClip);
 
                 if (camController != null)
@@ -49,12 +43,11 @@ public class NotebookBehaviour : MonoBehaviour
 
                 StartCoroutine(HandleNotebookOpen());
                 Debug.Log("Open Notebook animation");
-
-                isNotebookOpen = true;
             }
             else if (isNotebookOpen)
             {
-                notebookAnimator.SetTrigger("NotebookClose");
+                //notebookAnimator.SetTrigger("NotebookClose");
+                notebookAnimator.SetBool("notebookStatus", true);
 
                 if (camController != null)
                     camController.canRotate = true;
@@ -62,10 +55,10 @@ public class NotebookBehaviour : MonoBehaviour
                 StartCoroutine(HandleNotebookClose());
                 Debug.Log("Close Notebook animation");
 
-                isNotebookOpen = false;
+
             }
-            
         }
+        Debug.Log("Notebook is " + isNotebookOpen);
     }
 
     IEnumerator HandleNotebookOpen()
@@ -76,13 +69,15 @@ public class NotebookBehaviour : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.1f);
         weaponHolder.SetActive(false);
         mainCamera.fieldOfView = 50f;
-       
+
 
         if (playerController != null)
             playerController.enabled = false;
 
         if (cameraLookScript != null)
             cameraLookScript.enabled = false;
+            
+        isNotebookOpen = true;
     }
 
     IEnumerator HandleNotebookClose()
@@ -94,9 +89,6 @@ public class NotebookBehaviour : MonoBehaviour
         yield return new WaitForSeconds(0.1f); // Normal wait now that timescale is restored
         weaponHolder.SetActive(true);
         mainCamera.fieldOfView = 50f;
-        //bow1.SetActive(true);
-        //gun1.SetActive(true);
-        //gun2.SetActive(true);
 
 
         if (playerController != null)
@@ -104,5 +96,7 @@ public class NotebookBehaviour : MonoBehaviour
 
         if (cameraLookScript != null)
             cameraLookScript.enabled = true;
+
+        isNotebookOpen = false;
     }
 }
