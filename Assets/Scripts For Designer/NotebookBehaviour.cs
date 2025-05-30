@@ -35,23 +35,25 @@ public class NotebookBehaviour : MonoBehaviour
             if (!isNotebookOpen)
             {
                 //notebookAnimator.SetTrigger("NotebookOpen");
-                notebookAnimator.SetBool("notebookStatus", false);
+                notebookAnimator.SetBool("notebookStatus", true);
                 audioSource.PlayOneShot(audioClip);
 
                 if (camController != null)
                     camController.canRotate = false;
 
+                isNotebookOpen = true;
                 StartCoroutine(HandleNotebookOpen());
                 Debug.Log("Open Notebook animation");
             }
             else if (isNotebookOpen)
             {
                 //notebookAnimator.SetTrigger("NotebookClose");
-                notebookAnimator.SetBool("notebookStatus", true);
+                notebookAnimator.SetBool("notebookStatus", false);
 
                 if (camController != null)
                     camController.canRotate = true;
 
+                isNotebookOpen = false; 
                 StartCoroutine(HandleNotebookClose());
                 Debug.Log("Close Notebook animation");
 
@@ -76,8 +78,7 @@ public class NotebookBehaviour : MonoBehaviour
 
         if (cameraLookScript != null)
             cameraLookScript.enabled = false;
-            
-        isNotebookOpen = true;
+
     }
 
     IEnumerator HandleNotebookClose()
@@ -96,7 +97,5 @@ public class NotebookBehaviour : MonoBehaviour
 
         if (cameraLookScript != null)
             cameraLookScript.enabled = true;
-
-        isNotebookOpen = false;
     }
 }
