@@ -48,6 +48,7 @@ public class NotebookBehaviour : MonoBehaviour
                     camController.canRotate = false;
 
                 StartCoroutine(HandleNotebookOpen());
+                Debug.Log("Open Notebook animation");
 
                 isNotebookOpen = true;
             }
@@ -59,12 +60,11 @@ public class NotebookBehaviour : MonoBehaviour
                     camController.canRotate = true;
 
                 StartCoroutine(HandleNotebookClose());
+                Debug.Log("Close Notebook animation");
 
                 isNotebookOpen = false;
             }
-
-            isNotebookOpen = !isNotebookOpen;
-            Debug.Log("Toggled Notebook animation");
+            
         }
     }
 
