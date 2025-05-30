@@ -34,7 +34,6 @@ public class NotebookBehaviour : MonoBehaviour
         {
             if (!isNotebookOpen)
             {
-                //notebookAnimator.SetTrigger("NotebookOpen");
                 notebookAnimator.SetBool("notebookStatus", true);
                 audioSource.PlayOneShot(audioClip);
 
@@ -47,7 +46,6 @@ public class NotebookBehaviour : MonoBehaviour
             }
             else if (isNotebookOpen)
             {
-                //notebookAnimator.SetTrigger("NotebookClose");
                 notebookAnimator.SetBool("notebookStatus", false);
 
                 if (camController != null)
